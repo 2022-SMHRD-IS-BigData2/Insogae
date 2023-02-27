@@ -10,9 +10,13 @@ import lombok.NoArgsConstructor;
 public class Company {
 
 	private String COMPANY_ID;
+	
 	private String COMPANY_PW;
+	
 	private String COMPANY_NAME;
+	
 	private String COMPANY_TEL;
-	private String COMPANY_ADDRES;
+	
+	private String COMPANY_ADDRESS;
 	
 }
