@@ -35,20 +35,37 @@ public class CompanyController {
 	public String goIntro() {
 			return "intro"; // ->> templates/intro.html
 		}
-	
-	@RequestMapping("/gomain.do")
+	@RequestMapping("/main.do")
 	public String goMain() {
-		return "main";// ->> templates/main.html
+		return "menu1";// ->> templates/menu1.html 양식장모니터링 포워드 이동
+	}
+	@RequestMapping("/predict.do")
+	public String goPredict() {
+		return "predict";// ->> templates/predict.html 수질 예측 포워드 이동
 	}
 	@RequestMapping("/gojoin.do")
 	public String goJoin() {
-		return "join";
+		return "redirect:/join.do"; // --> templates/join.html 회원가입 이동
+	}
+	@RequestMapping("/join.do")
+	public String join() {
+		return "join"; // --> templates/join.html 회원가입 이동
 	}
 	
-	@RequestMapping("/join.do")
-	public String join(Company company) {
-		mapper.join(company);
-		return"redirect:/main.do";
+	@RequestMapping("/join")
+	public String join(Company company, Model model, Tank_data data) {
+		int result = mapper.join(company);
+		List<Tank_data> tank = tankmapper.dataCheck();
+		if(result!=0) {
+			System.out.println("회원가입 성공");
+			
+			model.addAttribute("result",result);
+			model.addAttribute("tank",tank);
+			return "redirect:/main.do";
+		}else {
+			System.out.println("회원가입 실패");
+			return "login";
+		}
 	}
 	@RequestMapping("/gologin.do")
 	public String goLogin() {
@@ -68,13 +85,12 @@ public class CompanyController {
 			System.out.println("로그인 성공");
 		
 			model.addAttribute("result",result);
-			
-			
+			return "redirect:/main.do";
 		}else {
 			System.out.println("로그인실패");
+			return "login";
 		}
 		//return "redirect:/gomain.do";
-		return "main";
 	}
 	
 	@RequestMapping("/logout.do")
@@ -87,5 +103,8 @@ public class CompanyController {
 	public String goGraph() {
 		return "graph";
 	}
-	
+	@RequestMapping("/menu2")
+	public String goMenu2() {
+		return "menu2";
+	}
 }
