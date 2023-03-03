@@ -14,7 +14,7 @@ import com.smhrd.mapper.Companymapper;
 import com.smhrd.mapper.Tankmapper;
 
 @Controller
-public class Tank_dataController {
+public class TankDataController {
 
 	@Autowired
 	private Tankmapper mapper;

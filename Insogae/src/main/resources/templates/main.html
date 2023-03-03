@@ -1,97 +1,376 @@
-<!DOCTYPE html>
-<!-- 타임리프 스키마 설정 -->
+<!doctype html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WaterGuard</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
+	rel="stylesheet">
 </head>
 
 <body>
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<!-- header Navbar 시작 -->
+	<div id="wrap">
+
+		<div id="header">
+			<nav class="navbar sticky-top ">
+				<div class="container-fluid col-4">
+					<img
+						src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmlsI7%2Fbtr0BB7bnSk%2FKiqvCvFrLHKhqg8WS3T3Y1%2Fimg.png"
+						width="200" height="50" class="d-inline-block align-text-top"
+						style="margin-left: -20px;">
+					<h3 class="m-0 title1">양식장 모니터링</h3>
+				</div>
+				<div class="container-fluid col-4"></div>
+				<div class="container-fluid FT1 col-4">
+
+					<div class="item menu1 menu">
+						<a href="goMain.do"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcj7reU%2Fbtr0Ayh4BNO%2FLOJ4gjo2ZmmAK78NuJcVtk%2Fimg.png"
+							width="20" height="20"> 양식장 모니터링
+						</a>
+					</div>
+					<div class="item menu2 menu">
+						<a href="goPredict.do"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrmAhC%2Fbtr0BCYQeaQ%2Fw0Jqj1s3HSRrHRuIvJK1J1%2Fimg.png"
+							width="20" height="20"> 수질 예측
+						</a>
+					</div>
+					<div class="item menu3 menu">
+						<a href="#"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq0oYv%2Fbtr0w2rg3Fl%2FZKL1SrUPc49KPmkRdcfK8K%2Fimg.png"
+							width="20" height="20"> 환경 설정
+						</a>
+					</div>
+					<ul class="nav-item dropdown">
+						<h5 class="m-0">
+							<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+								role="button" data-bs-toggle="dropdown" aria-expanded="false">company
+							</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">회사이름</a></li>
+								<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
+							</ul>
+						</h5>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<!-- header Navbar 끝-->
+
+		<!-- 본문 시작 -->
+		<div id="container">
+			<!-- 본화면 시작 -->
+			<div id="main" class="main1">
+				<div class="Rectangle-3">
+					<div id="btn-container">
+						<button class="btn" id="nextPage">
+							<i class="fa-solid fa-right-long fa-3x"></i>
+						</button>
+						<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
+					</div>
+					<div class="Rectangle-5">
+						<div class="TCT ">양식장 수조 1</div>
+						<div class="WL"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-8">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-20">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+					<div class="Rectangle-6">
+						<div class="TCT ">양식장 수조 2</div>
+						<div class="WL2"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-11">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-30">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN2">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+					<div class="Rectangle-4">
+						<div class="TCT ">양식장 수조 3</div>
+						<div class="WL"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-10">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-40">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+					<div class="Rectangle-7">
+						<div class="TCT ">양식장 수조 4</div>
+						<div class="WL"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-12">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-50">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 본화면 중간 -->
+			<div id="main" class="main2">
+				<div class="Rectangle-3">
+					<div id="btn-container">
+						<button class="btn" id="beforepage">
+							<i class="fa-solid fa-left-long fa-3x"></i>
+						</button>
+					</div>
+					<div class="Rectangle-5">
+						<div class="TCT ">양식장 수조 5</div>
+						<div class="WL"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-8">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-20">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+					<div class="Rectangle-6">
+						<div class="TCT ">양식장 수조 6</div>
+						<div class="WL2"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-11">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-30">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN2">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+					<div class="Rectangle-4">
+						<div class="TCT ">양식장 수조 7</div>
+						<div class="WL"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-10">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-40">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+					<div class="Rectangle-7">
+						<div class="TCT ">양식장 수조 8</div>
+						<div class="WL"></div>
+						<div class="TCTM">2023년 2월 27일 PM 04:55</div>
+						<div class="Rectangle-12">
+							<div class="ondoGP"></div>
+							<div class="doGP"></div>
+							<div class="phGP"></div>
+							<div class="saltGP"></div>
+						</div>
+						<div class="Rectangle-50">
+							<div class="ondo">
+								<div class="Rectangle-21">온도</div>
+								<div class="ondoN">12.20 °C</div>
+							</div>
+							<hr class="Line-1"></hr>
+							<div class="DO">
+								<div class="Rectangle-22">DO</div>
+								<div class="doN">12 ppm</div>
+							</div>
+							<hr class="Line-2"></hr>
+							<div class="pH">
+								<div class="Rectangle-23">pH</div>
+								<div class="phN">7.5 PH</div>
+							</div>
+							<hr class="Line-3"></hr>
+							<div class="salt">
+								<div class="Rectangle-24">염분</div>
+								<div class="saltN">25.30 psu</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 
 
-로그인 후 메인페이지 입니다.
-
-<form action="logout.do">
-<input type="submit" value="로그아웃하기">
-</form>
-<h1> [[${result.COMPANY_NAME}]]님 환영합니다  </h1>
-
-<a href="gograph">그래프 보러가기</a>
-
-
-    <div id="DPTS">
-    </div>
-<div>
-  
-</div>
-<script type="text/javascript">
-$.ajax({
-    url : "test",
-    
-    success : function(res){
-        // 3. 응답받은 데이터를 console 출력
-        var count = 0;
-        console.log(res)
-        setInterval(() => {
-            $('#DPTS').html("")
-           
-            
-       	 let tr = `
-     		
-     		 <h3>DO: <p1>`+res[count].do+`</p1></h3>
-     		 <h3>PH: <p1>`+res[count].ph+`</p1></h3>
-     		 <h3>TEMP: <p1>`+res[count].temp+`</p1></h3>
-     		 <h3>SALT: <p1>`+res[count].salt+`</p1></h3>
-     		
-     		`; 
-            $('#DPTS').append(tr);
-            count++
-        }, 3000
-              
-        );
-        
-    },
-    error : function(){
-        console.log('요청실패');
-    }});
-
-</script>
-
-    <h2>current weather</h2>
-<h3 class="ctemp">현재온도:</h3>
-<h3 class="lowtemp">최저온도:</h3>
-<h3 class="highttemp">최고온도:</h3>
-<h3 class="icon"></h3>
-
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"
- integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" 
- crossorigin="anonymous"></script>
-
-<script>
-$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=0a2582f0c723eb6d18812adb54336260&units=metric',
-				function(result){
-				
-	//alert(result.main.temp)
-$('.ctemp').append(result.main.temp)
-$('.lowtemp').append(result.main.temp_min)
-$('.highttemp').append(result.main.temp_max)
-// result.weather[0].icon
-var wiconUrl ='<img alt="'+result.weather[0].description+'" src="https://openweathermap.org/img/wn/'+result.weather[0].icon+'.png">'
-$('.icon').html(wiconUrl);
-
-
-});
-</script>
-
-<br>
-<br>
-
- 
 
 
 
+
+
+
+
+			</div>
+			<!-- 본화면 끝 -->
+
+
+
+
+
+
+
+		</div>
+		<!-- 본문 끝 -->
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src='//code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+	<script src="js/main.js"></script>
+	<script src="https://kit.fontawesome.com/5ecdf6234c.js"
+		crossorigin="anonymous"></script>
 </body>
 </html>

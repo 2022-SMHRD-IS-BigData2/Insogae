@@ -11,7 +11,7 @@ import com.smhrd.entity.Tank_data;
 import com.smhrd.mapper.Tankmapper;
 
 @RestController
-public class RestControllerTank_data {
+public class RestTankDataController {
 	
 	@Autowired
 	private Tankmapper mapper;

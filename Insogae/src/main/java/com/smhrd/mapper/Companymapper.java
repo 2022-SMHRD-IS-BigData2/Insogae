@@ -14,7 +14,6 @@ public interface Companymapper {
 		
 	public Company login(Company company); // 로그인 메소드
 	
-	// 중복아이디 확인 메소드
-	public Company idCheck(String COMPANY_ID);
+	public Company idCheck(String COMPANY_ID); // 중복아이디 확인 메소드
 	
 }

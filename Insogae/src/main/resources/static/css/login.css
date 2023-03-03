@@ -55,7 +55,11 @@ a {
 
 #main{
     width: 100%;
-    height: 920px;
+    height: 880px;
+    font-family: 'Do Hyeon', sans-serif; 
+    position: absolute; 
+    z-index: 2; 
+    top: 80px;
 }
 
 .nav-item {
@@ -71,4 +75,19 @@ video{
     width: 100%;
     height: 91vh;
     object-fit: cover;
+    position: relative; 
+    z-index: 1;
+}
+#login_title{
+	color: white; 
+	font-size: 7ch; 
+	text-align: center;
+}
+#login{
+	display: grid;
+	justify-content: center;
+}
+.login{
+	font-size: 5ch; 
+	padding-top: 60px;
 }
