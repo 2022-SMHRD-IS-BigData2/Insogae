@@ -41,6 +41,11 @@ public class RestCompanyController {
 			return "false";
 		}
 	}
+	@RequestMapping("join")
+	public String join(Company company) {
+		mapper.join(company);
+		return"redirect:/";
+	}
 	
 	
 	

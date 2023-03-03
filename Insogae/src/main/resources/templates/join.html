@@ -1,89 +1,277 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/join.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.6.3.slim.js"
+	integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc="
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
+
 <body>
-회원가입페이지
-<form action="join" method="post">
-회사ID<input type="text" name="COMPANY_ID" oninput="idCheck()"> <span id="result"></span>  <br>
-회사PW<input type="password" name="COMPANY_PW"><br>
-회사이름<input type="text" name="COMPANY_NAME"><br>
-회사번호<input type="text" name="COMPANY_TEL"><br>
-회사주소<input type="text" name="COMPANY_ADDRESS"><br>
-<input type="submit" id="btn"  disabledvalue="회원가입 확인">
-</form>
+	<!-- header Navbar 시작 -->
+	<div id="wrap">
 
+		<div id="header">
+			<nav class="navbar sticky-top ">
+				<div class="container-fluid col-4">
+					<img
+						src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmlsI7%2Fbtr0BB7bnSk%2FKiqvCvFrLHKhqg8WS3T3Y1%2Fimg.png"
+						width="200" height="50" class="d-inline-block align-text-top">
+					<h3 class="m-0"></h3>
+				</div>
+				<div class="container-fluid col-4"></div>
+				<div class="container-fluid FT1 col-4">
 
+					<div class="item menu1 menu">
+						<a href="#"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcj7reU%2Fbtr0Ayh4BNO%2FLOJ4gjo2ZmmAK78NuJcVtk%2Fimg.png"
+							width="20" height="20"> 양식장 모니터링
+						</a>
+					</div>
+					<div class="item menu2 menu">
+						<a href="#"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrmAhC%2Fbtr0BCYQeaQ%2Fw0Jqj1s3HSRrHRuIvJK1J1%2Fimg.png"
+							width="20" height="20"> 수질 예측
+						</a>
+					</div>
+					<div class="item menu3 menu">
+						<a href="#"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq0oYv%2Fbtr0w2rg3Fl%2FZKL1SrUPc49KPmkRdcfK8K%2Fimg.png"
+							width="20" height="20"> 환경 설정
+						</a>
+					</div>
+					<ul class="nav-item dropdown">
+						<h5 class="m-0">
+							<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+								role="button" data-bs-toggle="dropdown" aria-expanded="false">company
+							</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">회사이름</a></li>
+								<li><a class="dropdown-item" href="#">로그아웃</a></li>
+							</ul>
+						</h5>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<!-- header Navbar 끝-->
 
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+		<!-- 본문 시작 -->
+		<div id="container">
+			<!-- 본화면 시작 -->
+			<video src="/video/production ID_4508070.mp4" muted autoplay loop
+				style="position: relative; z-index: 1;"></video>
+			<div id="main"
+				style="font-family: 'Do Hyeon', sans-serif; position: absolute; z-index: 9999; top: 50px;">
+				<div id="title_join"
+					style="margin-top: 70px; color: #24FCFF; font-size: 7ch; text-align: center;">
+					<p>Join Us !</p>
+				</div>
+				<div id="join"
+					style="text-align: left; display: flex; flex-direction: column; align-items: center;">
+					<table style="text-align: center;">
+						<tr>
+							<td>💡 ID &nbsp; </td>
+							<td><input id="id" name="id" type="text"
+								placeholder="아이디를 입력해주세요" size="34" maxlength="30"></td>
+						</tr>
+						
+						<tr>
+							<td>💡 PassWord &nbsp; </td>
+							<td><input id="pw" name="pw" type="password"
+								placeholder="비밀번호를 입력해주세요" size="34" maxlength="30"></td>
+						</tr>
+						
+						<tr>
+							<td>✔ Recheck PW &nbsp; </td>
 
-<script type="text/javascript">
+							<td><input id="pw2" name="pw2" type="password"
+								placeholder="비밀번호를 다시 한 번 입력해주세요" size="34" maxlength="30"></td>
+						</tr>
 
-	function idCheck(){
-		
-		console.log("아이디 중복체크 기능 실행");
-		
-		// ajax(비동기통신) 요청
-		$.ajax({
-			url : "idCheck", // http://localhost:8081/controller/search , url 매핑만 적는다.
-			type : "get",
-			data : {
-				// key : value
-				"COMPANY_ID": $("input[name=COMPANY_ID]").val() // 아이디가 COMPANY_ID인 데이터 값
-				
-			},
-			success : function(res){
-				console.log(res);
-				
-				if(res=="true"){
-					// 사용가능한 아이디
-					//$('#result').empty();
-				//$('#result').append(res);
-					
-					$('#result').html('사용가능한 아이디');
-					$('#result').css('color','green');
-					// submit 버튼을 누를수 있게 disabled 속성을 제거
-					// .removeAttr("속성명");
-					$('#btn').removeAttr("disabled");
-				}
-				else{
-					// 중복된 아이디
-					$('#result').html('중복된 아이디');
-					$('#result').css('color','red');
-					// 다시 disabled속성을 부여
-					// .attr("속성명","속성값")
-					$('#btn').attr("disabled","true");
-				}
-				
-				
-			},
-			error : function(e){
-				alert("에러 ㅋ");
-			}
-		});
-		
-		
-	}
-	
-	
+						<tr>
+							<td>💡 Name &nbsp; </td>
+							<td><input id="name" name="name" type="text"
+									placeholder="이름(회사이름)을 입력해주세요" size="34" maxlength="30"></td>
+						</tr>
 
+						<tr>
+							<td>💡 TEL &nbsp; </td>
 
-</script>
+							<td><input id="tel" name="tel" type="text"
+								placeholder="전화번호를 입력해주세요" size="34" maxlength="30"></td>
+						</tr>
+						<tr>
+							<td>💡 Address &nbsp; </td>
 
+							<td><input id="address" name="address" type="text"
+								placeholder="주소를 입력해주세요" size="34" maxlength="30"></td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+				<div>
+					<form action="" style="display: flex; flex-direction: column;
+    align-items: center;">
+						<input id="submit" type="button" value="회원가입"
+							style="background-color: #8BBDFF; height: 40px; width: 150px; border-color: white; color: #000030; padding-left: 40px; padding-right: 40px; font-size: 2ch; font-family: 'Poor Story', cursive; font-weight: bold;">
+					</form>
+				</div>
 
+			</div>
+			<!-- 본화면 끝 -->
 
+		</div>
+	</div>
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script>
+		$('#submit')
+				.on(
+						'click',
+						function() {
+							if ($('#id').val() != "") {
 
+								if ($('#pw').val() != "") {
 
+									if ($('#name').val() != "") {
 
+										if ($('#pw').val() == $('#pw2').val()) {
+											$
+													.ajax({
+														url : "join",
+														data : {
+															COMPANY_ID : $(
+																	'#id')
+																	.val(),
+															COMPANY_PW : $(
+																	'#pw')
+																	.val(),
+															COMPANY_NAME : $(
+																	'#name')
+																	.val(),
+															COMPANY_TEL : $(
+																	'#tel')
+																	.val(),
+															COMPANY_ADDRESS : $(
+																	'#address')
+																	.val()
+														},
+														type : "post",
+														success : function(res) {
+															if (res) {
+																location.href = "gologin.do"
+															} else {
+																location.href = "gomain.do"
+															}
+														},
+														error : function(e) {
+															console.log(e);
+															Swal
+																	.fire({
+																		title : '이미 존재하는 아이디 입니다.',
+																		showClass : {
+																			popup : 'animate__animated animate__fadeInDown'
+																		},
+																		hideClass : {
+																			popup : 'animate__animated animate__fadeOutUp'
+																		},
+																		icon : 'warning',
+																		confirmButtonColor : '#8BBDFF',
+																		confirmButtonText : '확인'
+																	})
+														}
 
+													})
 
+										} else {
+											Swal
+													.fire({
+														title : '비밀번호가 일치하지 않습니다.',
+														showClass : {
+															popup : 'animate__animated animate__fadeInDown'
+														},
+														hideClass : {
+															popup : 'animate__animated animate__fadeOutUp'
+														},
+														icon : 'warning',
+														confirmButtonColor : '#8BBDFF',
+														confirmButtonText : '확인'
+													})
+										}
 
+									} else {
+										Swal
+												.fire({
+													title : '이름을 입력해주세요.',
+													showClass : {
+														popup : 'animate__animated animate__fadeInDown'
+													},
+													hideClass : {
+														popup : 'animate__anmated animate__fadeOutUp'
+													},
+													icon : 'warning',
+													confirmButtonColor : '#8BBDFF',
+													confirmButtonText : '확인'
+												})
 
+									}
 
+								} else {
+									Swal
+											.fire({
+												title : '비밀번호를 입력해주세요.',
+												showClass : {
+													popup : 'animate__animated animate__fadeInDown'
+												},
+												hideClass : {
+													popup : 'animate__anmated animate__fadeOutUp'
+												},
+												icon : 'warning',
+												confirmButtonColor : '#8BBDFF',
+												confirmButtonText : '확인'
+											})
 
+								}
 
+							} else {
+								Swal
+										.fire({
+											title : '아이디를 입력해주세요.',
+											showClass : {
+												popup : 'animate__animated animate__fadeInDown'
+											},
+											hideClass : {
+												popup : 'animate__anmated animate__fadeOutUp'
+											},
+											icon : 'warning',
+											confirmButtonColor : '#8BBDFF',
+											confirmButtonText : '확인'
+										})
+							}
+						})
+	</script>
 </body>
+
 </html>
