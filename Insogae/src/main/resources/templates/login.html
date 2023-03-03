@@ -1,18 +1,223 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
+
 <body>
-로그인 페이지
+  <!-- header Navbar 시작 -->
+  <div id="wrap">
 
-<form action="login.do" method="post">
+    <div id="header">
+      <nav class="navbar sticky-top ">
+        <div class="container-fluid col-4">
+          <img
+            src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmlsI7%2Fbtr0BB7bnSk%2FKiqvCvFrLHKhqg8WS3T3Y1%2Fimg.png"
+            width="200" height="50" class="d-inline-block align-text-top">
+          <h3 class="m-0">
+           
+          </h3>
+        </div>
+        <div class="container-fluid col-4"></div>
+        <div class="container-fluid FT1 col-4">
 
-ID <input type="text" name="COMPANY_ID"><br>
-PW <input type="text" name="COMPANY_PW"> <br>
-<input type="submit" value="전송하기">
-</form>
+          <div class="item menu1 menu">
+            <a href="#">
+              <img
+                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcj7reU%2Fbtr0Ayh4BNO%2FLOJ4gjo2ZmmAK78NuJcVtk%2Fimg.png"
+                width="20" height="20">
+              양식장 모니터링</a>
+          </div>
+          <div class="item menu2 menu">
+            <a href="#">
+              <img
+                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrmAhC%2Fbtr0BCYQeaQ%2Fw0Jqj1s3HSRrHRuIvJK1J1%2Fimg.png"
+                width="20" height="20">
+              수질 예측</a>
+          </div>
+          <div class="item menu3 menu">
+            <a href="#">
+              <img
+                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq0oYv%2Fbtr0w2rg3Fl%2FZKL1SrUPc49KPmkRdcfK8K%2Fimg.png"
+                width="20" height="20">
+              환경 설정</a>
+          </div>
+          <ul class="nav-item dropdown">
+            <h5 class="m-0">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">company
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">회사이름</a></li>
+                <li><a class="dropdown-item" href="#">로그아웃</a></li>
+              </ul>
+            </h5>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- header Navbar 끝-->
 
+    <!-- 본문 시작 -->
+    <div id="container">
+      <!-- 본화면 시작 -->
+      <!-- <video src="./video/production ID_4508070.mp4" muted autoplay loop style="position: relative; z-index: 1;"></video>  -->
+      <video src="/video/production ID_4508070.mp4" muted autoplay loop style="position: relative; z-index: 1;"></video>
+      <div id="main" style="font-family: 'Do Hyeon', sans-serif; position: absolute; z-index: 9999; top: 50px;">
+        <div id="login_title" style="margin-top: 20px; color: white; font-size: 7ch; text-align: center;">
+          <p style="padding-top: 80px;">Login</p>
+        </div>
+        <div id="login" style="margin-left: 800px; margin-right: 800px;">
+          <p style="font-size: 5ch; padding-top: 60px;">ID</p>
+          <input id="id" name="id" type="text" placeholder="아이디를 입력해주세요" style="width: 300px; height: 50px;">
+          <br>
+          <br>
+          <p style="font-size: 5ch;">PW</p>
+          <input id="pw" name="pw" type="password" placeholder="비밀번호를 입력해주세요" style="width: 300px; height: 50px;">
+          <br>
+          <br>
+          <p style="font-size: 5ch;">Name</p>
+          <input id="name" name="name" type="text" placeholder="이름(회사이름)을 입력해주세요" style="width: 300px; height: 50px;">
+          <br>
+          <br>
+          <br>
+          <br>
+          <input id="submit" type="button" value="ENTER"
+            style="width: 200px; height: 40px; margin-left: 54px; background-color: lightblue;">
+            <form action="gojoin.do">
+            <input id="submit1" type="submit" value="회원가입"
+            style="width: 200px; height: 40px; margin-left: 54px; background-color: lightblue;">
+			</form>
+        </div>
+
+        <!-- 본화면 끝 -->
+
+
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+  $('#submit').on('click',function(){
+		
+		$.ajax({
+			url: 'login.do',
+			data: {
+				id: $('#id').val(),
+				pw: $('#pw').val(),
+        name: $('#name').val()
+			},
+			type: 'post',
+			success: function(res){
+				console.log(res == 'true')
+				if(res == 'true'){
+					location.href = "goMain.do"
+				}else{
+					Swal.fire({
+		  				  title: '로그인에 실패했습니다.',
+		  				  showClass: {
+		  				    popup: 'animate__animated animate__fadeInDown'
+		  				  },
+		  				  hideClass: {
+		  				    popup: 'animate__animated animate__fadeOutUp'
+		  				  },
+		  				  icon : 'warning',
+		  				  confirmButtonColor: '#8BBDFF',
+		  				  confirmButtonText:'확인'
+		  			})
+				}
+			},
+			error: function(e){
+				
+			}
+		})
+		
+	})
+	
+	$('#id').on('keyup',function(key){
+		if(key.keyCode==13){
+			$.ajax({
+				url: 'login.do',
+				data: {
+					id: $('#id').val(),
+					pw: $('#pw').val()
+				},
+				type: 'post',
+				success: function(res){
+					console.log(res == 'true')
+					if(res == 'true'){
+						location.href = "goMain.do"
+					}else{
+						Swal.fire({
+			  				  title: '로그인에 실패했습니다.',
+			  				  showClass: {
+			  				    popup: 'animate__animated animate__fadeInDown'
+			  				  },
+			  				  hideClass: {
+			  				    popup: 'animate__animated animate__fadeOutUp'
+			  				  },
+			  				  icon : 'warning',
+			  				  confirmButtonColor: '#8BBDFF',
+			  				  confirmButtonText:'확인'
+			  			})
+					}
+				},
+				error: function(e){
+					
+				}
+			})
+		}
+	})
+	$('#pw').on('keyup',function(key){
+		if(key.keyCode==13){
+			$.ajax({
+				url: 'login.do',
+				data: {
+					id: $('#id').val(),
+					pw: $('#pw').val(),
+          name: $('#name').val()
+				},
+				type: 'post',
+				success: function(res){
+					console.log(res == 'true')
+					if(res == 'true'){
+						location.href = "goMain.do"
+					}else{
+						Swal.fire({
+			  				  title: '로그인에 실패했습니다.',
+			  				  showClass: {
+			  				    popup: 'animate__animated animate__fadeInDown'
+			  				  },
+			  				  hideClass: {
+			  				    popup: 'animate__animated animate__fadeOutUp'
+			  				  },
+			  				  icon : 'warning',
+			  				  confirmButtonColor: '#8BBDFF',
+			  				  confirmButtonText:'확인'
+			  			})
+					}
+				},
+				error: function(e){
+					
+				}
+			})
+		}
+	})
+</script>
 </body>
+
 </html>
