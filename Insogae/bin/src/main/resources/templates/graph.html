@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<style>
+canvas {
+	max-width: 500px;
+	max-height: 200px;
+}
+</style>
+</head>
+<body>
+	<div id="DPTS"></div>
+	<div>
+		<canvas id="Chart_do"></canvas>
+	</div>
+	<div>
+		<canvas id="Chart_ph"></canvas>
+	</div>
+	<div>
+		<canvas id="Chart_temp"></canvas>
+	</div>
+	<div>
+		<canvas id="Chart_salt"></canvas>
+	</div>
+
+	<script th:inline="javascript" type="text/javascript">
+
+  
+  $(function() {
+      $.ajax({
+        url : "test",
+        success : function(res) {
+          var count = 0;
+          
+
+          // DPTS 업데이트
+          setInterval(() => {
+            $('#DPTS').html("")
+         	time_data = res[count].record_DATE.split('T')[1].split('.')[0]
+            
+            let tr = `
+         		
+        		 <h3>DATE: `+time_data+`</h3>
+        		 <h3>DO: `+res[count].do+`</h3>
+        		 <h3>PH: `+res[count].ph+`</h3>
+        		 <h3>TEMP: `+res[count].temp+`</h3>
+        		 <h3>SALT: `+res[count].salt+`</h3>
+        		
+        		`; 
+               $('#DPTS').append(tr);
+               
+              
+               
+               
+               
+               
+               count++
+          }, 3000);
+
+          // 차트 초기화
+          let labels = [];
+          const data0 = {
+            labels: labels,
+            datasets: [{
+              label: 'DO',
+              data: [],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+            }]
+          };
+          const data1 = {
+            labels: labels,
+            datasets: [{
+              label: 'PH',
+              data: [],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+            }]
+          };
+          const data2 = {
+            labels: labels,
+            datasets: [{
+              label: 'TEMP',
+              data: [],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+            }]
+          };
+          const data3 = {
+            labels: labels,
+            datasets: [{
+              label: 'SALT',
+              data: [],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+            }]
+          };
+
+          let hiddenLabel = [];
+          let config0 = {
+            type: 'line',
+            data: data0,
+            options: {
+              scales: {
+                x: {
+                  tick: {
+                    display: false,
+                    callback: function(label, index, labels) {
+                      return hiddenLabel;
+                    }
+                  }
+                }
+              }
+            }
+          };
+          let config1 = {
+            type: 'line',
+            data: data1,
+            options: {
+              scales: {
+                x: {
+                  tick: {
+                    display: false,
+                    callback: function(label, index, labels) {
+                      return hiddenLabel;
+                    }
+                  }
+                }
+              }
+            }
+          };
+          let config2 = {
+            type : 'line',
+            data: data2,
+            options: {
+              scales: {
+                x: {
+                  tick:{
+                    display: false,
+                    callback: function(label, index, labels) {
+                      return hiddenLabel;
+                    }
+                  }
+                }
+              }
+            }
+          };
+          let config3 = {
+            type: 'line',
+            data: data3,
+            options: {
+              scales: {
+                x: {
+                  tick:{
+                    display: false,
+                    callback: function(label, index, labels) {
+                      return hiddenLabel;
+                    }
+                  }
+                }
+              }
+            }
+          };
+          let chart0 = new Chart(
+          document.getElementById('Chart_do'),
+          config0
+          );
+          let chart1 = new Chart(
+          document.getElementById('Chart_ph'),
+          config1
+          );
+          let chart2 = new Chart(
+          document.getElementById('Chart_temp'),
+          config2
+          );
+          let chart3 = new Chart(
+          document.getElementById('Chart_salt'),
+          config3
+          );
+
+
+          setInterval(()=> {
+        	  
+        	  console.log(res[count].do)
+        	  
+          hiddenLabel.push("");
+        
+          if (data0.datasets[0].data.length > 12){
+            labels.shift();
+            data0.datasets[0].data.shift();
+            data1.datasets[0].data.shift();
+            data2.datasets[0].data.shift();
+            data3.datasets[0].data.shift();
+          }
+          
+          labels.push(time_data);
+          data0.datasets[0].data.push(res[count].do);
+          data1.datasets[0].data.push(res[count].ph);
+          data2.datasets[0].data.push(res[count].temp);
+          data3.datasets[0].data.push(res[count].salt);
+          chart0.update();
+          chart1.update();
+          chart2.update();
+          chart3.update();
+          count++;
+          }, 3000); 
+        },
+        error : function(){
+          console.log('요청실패');
+        }
+      });
+    });
+  
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.Companymapper">
+
+
+<insert id="join" parameterType="com.smhrd.entity.Company">
+
+insert into COMPANY
+values(
+#{COMPANY_ID},
+#{COMPANY_PW},
+#{COMPANY_NAME},
+#{COMPANY_TEL},
+#{COMPANY_ADDRESS}
+)
+
+</insert>
+
+<select id="login" resultType="com.smhrd.entity.Company" parameterType="com.smhrd.entity.Company">
+select *from COMPANY
+where COMPANY_ID = #{COMPANY_ID} and COMPANY_PW = #{COMPANY_PW}
+</select>
+
+
+<select id="idCheck" resultType="com.smhrd.entity.Company">
+select *from COMPANY
+where COMPANY_ID = #{COMPANY_ID}
+</select>
+
+</mapper>

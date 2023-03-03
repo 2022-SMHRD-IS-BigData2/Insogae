@@ -1,6 +1,6 @@
 @charset "UTF-8";
 #header{
-  height: 67px;
+  height: 8vh;
   position:relative;z-index:2;
 }
 
@@ -21,15 +21,17 @@
   /* overflow-x: hidden; */
 }
 
-#body{
-    width: 100vh;
-    display: flex;
+body {
+	margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #container{
   display: flex;
   background-color: #303C50;
-  width: 200vw;    
+  width: 200vw;
+  height: 92vh;    
 }
 
 #btn-container{
@@ -38,8 +40,8 @@
   text-align: center;
   float: left;
   display: inline;
-  right: 10px;
-  top: 470px;
+  right: 1%;
+  top: 47%;
   }
 
  .btn{
@@ -79,365 +81,203 @@ a {
     background-color: silver;
 }
 
-#main{
+.main{
     background-color: #403c3c;
     width: 100%;
-    height: 998px;
+    height: 92vh;
 }
 
-.main1{
-  margin-left: 1px;
+.Rectangle-1 {
+	background-color: #f5f5f5;
+	position: relative;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.main2{
-  margin-left: 34px;
+.Rectangle-2 {
+    width: 49.77%;
+    height: 50%;
+    border-radius: 11px;
+    background-color: #3c3c40;
+    margin: 2px;
+    padding: 3px;
 }
 
-.Rectangle-3 {
-  width: 1900px;
-  height: 998px;
-  margin: 3px 0 0 2px;
-  padding: 9px 12px 10px;
-  border-radius: 6px;
-  background-color: #f5f5f5;
+.Rectangle-3{
+	display: flex; 
+	width:100%; 
+	height: 86%
+}
+.Rectangle-GP {
+  display: flex;
+  width:75%;
+  height:100%;
+  margin:2px;
+  border-radius: 7px;
+  background-color: #d9d9d9;
+  flex-wrap: wrap;
+  justify-content: center;
   }
 
 
+.Rectangle-Data {
+    width: 25%;
+	height:100%;
+	display: flex;
+	margin: 2px;
+	border-radius: 6px;
+    flex-direction: column;
+  	background-color: #d9d9d9;
+  }
   
+  
+.Rectangle-Value {
+	display: flex;
+    width: 50px;
+    height: 30px;
+    border-radius: 18px;
+    background-color: #919991;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.tank{
+	height: 11%;
+	padding: 0px 15px;
+	display: flex;
+	justify-content: space-between; 
+	align-items: center;
+}
+.warning{
+	display: flex;
+	align-items: center;
+}
 .nav-item{
     margin-top: auto;
     margin-bottom: auto;
 }
 
-
-.Rectangle-5 {
-    display: flex;
-    width: 940px;
-    height: 490px;
-    margin: -3px 10px 10px -4px;
-    padding: 21px 6px 10px 7px;
-    border-radius: 11px;
-    background-color: #3c3c40;
-  }
-  .Rectangle-3{
-    position: relative;
-  }
-
-.Rectangle-8 {
-  display: flex;
-  width: 676px;
-  height: 424px;
-  margin: 37px 6px 0 -194.5px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  flex-wrap: wrap;
-  }
-
-.Rectangle-20 {
-  display: flex;
-  width: 243px;
-  height: 424px;
-  margin: 37px 0 0 0px;
-  padding: 23px 2px 26px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  flex-direction: column;
-  }
-
-.Rectangle-6 {
-  display: flex;
-  width: 940px;
-  height: 490px;
-  margin: -500px 0 0px 941px;
-    padding: 21px 5px 10px 9px;
-    border-radius: 11px;
-    background-color: #403c3c;
-  }
-
-.Rectangle-11 {
-  display: flex;
-  flex-wrap: wrap;
-  width: 676px;
-  height: 424px;
-  margin: 37px 6px 0 -194.5px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  }
-
-.Rectangle-30 {
-  display: flex;
-  width: 243px;
-  height: 424px;
-  margin: 37px 0 0 0px;
-  padding: 23px 2px 26px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  flex-direction: column;
-  }
-
-.Rectangle-4 {
-    display: flex;
-    width: 940px;
-    height: 490px;
-    margin: 5px 10px 0 -4px;
-    padding: 24px 6px 10px 7px;
-    border-radius: 11px;
-    background-color: #403c3c;
-  }
-
-.Rectangle-10 {
-  display: flex;
-  flex-wrap: wrap;
-  width: 676px;
-  height: 424px;
-  margin: 37px 6px 0 -194.5px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  }
-
-.Rectangle-40 {
-  display: flex;
-  width: 243px;
-  height: 424px;
-  margin: 37px 0 0 0px;
-  padding: 23px 2px 26px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  flex-direction: column;
-  }
-
-.Rectangle-7 {
-    display: flex;
-    width: 940px;
-    height: 490px;
-    margin: -490px 0 0 941px;
-    padding: 24px 5px 10px 9px;
-    border-radius: 11px;
-    background-color: #403c3c;
-  }
-
-.Rectangle-12 {
-  display: flex;
-  flex-wrap: wrap;
-  width: 676px;
-  height: 424px;
-  margin: 37px 6px 0 -194.5px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  }
-
-
-.Rectangle-50 {
-  display: flex;
-  width: 243px;
-  height: 424px;
-  margin: 37px 0 0 0px;
-  padding: 23px 2px 26px;
-  border-radius: 7px;
-  background-color: #d9d9d9;
-  flex-direction: column;
-  }
-
 .Line-1 {
-  width: 236px;
-  margin: 12px 0 0px;
+  margin: 0px;
   color: black;
  
   }
 
-.Line-2 {
-  width: 236px;
-  margin: 13px 0 0px;
-  color: black;
-  }
-
-.Line-3 {
-  width: 236px;
-  margin: 11px 0 0px;
-  color: black;
-  }
-
-
-
-.Rectangle-21 {
-    width: 50px;
-    height: 30px;
-    margin: 11px 13px 27px 7px;
-    padding: 6px 11px 5px;
-    border-radius: 18px;
-    background-color: #919991;
-    font-size: 14px;
-    padding-top: 4px;
-  }
-
-.Rectangle-22 {
-  width: 50px;
-  height: 30px;
-  margin: 32px 5px 7px 7px;
-  padding: 6px 11px 5px;
-  border-radius: 18px;
-  background-color: #919991;
-  padding-left: 15px;
-  padding-top: 4px;
-  font-size: 14px;
- }
-
-.Rectangle-23 {
-  width: 50px;
-  height: 30px;
-  margin: 37px 13px 27px 7px;
-  padding: 6px 11px 5px;
-  border-radius: 18px;
-  background-color: #919991;
-  padding-left: 15px;
-  padding-top: 4px;
-  font-size: 14px;
-}
-
-.Rectangle-24 {
-    width: 50px;
-    height: 30px;
-    margin: 39px 13px 27px 7px;
-    border-radius: 18px;
-    background-color: #919991;
-    padding-left: 12px;
-    padding-top: 4px;
-    font-size: 14px;
-}
-
 .TCT  {
     display: flex;
     flex-direction: row;
-    height: 35px;
-    width: 196px;
-    margin-left: 26px;
-    margin-top: -8px;
     font-size: 21px;
   }
 
 .WL{
-  display: flex;
-  justify-content: space-around;
   width: 23px;
-  height: 22px;
-  margin: -2px -410px 26px 405px;
+  height: 23px;
   background-color: #3b9e18;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
-}
-
-.WL2{
-  display: flex;
-  justify-content: space-around;
-  width: 23px;
-  height: 22px;
-  margin: -2px -410px 26px 405px;
-  background-color: red;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
+  margin-right: 10px;
 }
 
 .TCTM {
-  width: 308px;
-  height: 29px;
-  margin: -6px -779px 1px 425px;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff;
   }
 
 .ondo{
   display: flex;
+  height:25%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
 }
 
 .ondoN{
   display: flex;
   font-size: 34px;
-  margin: -3px;
-  margin-left: 23px;
   color: #3C3C40;
 }
 
 .ondoN2{
   display: flex;
   font-size: 34px;
-  margin: -3px;
-  margin-left: 23px;
   color: red;
   font-weight: bold;
 }
 
 .DO{
   display: flex;
+  height:25%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
 }
-
 .doN{
   display: flex;
   font-size: 34px;
   color: #3C3C40;
-  margin: 23px 0px 18px 44px;
 }
 
 .pH{
-  display: flex;
+	  display: flex;
+  height:25%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
 }
 
 .phN{
   display: flex;
   font-size: 34px;
   color: #3C3C40;
-  margin: 23px 0px 18px 44px;
 }
 
 .salt{
-  display: flex;
+	    display: flex;
+  height:25%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
 }
 
 .saltN{
   display: flex;
   font-size: 34px;
   color: #3C3C40;
-  margin: 26px 0px 27px 10px;
 }
 
 .ondoGP{
   border-top-left-radius: 7px;
   border: 1px solid black;
-  height: 212px;
-  width: 338px;
+  height: 50%;
+  width: 50%;
 }
 
 .doGP{
   border-top-right-radius: 7px;
   border: 1px solid black;
-  height: 212px;
-  width: 338px;
+  height: 50%;
+  width: 50%;
 }
 
 .phGP{
   border-bottom-left-radius: 7px;
   border: 1px solid black;
-  height: 212px;
-  width: 338px;
+  height: 50%;
+  width: 50%;
 }
 
 .saltGP{
   border-bottom-right-radius: 7px;
   border: 1px solid black;
-  height: 212px;
-  width: 338px;
+  height: 50%;
+  width: 50%;
 }
 
 #beforepage{
   display: flex;
 }
+
 

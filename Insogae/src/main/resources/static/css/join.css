@@ -13,9 +13,10 @@
     color: white;
 }
 
-#body {
-    width: 100vh;
-    display: flex;
+body {
+	margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #container {
@@ -57,7 +58,18 @@ a {
     font-family: 'Do Hyeon', sans-serif; 
     position: absolute; 
     z-index: 2; 
-    top: 80px;
+    left: 50%;
+    top: 50%;
+	transform: translate(-50%,-50%)
+}
+#header{
+    width: 100%;
+    height: 80px;
+    font-family: 'Do Hyeon', sans-serif; 
+    position: absolute; 
+    z-index: 3; 
+    top: 0px;
+    background-color: #303C50
 }
 #title_join{
 	margin-top: 70px; 

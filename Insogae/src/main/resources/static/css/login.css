@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+body {
+	margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 .navbar {
     padding: 16px 16px
 }
@@ -15,8 +20,10 @@
 }
 
 #body {
+	margin: 0;
     width: 100vh;
     display: flex;
+    
 }
 
 #container {
@@ -59,7 +66,18 @@ a {
     font-family: 'Do Hyeon', sans-serif; 
     position: absolute; 
     z-index: 2; 
-    top: 80px;
+    left: 50%;
+    top: 50%;
+	transform: translate(-50%,-50%)
+}
+#header{
+    width: 100%;
+    height: 80px;
+    font-family: 'Do Hyeon', sans-serif; 
+    position: absolute; 
+    z-index: 3; 
+    top: 0px;
+    background-color: #303C50
 }
 
 .nav-item {
@@ -73,7 +91,7 @@ a {
 
 video{
     width: 100%;
-    height: 91vh;
+    height: 100vh;
     object-fit: cover;
     position: relative; 
     z-index: 1;
@@ -90,4 +108,8 @@ video{
 .login{
 	font-size: 5ch; 
 	padding-top: 60px;
+}
+
+input{
+	font-size: 1.5rem;
 }
