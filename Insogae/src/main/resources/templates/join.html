@@ -7,19 +7,70 @@
 <body>
 회원가입페이지
 <form action="join.do" method="post">
-회사ID<input type="text" name="COMPANY_ID"> <br><span id="result"></span>
+회사ID<input type="text" name="COMPANY_ID" oninput="idCheck()"> <span id="result"></span>  <br>
 회사PW<input type="password" name="COMPANY_PW"><br>
 회사이름<input type="text" name="COMPANY_NAME"><br>
 회사번호<input type="text" name="COMPANY_TEL"><br>
 회사주소<input type="text" name="COMPANY_ADDRESS"><br>
-<input type="submit" id="btn"  value="회원가입확인">
+<input type="submit" id="btn"  disabledvalue="회원가입 확인">
 </form>
 
 
 
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+<script type="text/javascript">
+
+	function idCheck(){
+		
+		console.log("아이디 중복체크 기능 실행");
+		
+		// ajax(비동기통신) 요청
+		$.ajax({
+			url : "idCheck", // http://localhost:8081/controller/search , url 매핑만 적는다.
+			type : "get",
+			data : {
+				// key : value
+				"COMPANY_ID": $("input[name=COMPANY_ID]").val() // 아이디가 COMPANY_ID인 데이터 값
+				
+			},
+			success : function(res){
+				console.log(res);
+				
+				if(res=="true"){
+					// 사용가능한 아이디
+					//$('#result').empty();
+				//$('#result').append(res);
+					
+					$('#result').html('사용가능한 아이디');
+					$('#result').css('color','green');
+					// submit 버튼을 누를수 있게 disabled 속성을 제거
+					// .removeAttr("속성명");
+					$('#btn').removeAttr("disabled");
+				}
+				else{
+					// 중복된 아이디
+					$('#result').html('중복된 아이디');
+					$('#result').css('color','red');
+					// 다시 disabled속성을 부여
+					// .attr("속성명","속성값")
+					$('#btn').attr("disabled","true");
+				}
+				
+				
+			},
+			error : function(e){
+				alert("에러 ㅋ");
+			}
+		});
+		
+		
+	}
+	
+	
 
 
-
+</script>
 
 
 

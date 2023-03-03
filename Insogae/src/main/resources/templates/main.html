@@ -4,9 +4,94 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
+
 <body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+
+
 로그인 후 메인페이지 입니다.
-<p> [[${result.COMPANY_NAME}]]님 환영합니다  </p>
+
+<form action="logout.do">
+<input type="submit" value="로그아웃하기">
+</form>
+<h1> [[${result.COMPANY_NAME}]]님 환영합니다  </h1>
+
+<a href="gograph">그래프 보러가기</a>
+
+
+    <div id="DPTS">
+    </div>
+<div>
+  
+</div>
+<script type="text/javascript">
+$.ajax({
+    url : "test",
+    
+    success : function(res){
+        // 3. 응답받은 데이터를 console 출력
+        var count = 0;
+        console.log(res)
+        setInterval(() => {
+            $('#DPTS').html("")
+           
+            
+       	 let tr = `
+     		
+     		 <h3>DO: <p1>`+res[count].do+`</p1></h3>
+     		 <h3>PH: <p1>`+res[count].ph+`</p1></h3>
+     		 <h3>TEMP: <p1>`+res[count].temp+`</p1></h3>
+     		 <h3>SALT: <p1>`+res[count].salt+`</p1></h3>
+     		
+     		`; 
+            $('#DPTS').append(tr);
+            count++
+        }, 3000
+              
+        );
+        
+    },
+    error : function(){
+        console.log('요청실패');
+    }});
+
+</script>
+
+    <h2>current weather</h2>
+<h3 class="ctemp">현재온도:</h3>
+<h3 class="lowtemp">최저온도:</h3>
+<h3 class="highttemp">최고온도:</h3>
+<h3 class="icon"></h3>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+ integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" 
+ crossorigin="anonymous"></script>
+
+<script>
+$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=0a2582f0c723eb6d18812adb54336260&units=metric',
+				function(result){
+				
+	//alert(result.main.temp)
+$('.ctemp').append(result.main.temp)
+$('.lowtemp').append(result.main.temp_min)
+$('.highttemp').append(result.main.temp_max)
+// result.weather[0].icon
+var wiconUrl ='<img alt="'+result.weather[0].description+'" src="https://openweathermap.org/img/wn/'+result.weather[0].icon+'.png">'
+$('.icon').html(wiconUrl);
+
+
+});
+</script>
+
+<br>
+<br>
+
+ 
+
+
+
 </body>
 </html>

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.chart-gauge {
+    width: 500px;
+    margin: 10px auto;
+}
+
+.chart-first {
+    fill: #16d926 ;
+}
+
+.chart-second {
+    fill: #F2BA3A;
+}
+
+.chart-third {
+    fill:#fb0b0b ;
+}
+
+.needle, .needle-center {
+    fill: #000000;
+}
+
+.text {
+    color: #112864;
+    font-size: 16px;
+}
+
+
+svg {
+    font: 10px sans-serif;
+}

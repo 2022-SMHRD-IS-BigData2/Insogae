@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.Tankmapper">
+
+<select id="dataCheck" resultType="com.smhrd.entity.Tank_data">
+select*from TANK_DATA
+where RECORD_SEQ = 1
+</select>
+
+
+
+
+<select id="dataCheck2" resultType="com.smhrd.entity.Tank_data">
+select*from TANK_DATA
+where RECORD_SEQ = #{RECORD_SEQ}
+</select>
+
+
+<select id="timedata" resultType="com.smhrd.entity.Tank_data">
+select*from TANK_DATA
+
+</select>
+</mapper>
