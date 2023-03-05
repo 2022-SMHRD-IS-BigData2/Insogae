@@ -14,17 +14,19 @@ a {
 	position: relative;
 	z-index: 1;
 	margin: 0 auto;
-	background-color: #303C50;
+	background-color: #636464;
 	color: white;
 	overflow-y: hidden;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 }
 
 /* 헤더 스타일 설정 */
 #header {
-	height: 8vh;
-	position: relative;
+	/* height: 8vh; */
+	width: 200vw; 
 	z-index: 2;
+	background-color: #303C50;
+	position: relative;
 }
 
 .navbar {
@@ -51,6 +53,10 @@ a {
 	background-color: silver;
 }
 
+.navbar>.container-fluid {
+	flex-wrap: nowrap;
+}
+
 /* 페이지넘김 버튼 스타일 설정 */
 #btn-container {
 	position: absolute;
@@ -75,24 +81,30 @@ a {
 /* 컨테이너 스타일 설정 */
 #container {
 	display: flex;
-	background-color: #303C50;
 	width: 200vw;
-	height: 92vh;
+	/* height: 92vh; */
 }
 
 .main {
-	background-color: #403c3c;
 	width: 100%;
 	height: 92vh;
 }
 
 .rectangle-1 {
-	background-color: #f5f5f5;
 	position: relative;
 	height: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
+
+/* #main-1>.rectangle-1 {
+	padding-right: 16px;
+}
+
+#main-2>.rectangle-1 {
+	padding-left: 18px;
+} */
 
 .rectangle-2 {
 	width: 49.77%;
@@ -195,7 +207,7 @@ a {
 
 .ondo-n {
 	display: flex;
-	font-size: 34px;
+	font-size: 2em;
 	color: #3C3C40;
 }
 
