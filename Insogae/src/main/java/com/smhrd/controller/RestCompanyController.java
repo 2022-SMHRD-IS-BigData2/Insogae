@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smhrd.entity.Company;
-import com.smhrd.entity.Tank_data;
-import com.smhrd.mapper.Companymapper;
-import com.smhrd.mapper.Tankmapper;
+import com.smhrd.entity.TankData;
+import com.smhrd.mapper.CompanyMapper;
+import com.smhrd.mapper.TankMapper;
 
 
 
@@ -20,9 +20,9 @@ import com.smhrd.mapper.Tankmapper;
 public class RestCompanyController {
 
 	@Autowired
-	private Companymapper mapper; 
+	private CompanyMapper mapper; 
 	@Autowired
-	private Tankmapper tankmapper;
+	private TankMapper tankmapper;
 	
 	
 	// aJax 는 비동기 통신이기 때문에 문자열이나 데이터와 같은 데이터를 받는다.
@@ -56,7 +56,7 @@ public class RestCompanyController {
 	public String join(Company company, Model model) {
 		mapper.join(company);
 		Company user = mapper.login(company);
-		List<Tank_data> tank = tankmapper.dataCheck();
+		List<TankData> tank = tankmapper.dataCheck();
 		
 		model.addAttribute("tank",tank);
 		
@@ -75,7 +75,7 @@ public class RestCompanyController {
 	@RequestMapping("login.do")
 	public String login(Company company, Model model) {
 		Company user = mapper.login(company);
-		List<Tank_data> tank = tankmapper.dataCheck();
+		List<TankData> tank = tankmapper.dataCheck();
 		
 		model.addAttribute("tank",tank);
 		

@@ -2,114 +2,103 @@
 
 body {
 	margin: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-.navbar {
-    padding: 16px 16px
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-.m-0 {
-    font-family: 'Do Hyeon', sans-serif;
+a {
+	text-decoration: none;
 }
 
 #wrap {
-    margin: 0 auto;
-    background-color: #303C50;
-    color: white;
+	margin: 0 auto;
+	background-color: #303C50;
+	color: white;
 }
 
-#body {
-	margin: 0;
-    width: 100vh;
-    display: flex;
-    
+/* 비디오 배경 설정 */
+video {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+	position: relative;
+	z-index: 1;
 }
 
-#container {
-    background-color: #303C50;
-}
-
-#side {
-    width: 250px;
-    height: calc(100vh - 80px);
-    background-color: #303C50;
-}
-
-.item {
-    font-family: 'Jua', sans-serif;
-   
+/* 헤더 스타일 설정 */
+#header {
+	width: 100%;
+	height: 80px;
+	font-family: 'Do Hyeon', sans-serif;
+	position: absolute;
+	z-index: 3;
+	top: 0px;
+	background-color: #303C50
 }
 
 .menu {
-    display: flex;
-    position: relative;
-    z-index: 1;
+	display: flex;
+	position: relative;
+	z-index: 1;
 }
 
-
-a {
-    text-decoration: none;
-}
-
-.item>a {
-    color: white;
-}
-
-.item:hover {
-    background-color: silver;
-}
-
-#main{
-    width: 100%;
-    height: 880px;
-    font-family: 'Do Hyeon', sans-serif; 
-    position: absolute; 
-    z-index: 2; 
-    left: 50%;
-    top: 50%;
-	transform: translate(-50%,-50%)
-}
-#header{
-    width: 100%;
-    height: 80px;
-    font-family: 'Do Hyeon', sans-serif; 
-    position: absolute; 
-    z-index: 3; 
-    top: 0px;
-    background-color: #303C50
+.navbar {
+	padding: 16px 16px;
 }
 
 .nav-item {
-    margin-top: auto;
-    margin-bottom: auto;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
-#login_naver{
-    background-color: green;
+.item {
+	font-family: 'Jua', sans-serif;
 }
 
-video{
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    position: relative; 
-    z-index: 1;
+.item>a {
+	color: white;
 }
-#login_title{
-	color: white; 
-	font-size: 7ch; 
+
+.item:hover {
+	background-color: silver;
+}
+
+/* 컨테이너 스타일 설정 */
+#container {
+	background-color: #303C50;
+}
+
+#main {
+	width: 100%;
+	height: 880px;
+	font-family: 'Do Hyeon', sans-serif;
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%)
+}
+
+#login-title {
+	color: white;
+	font-size: 7ch;
 	text-align: center;
 }
-#login{
+
+#login {
 	display: grid;
 	justify-content: center;
 }
-.login{
-	font-size: 5ch; 
+
+.m-0 {
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.login {
+	font-size: 5ch;
 	padding-top: 60px;
 }
 
-input{
+input {
 	font-size: 1.5rem;
 }

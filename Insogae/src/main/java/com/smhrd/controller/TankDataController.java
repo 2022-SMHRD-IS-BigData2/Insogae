@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smhrd.entity.Company;
-import com.smhrd.entity.Tank_data;
-import com.smhrd.mapper.Companymapper;
-import com.smhrd.mapper.Tankmapper;
+import com.smhrd.entity.TankData;
+import com.smhrd.mapper.CompanyMapper;
+import com.smhrd.mapper.TankMapper;
 
 @Controller
 public class TankDataController {
 
 	@Autowired
-	private Tankmapper mapper;
+	private TankMapper mapper;
 
 	
 	@RequestMapping("/datacheck.do")
 	public String dataCheck(Model model, Company company) {
-	List<Tank_data> data = mapper.dataCheck();
+	List<TankData> data = mapper.dataCheck();
 	
 	System.out.println(data.get(0).getDO());  // data에 정보 들어있음
 	

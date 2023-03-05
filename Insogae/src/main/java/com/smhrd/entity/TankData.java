@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tank_data {
+public class TankData {
 	
 	private int RECORD_SEQ;
 	private Timestamp RECORD_DATE;

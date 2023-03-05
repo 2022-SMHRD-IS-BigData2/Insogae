@@ -1,142 +1,119 @@
 @charset "UTF-8";
-.navbar {
-    padding: 16px 16px
-}
-
-.m-0 {
-    font-family: 'Do Hyeon', sans-serif;
-}
-
-#wrap {
-    margin: 0 auto;
-    background-color: #303C50;
-    color: white;
-}
 
 body {
 	margin: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-#container {
-    background-color: #303C50;
+a {
+	text-decoration: none;
 }
 
-#side {
-    width: 250px;
-    height: calc(100vh - 80px);
-    background-color: #303C50;
+#wrap {
+	margin: 0 auto;
+	background-color: #303C50;
+	color: white;
 }
 
-.item {
-    font-family: 'Jua', sans-serif;
-   
+/* 비디오 배경 설정 */
+video {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+	position: relative;
+	z-index: 1;
+}
+
+/* 헤더 스타일 설정 */
+#header {
+	width: 100%;
+	height: 80px;
+	font-family: 'Do Hyeon', sans-serif;
+	position: absolute;
+	z-index: 3;
+	top: 0px;
+	background-color: #303C50
 }
 
 .menu {
-    display: flex;
-
+	display: flex;
 }
 
+.navbar {
+	padding: 16px 16px;
+}
 
-a {
-    text-decoration: none;
+.item {
+	font-family: 'Jua', sans-serif;
 }
 
 .item>a {
-    color: white;
+	color: white;
 }
 
 .item:hover {
-    background-color: silver;
-}
-
-#main{
-    width: 100%;
-    height: 880px;
-    font-family: 'Do Hyeon', sans-serif; 
-    position: absolute; 
-    z-index: 2; 
-    left: 50%;
-    top: 50%;
-	transform: translate(-50%,-50%)
-}
-#header{
-    width: 100%;
-    height: 80px;
-    font-family: 'Do Hyeon', sans-serif; 
-    position: absolute; 
-    z-index: 3; 
-    top: 0px;
-    background-color: #303C50
-}
-#title_join{
-	margin-top: 70px; 
-	color: #24FCFF; 
-	font-size: 7ch; 
-	text-align: center;
-}
-#join{
-	text-align: left; 
-	display: flex; 
-	flex-direction: column; 
-	align-items: center;
-}
-.Rectangle-3 {
-    width: 1626px;
-    height: 965px;
-    margin: 0px 0 0 7px;
-    padding: 9px 12px 10px;
-    border-radius: 19px;
-    background-color: #f5f5f5;
-}
-
-.Rectangle-4 {
-    width: 1930px;
-    height: 946px;
-    border-radius: 11px;
-    background-color: #403c3c;
-    margin: auto;
-    margin-top: 15px;
+	background-color: silver;
 }
 
 .nav-item {
-    margin-top: auto;
-    margin-bottom: auto;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
+/* 컨테이너 설정 */
+#container {
+	background-color: #303C50;
+}
 
-#login {
-    margin-left: 50px;
+#main {
+	width: 100%;
+	height: 880px;
+	font-family: 'Do Hyeon', sans-serif;
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%)
+}
+
+#title-join {
+	margin-top: 70px;
+	color: #24FCFF;
+	font-size: 7ch;
+	text-align: center;
+}
+
+#join {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.m-0 {
+	font-family: 'Do Hyeon', sans-serif;
 }
 
 input[type=checkbox] {
-    zoom: 1.5;
+	zoom: 1.5;
 }
 
-video {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    position: relative; 
-    z-index: 1;
-}
-
-table{
+table {
 	font-size: 3ch;
 	border-collapse: separate;
-  border-spacing: 0 50px;
+	border-spacing: 0 50px;
 }
-#submit{
-	background-color: #8BBDFF; 
-	height: 40px; 
-	width: 150px; 
-	border-color: white; 
-	color: #000030; 
-	padding-left: 40px; 
-	padding-right: 40px; 
-	font-size: 2ch; 
-	font-family: 'Poor Story', cursive; 
+
+#submit {
+	background-color: #8BBDFF;
+	height: 40px;
+	width: 150px;
+	border-color: white;
+	color: #000030;
+	padding-left: 40px;
+	padding-right: 40px;
+	font-size: 2ch;
+	font-family: 'Poor Story', cursive;
 	font-weight: bold;
 }

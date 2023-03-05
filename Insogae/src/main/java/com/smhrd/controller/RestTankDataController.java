@@ -7,29 +7,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smhrd.entity.Tank_data;
-import com.smhrd.mapper.Tankmapper;
+import com.smhrd.entity.TankData;
+import com.smhrd.mapper.TankMapper;
 
 @RestController
 public class RestTankDataController {
 	
 	@Autowired
-	private Tankmapper mapper;
+	private TankMapper mapper;
 
 
 	
 	
 	@RequestMapping("/search")
-	public List<Tank_data> dataSearch(String number) {
+	public List<TankData> dataSearch(String number) {
 		
-		List<Tank_data>tankdata = mapper.dataCheck2(number);
+		List<TankData>tankdata = mapper.dataCheck2(number);
 		return tankdata;
 	}
 	
 	@RequestMapping("/test")
-	public List<Tank_data>timetank(){ 
+	public List<TankData>timetank(){ 
 		
-	List<Tank_data>timetank= mapper.timedata();
+	List<TankData>timetank= mapper.timedata();
 	return timetank;
 	}
 }

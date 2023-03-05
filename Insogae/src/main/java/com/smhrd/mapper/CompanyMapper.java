@@ -7,7 +7,7 @@ import com.smhrd.entity.Company;
 
 
 @Mapper
-public interface Companymapper {
+public interface CompanyMapper {
 
 
 	public int join(Company company); // 회원가입 메소드
