@@ -10,15 +10,11 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 public class CompanyController {
 	
-	@RequestMapping("/")
-	public String goIntro() {
-			return "intro"; // 첫 페이지로 포워드 이동
-		}
 	@RequestMapping("/goLogin.do")
 	public String goLogin() {
-		return "redirect:/login"; // 로그인 페이지 리다이렉트 이동
+		return "redirect:/"; // 로그인 페이지 리다이렉트 이동
 	}
-	@RequestMapping("/login")
+	@RequestMapping("/")
 	public String login() {
 		return "login"; // 로그인 페이지로 포워드 이동 http://localhost:8882/login
 	}
@@ -46,7 +42,22 @@ public class CompanyController {
 	public String predict() {
 		return "predict";// ->> 수질 예측 포워드 이동 http://localhost:8882/predict
 	}	
-	
+	@RequestMapping("/goSetting.do")
+	public String goSetting() {
+		return "redirect:/setting";// ->> 환경 설정 리다이렉트 이동 
+	}
+	@RequestMapping("/setting")
+	public String setting() {
+		return "setting";// ->> 환경 설정 포워드 이동 http://localhost:8882/predict
+	}	
+	@RequestMapping("/goWaterguard.do")
+	public String goWaterguard() {
+		return "redirect:/waterguard"; // 메인페이지(양식장 모니터링) 리다이렉트 이동
+	}
+	@RequestMapping("/waterguard")
+	public String waterguard() {
+		return "waterguard";  // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
+	}
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus session) {
 		session.setComplete();

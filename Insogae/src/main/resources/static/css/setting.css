@@ -1,4 +1,10 @@
 @charset "UTF-8";
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	background-color: #636464;
+}
 .navbar {
     padding: 16px 16px
 }
@@ -6,11 +12,22 @@
 .m-0 {
     font-family: 'Do Hyeon', sans-serif;
 }
+#header {
+	/* height: 8vh; */
+	width: 100vw; 
+	z-index: 2;
+	background-color: #303C50;
+	position: relative;
+}
 
 #wrap {
-    margin: 0 auto;
-    background-color: #303C50;
-    color: white;
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+	background-color: #636464;
+	color: white;
+	/* overflow-y: hidden;
+	overflow-x: hidden; */
 }
 
 #body {
