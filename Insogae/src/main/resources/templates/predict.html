@@ -84,7 +84,7 @@
 					<div class="rectangle-2">
 						<div class="tank">
 							<div class="tct">양식장 수조 1</div>
-							<button class="report" onclick="showReport1()">
+							<button class="report">
 							리포트
 						</button>
 							<div class="warning">
@@ -94,15 +94,27 @@
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
 							<div class="rectangle-gp">
-								<div class="report-view" id="report-view-1" style="display: none;">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag" onclick="hideReport1()"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
+								<div id="ondo-gp-1">
+									온도그래프 
 								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
+								<div id="do-gp-1" style="display: none;">
+									DO그래프 
+								</div>
+								<div id="ph-gp-1" style="display: none;">
+									pH그래프 
+								</div>
+								<div id="salt-gp-1" style="display: none;">
+									염분그래프 
+								</div>
+								<div class="report-view" id="report-view-1" style="display: none;">
+									<div class="report-view-head">
+										<div>예측 결과</div>
+										<a href="#" id="imgtag"><img
+											src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
+											class="close"></a>
+									</div>
+									<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
+								</div>
 							</div>
 							<div class="rectangle-data">
 								<div class="ondo">
