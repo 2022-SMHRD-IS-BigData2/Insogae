@@ -53,11 +53,11 @@
 					<ul class="nav-item dropdown">
 						<h5 class="m-0">
 							<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-								role="button" data-bs-toggle="dropdown" aria-expanded="false">company
+								role="button" data-bs-toggle="dropdown" aria-expanded="false">[[${user.COMPANY_NAME}]]
 							</a>
 							<ul class="dropdown-menu dro"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="#">회사이름</a></li>
+								<li><a class="dropdown-item" href="#">[[${user.COMPANY_NAME}]]</a></li>
 								<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
 							</ul>
 						</h5>
@@ -88,7 +88,7 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -96,16 +96,16 @@
 								<div id="ondo-gp-1" class="rectangle-gp-1">
 									온도그래프 
 								</div>
-								<div id="do-gp-1" class="rectangle-gp-1" style="display: none;">
+								<div id="do-gp-1" class="rectangle-gp-1">
 									DO그래프 
 								</div>
-								<div id="ph-gp-1" class="rectangle-gp-1" style="display: none;">
+								<div id="ph-gp-1" class="rectangle-gp-1">
 									pH그래프 
 								</div>
-								<div id="salt-gp-1" class="rectangle-gp-1" style="display: none;">
+								<div id="salt-gp-1" class="rectangle-gp-1">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-1" style="display: none;">
+								<div class="report-view" id="report-view-1">
 									<div class="report-view-head">
 										<div>예측 결과</div>
 										<a href="#" id="imgtag-1"><img
@@ -147,7 +147,7 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div id="clock2"  class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -155,16 +155,16 @@
 							<div id="ondo-gp-2" class="rectangle-gp-2">
 									온도그래프 
 								</div>
-								<div id="do-gp-2" class="rectangle-gp-2" style="display: none;">
+								<div id="do-gp-2" class="rectangle-gp-2">
 									DO그래프 
 								</div>
-								<div id="ph-gp-2" class="rectangle-gp-2" style="display: none;">
+								<div id="ph-gp-2" class="rectangle-gp-2">
 									pH그래프 
 								</div>
-								<div id="salt-gp-2" class="rectangle-gp-2" style="display: none;">
+								<div id="salt-gp-2" class="rectangle-gp-2">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-2" style="display: none;">
+								<div class="report-view" id="report-view-2">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag-2"><img
@@ -205,7 +205,7 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock3" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -213,16 +213,16 @@
 							<div id="ondo-gp-3" class="rectangle-gp-3">
 									온도그래프 
 								</div>
-								<div id="do-gp-3" class="rectangle-gp-3" style="display: none;">
+								<div id="do-gp-3" class="rectangle-gp-3">
 									DO그래프 
 								</div>
-								<div id="ph-gp-3" class="rectangle-gp-3" style="display: none;">
+								<div id="ph-gp-3" class="rectangle-gp-3">
 									pH그래프 
 								</div>
-								<div id="salt-gp-3" class="rectangle-gp-3" style="display: none;">
+								<div id="salt-gp-3" class="rectangle-gp-3">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-3" style="display: none;">
+								<div class="report-view" id="report-view-3">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag-3"><img
@@ -263,7 +263,7 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock4" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -271,16 +271,16 @@
 							<div id="ondo-gp-4" class="rectangle-gp-4">
 									온도그래프 
 								</div>
-								<div id="do-gp-4" class="rectangle-gp-4" style="display: none;">
+								<div id="do-gp-4" class="rectangle-gp-4">
 									DO그래프 
 								</div>
-								<div id="ph-gp-4" class="rectangle-gp-4" style="display: none;">
+								<div id="ph-gp-4" class="rectangle-gp-4">
 									pH그래프 
 								</div>
-								<div id="salt-gp-4" class="rectangle-gp-4" style="display: none;">
+								<div id="salt-gp-4" class="rectangle-gp-4">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-4" style="display: none;">
+								<div class="report-view" id="report-view-4">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag-4"><img
@@ -341,7 +341,7 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock5" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -349,16 +349,16 @@
 							<div id="ondo-gp-5" class="rectangle-gp-5">
 									온도그래프 
 								</div>
-								<div id="do-gp-5" class="rectangle-gp-5" style="display: none;">
+								<div id="do-gp-5" class="rectangle-gp-5">
 									DO그래프 
 								</div>
-								<div id="ph-gp-5" class="rectangle-gp-5" style="display: none;">
+								<div id="ph-gp-5" class="rectangle-gp-5">
 									pH그래프 
 								</div>
-								<div id="salt-gp-5" class="rectangle-gp-5" style="display: none;">
+								<div id="salt-gp-5" class="rectangle-gp-5">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-5" style="display: none;">
+								<div class="report-view" id="report-view-5">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag-5"><img
@@ -399,7 +399,7 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock6" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -407,16 +407,16 @@
 							<div id="ondo-gp-6" class="rectangle-gp-6">
 									온도그래프 
 								</div>
-								<div id="do-gp-6" class="rectangle-gp-6" style="display: none;">
+								<div id="do-gp-6" class="rectangle-gp-6">
 									DO그래프 
 								</div>
-								<div id="ph-gp-6" class="rectangle-gp-6" style="display: none;">
+								<div id="ph-gp-6" class="rectangle-gp-6">
 									pH그래프 
 								</div>
-								<div id="salt-gp-6" class="rectangle-gp-6" style="display: none;">
+								<div id="salt-gp-6" class="rectangle-gp-6">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-6" style="display: none;">
+								<div class="report-view" id="report-view-6">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag-6"><img
@@ -451,13 +451,13 @@
 					</div>
 					<div class="rectangle-2">
 						<div class="tank">
-							<div class="tct">양식장 수조 3</div>
+							<div class="tct">양식장 수조 7</div>
 							<button class="report" id="report-7">
 							리포트
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock7" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
@@ -465,16 +465,16 @@
 							<div id="ondo-gp-7" class="rectangle-gp-7">
 									온도그래프 
 								</div>
-								<div id="do-gp-7" class="rectangle-gp-7" style="display: none;">
+								<div id="do-gp-7" class="rectangle-gp-7">
 									DO그래프 
 								</div>
-								<div id="ph-gp-7" class="rectangle-gp-7" style="display: none;">
+								<div id="ph-gp-7" class="rectangle-gp-7">
 									pH그래프 
 								</div>
-								<div id="salt-gp-7" class="rectangle-gp-7" style="display: none;">
+								<div id="salt-gp-7" class="rectangle-gp-7">
 									염분그래프 
 								</div>
-								<div class="report-view" id="report-view-7" style="display: none;">
+								<div class="report-view" id="report-view-7">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag-7"><img
@@ -515,12 +515,12 @@
 						</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div  id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
 						<div style="display: flex; width:100%; height: 85%">
 							<div class="rectangle-gp">
-								<div class="report-view" id="report-view-8" style="display: none;">
+								<div class="report-view" id="report-view-8">
 								<div class="report-view-head">
 									<div>예측 결과</div>
 									<a href="#" id="imgtag" onclick="hideReport8()"><img

@@ -26,7 +26,7 @@ public class RestTankDataController {
 		return tankdata;
 	}
 	
-	@RequestMapping("/test")
+	@RequestMapping("/timetank")
 	public List<TankData>timetank(){ 
 		
 	List<TankData>timetank= mapper.timedata();
