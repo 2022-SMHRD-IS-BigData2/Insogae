@@ -309,34 +309,10 @@ a {
 	display: flex;
 }
 
-.value-1{
+.rectangle-value{
 	cursor:pointer;
 }
 
-.value-2{
-	cursor:pointer;
-}
-
-.value-3{
-	cursor:pointer;
-}
-
-.value-4{
-	cursor:pointer;
-}
-
-.value-5{
-	cursor:pointer;
-}
-
-.value-6{
-	cursor:pointer;
-}
-
-.value-7{
-	cursor:pointer;
-}
-
-.value{
-	cursor:pointer;
+.rectangle-gp>div~div{
+	display: none;
 }

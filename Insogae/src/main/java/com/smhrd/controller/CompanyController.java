@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.smhrd.entity.Company;
-import com.smhrd.entity.TankData;
 import com.smhrd.mapper.CompanyMapper;
 import com.smhrd.mapper.TankMapper;
 
-@SessionAttributes({"user","tank"})
+@SessionAttributes({ "user", "tank" })
 @Controller
 public class CompanyController {
 
@@ -49,14 +47,14 @@ public class CompanyController {
 		return "join"; // 회원가입페이지 포워드 이동 http://localhost:8882/join
 	}
 
-	@RequestMapping("/goMain.do") 
+	@RequestMapping("/goMain.do")
 	public String goMain(HttpServletRequest request) {
-		return "redirect:/main"; // 메인페이지(양식장 모니터링) 리다이렉트 이동 
+		return "redirect:/main"; // 메인페이지(양식장 모니터링) 리다이렉트 이동
 	}
-	
+
 	@RequestMapping("/main")
 	public String main() {
-		
+
 		return "main"; // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
 	}
 

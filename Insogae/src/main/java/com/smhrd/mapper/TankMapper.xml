@@ -18,6 +18,7 @@ where RECORD_SEQ = #{RECORD_SEQ}
 
 <select id="timedata" resultType="com.smhrd.entity.TankData">
 select*from TANK_DATA
+where TANK_ID='WT11'
 
 </select>
 </mapper>
