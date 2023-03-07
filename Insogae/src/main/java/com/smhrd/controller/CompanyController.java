@@ -18,7 +18,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.smhrd.mapper.CompanyMapper;
 import com.smhrd.mapper.TankMapper;
 
-@SessionAttributes({ "user", "tank" })
+@SessionAttributes({ "user", "tankData", "tank" })
 @Controller
 public class CompanyController {
 

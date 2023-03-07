@@ -36,9 +36,10 @@
 						</a>
 					</div>
 					<div class="item menu3 menu">
-						<a href="goSetting.do"> <img
-							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq0oYv%2Fbtr0w2rg3Fl%2FZKL1SrUPc431KPmkRdcfK8K%2Fimg.png"
-							width="20" height="20"> 환경 설정
+						<a href="goSetting.do"> 
+						<img
+			                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq0oYv%2Fbtr0w2rg3Fl%2FZKL1SrUPc49KPmkRdcfK8K%2Fimg.png"
+			                width="20" height="20"> 환경 설정
 						</a>
 					</div>
 					<ul class="nav-item dropdown">
@@ -63,11 +64,101 @@
 		<div id="container">
 			<!-- 본화면 시작 -->
 			<div id="main-1" class="main">
-				<div class="rectangle-1" id="monitor-1"></div>
+				<div class="rectangle-1" id="monitor-1">
+					<div id="btn-container">
+						<button class="btn" id="next-page">
+							<i class="fa-solid fa-right-long fa-3x"></i>
+						</button>
+						<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
+					</div>
+					<div class="rectangle-2" th:each="tank:${tank}" th:if="${tank.TANK_NUM <= 4}">
+						<div class="tank">
+							<div class="tct">[[${tank.TANK_ID}]]</div>
+							<div class="warning">
+								<div class="wl"></div>
+								<div id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
+							</div>
+						</div>
+						<div class="rectangle-3">
+							<div class="rectangle-gp">
+								<div class="ondo-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'1'"></div>
+								<div class="do-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'2'"></div>
+								<div class="ph-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'3'"></div>
+								<div class="salt-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'4'"></div>
+							</div>
+							<div class="rectangle-data">
+								<div class="ondo">
+									<div class="rectangle-value">온도</div>
+									<div class="ondo-n" th:id="'ondo-'+${tank.TANK_NUM}"></div>
+								</div>
+								<hr class="line-1"></hr>
+								<div class="do">
+									<div class="rectangle-value">DO</div>
+									<div class="do-n" th:id="'do-'+${tank.TANK_NUM}"></div>
+								</div>
+								<hr class="line-1"></hr>
+								<div class="ph">
+									<div class="rectangle-value">pH</div>
+									<div class="ph-n" th:id="'ph-'+${tank.TANK_NUM}"></div>
+								</div>
+								<hr class="line-1"></hr>
+								<div class="salt">
+									<div class="rectangle-value">염분</div>
+									<div class="salt-n" th:id="'salt-'+${tank.TANK_NUM}"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<!-- 본화면 중간 -->
 			<div id="main-2" class="main">
-				<div class="rectangle-1" id="monitor-2"></div>
+				<div class="rectangle-1" id="monitor-2">
+					<div id="btn-container">
+						<button class="btn" id="before-page">
+							<i class="fa-solid fa-left-long fa-3x"></i>
+						</button>
+						<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
+					</div>
+					<div class="rectangle-2" th:each="tank:${tank}" th:if="${tank.TANK_NUM >4}">
+						<div class="tank">
+							<div class="tct">[[${tank.TANK_ID}]]</div>
+							<div class="warning">
+								<div class="wl"></div>
+								<div id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
+							</div>
+						</div>
+						<div class="rectangle-3">
+							<div class="rectangle-gp">
+								<div class="ondo-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'1'"></div>
+								<div class="do-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'2'"></div>
+								<div class="ph-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'3'"></div>
+								<div class="salt-gp" th:id="'chart-div-'+${tank.TANK_NUM}+'4'"></div>
+							</div>
+							<div class="rectangle-data">
+								<div class="ondo">
+									<div class="rectangle-value">온도</div>
+									<div class="ondo-n" th:id="'ondo-'+${tank.TANK_NUM}"></div>
+								</div>
+								<hr class="line-1"></hr>
+								<div class="do">
+									<div class="rectangle-value">DO</div>
+									<div class="do-n" th:id="'do-'+${tank.TANK_NUM}"></div>
+								</div>
+								<hr class="line-1"></hr>
+								<div class="ph">
+									<div class="rectangle-value">pH</div>
+									<div class="ph-n" th:id="'ph-'+${tank.TANK_NUM}"></div>
+								</div>
+								<hr class="line-1"></hr>
+								<div class="salt">
+									<div class="rectangle-value">염분</div>
+									<div class="salt-n" th:id="'salt-'+${tank.TANK_NUM}"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<!-- 본화면 끝 -->
 		</div>
@@ -83,5 +174,6 @@
 	<!-- 구글 차트 자바스크립트 링크 -->
 	<script src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="js/monitoring.js" defer></script>
+	
 </body>
 </html>

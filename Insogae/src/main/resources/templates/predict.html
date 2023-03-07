@@ -79,36 +79,32 @@
 						<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
 
 					</div>
-					
-					<div class="rectangle-2">
+
+					<div class="rectangle-2" th:each="tank:${tank}"
+						th:if="${tank.TANK_NUM <= 4}">
 						<div class="tank">
-							<div class="tct">양식장 수조 1</div>
-							<button class="report" id="report-1">
-							리포트
-						</button>
+							<div class="tct">[[${tank.TANK_ID}]]</div>
+							<button class="report" th:id="'report-'+${tank.TANK_NUM}">
+								리포트</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div  id="clock" class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div id="clock" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
-						<div style="display: flex; width:100%; height: 85%">
+						<div style="display: flex; width: 100%; height: 85%">
 							<div class="rectangle-gp">
-								<div id="ondo-gp-1" class="rectangle-gp-1">
-									온도그래프 
-								</div>
-								<div id="do-gp-1" class="rectangle-gp-1">
-									DO그래프 
-								</div>
-								<div id="ph-gp-1" class="rectangle-gp-1">
-									pH그래프 
-								</div>
-								<div id="salt-gp-1" class="rectangle-gp-1">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-1">
+								<div th:id="'ondo-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">온도그래프</div>
+								<div th:id="'do-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">DO그래프</div>
+								<div th:id="'ph-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">pH그래프</div>
+								<div th:id="'salt-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">염분그래프</div>
+								<div class="report-view" th:id="'report-view-'+${tank.TANK_NUM}">
 									<div class="report-view-head">
 										<div>예측 결과</div>
-										<a href="#" id="imgtag-1"><img
+										<a href="#" th:id="'imgtag-'+${tank.TANK_NUM}"><img
 											src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
 											class="close"></a>
 									</div>
@@ -117,209 +113,28 @@
 							</div>
 							<div class="rectangle-data">
 								<div class="ondo">
-									<div class="rectangle-value value-1">온도</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">온도</div>
 									<div class="ondo-n">12.20 °C</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="do">
-									<div class="rectangle-value value-1">DO</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">DO</div>
 									<div class="do-n">12 ppm</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="ph">
-									<div class="rectangle-value value-1">pH</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">pH</div>
 									<div class="ph-n">7.5 ph</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="salt">
-									<div class="rectangle-value value-1">염분</div>
-									<div class="salt-n">25.30 psu</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조 2</div>
-							<button class="report" id="report-2">
-							리포트
-						</button>
-							<div class="warning">
-								<div class="wl"></div>
-								<div id="clock2"  class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div style="display: flex; width:100%; height: 85%">
-							<div class="rectangle-gp">
-							<div id="ondo-gp-2" class="rectangle-gp-2">
-									온도그래프 
-								</div>
-								<div id="do-gp-2" class="rectangle-gp-2">
-									DO그래프 
-								</div>
-								<div id="ph-gp-2" class="rectangle-gp-2">
-									pH그래프 
-								</div>
-								<div id="salt-gp-2" class="rectangle-gp-2">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-2">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-2"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value value-2">온도</div>
-									<div class="ondo-n">12.20 °C</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value value-2">DO</div>
-									<div class="do-n">12 ppm</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value value-2">pH</div>
-									<div class="ph-n">7.5 ph</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value value-2">염분</div>
-									<div class="salt-n">25.30 psu</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조 3</div>
-							<button class="report" id="report-3">
-							리포트
-						</button>
-							<div class="warning">
-								<div class="wl"></div>
-								<div  id="clock3" class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div style="display: flex; width:100%; height: 85%">
-							<div class="rectangle-gp">
-							<div id="ondo-gp-3" class="rectangle-gp-3">
-									온도그래프 
-								</div>
-								<div id="do-gp-3" class="rectangle-gp-3">
-									DO그래프 
-								</div>
-								<div id="ph-gp-3" class="rectangle-gp-3">
-									pH그래프 
-								</div>
-								<div id="salt-gp-3" class="rectangle-gp-3">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-3">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-3"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value value-3">온도</div>
-									<div class="ondo-n">12.20 °C</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value value-3">DO</div>
-									<div class="do-n">12 ppm</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value value-3">pH</div>
-									<div class="ph-n">7.5 ph</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value value-3">염분</div>
-									<div class="salt-n">25.30 psu</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조 4</div>
-							<button class="report" id="report-4">
-							리포트
-						</button>
-							<div class="warning">
-								<div class="wl"></div>
-								<div  id="clock4" class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div style="display: flex; width:100%; height: 85%">
-							<div class="rectangle-gp">
-							<div id="ondo-gp-4" class="rectangle-gp-4">
-									온도그래프 
-								</div>
-								<div id="do-gp-4" class="rectangle-gp-4">
-									DO그래프 
-								</div>
-								<div id="ph-gp-4" class="rectangle-gp-4">
-									pH그래프 
-								</div>
-								<div id="salt-gp-4" class="rectangle-gp-4">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-4">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-4"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value value-4">온도</div>
-									<div class="ondo-n">12.20 °C</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value value-4">DO</div>
-									<div class="do-n">12 ppm</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value value-4">pH</div>
-									<div class="ph-n">7.5 ph</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value value-4">염분</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">염분</div>
 									<div class="salt-n">25.30 psu</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-
-
-
-
-
 			</div>
 			<!-- 본문 중간 -->
 			<div id="main-2" class="main">
@@ -332,234 +147,56 @@
 						</button>
 
 					</div>
-					
-					<div class="rectangle-2">
+
+					<div class="rectangle-2" th:each="tank:${tank}"
+						th:if="${tank.TANK_NUM > 4}">
 						<div class="tank">
-							<div class="tct">양식장 수조 5</div>
-							<button class="report" id="report-5">
-							리포트
-						</button>
+							<div class="tct">[[${tank.TANK_ID}]]</div>
+							<button class="report" th:id="'report-'+${tank.TANK_NUM}">
+								리포트</button>
 							<div class="warning">
 								<div class="wl"></div>
-								<div  id="clock5" class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div id="clock" class="tctm">2023년 2월 27일 PM 04:55</div>
 							</div>
 						</div>
-						<div style="display: flex; width:100%; height: 85%">
+						<div style="display: flex; width: 100%; height: 85%">
 							<div class="rectangle-gp">
-							<div id="ondo-gp-5" class="rectangle-gp-5">
-									온도그래프 
+								<div th:id="'ondo-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">온도그래프</div>
+								<div th:id="'do-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">DO그래프</div>
+								<div th:id="'ph-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">pH그래프</div>
+								<div th:id="'salt-gp-'+${tank.TANK_NUM}"
+									th:class="'rectangle-gp-'+${tank.TANK_NUM}">염분그래프</div>
+								<div class="report-view" th:id="'report-view-'+${tank.TANK_NUM}">
+									<div class="report-view-head">
+										<div>예측 결과</div>
+										<a href="#" th:id="'imgtag-'+${tank.TANK_NUM}"><img
+											src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
+											class="close"></a>
+									</div>
+									<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
 								</div>
-								<div id="do-gp-5" class="rectangle-gp-5">
-									DO그래프 
-								</div>
-								<div id="ph-gp-5" class="rectangle-gp-5">
-									pH그래프 
-								</div>
-								<div id="salt-gp-5" class="rectangle-gp-5">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-5">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-5"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
 							</div>
 							<div class="rectangle-data">
 								<div class="ondo">
-									<div class="rectangle-value value-5">온도</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">온도</div>
 									<div class="ondo-n">12.20 °C</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="do">
-									<div class="rectangle-value value-5">DO</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">DO</div>
 									<div class="do-n">12 ppm</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="ph">
-									<div class="rectangle-value value-5">pH</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">pH</div>
 									<div class="ph-n">7.5 ph</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="salt">
-									<div class="rectangle-value value-5">염분</div>
-									<div class="salt-n">25.30 psu</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조 6</div>
-							<button class="report" id="report-6">
-							리포트
-						</button>
-							<div class="warning">
-								<div class="wl"></div>
-								<div  id="clock6" class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div style="display: flex; width:100%; height: 85%">
-							<div class="rectangle-gp">
-							<div id="ondo-gp-6" class="rectangle-gp-6">
-									온도그래프 
-								</div>
-								<div id="do-gp-6" class="rectangle-gp-6">
-									DO그래프 
-								</div>
-								<div id="ph-gp-6" class="rectangle-gp-6">
-									pH그래프 
-								</div>
-								<div id="salt-gp-6" class="rectangle-gp-6">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-6">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-6"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value value-6">온도</div>
-									<div class="ondo-n">12.20 °C</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value value-6">DO</div>
-									<div class="do-n">12 ppm</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value value-6">pH</div>
-									<div class="ph-n">7.5 ph</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value value-6">염분</div>
-									<div class="salt-n">25.30 psu</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조 7</div>
-							<button class="report" id="report-7">
-							리포트
-						</button>
-							<div class="warning">
-								<div class="wl"></div>
-								<div  id="clock7" class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div style="display: flex; width:100%; height: 85%">
-							<div class="rectangle-gp">
-							<div id="ondo-gp-7" class="rectangle-gp-7">
-									온도그래프 
-								</div>
-								<div id="do-gp-7" class="rectangle-gp-7">
-									DO그래프 
-								</div>
-								<div id="ph-gp-7" class="rectangle-gp-7">
-									pH그래프 
-								</div>
-								<div id="salt-gp-7" class="rectangle-gp-7">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-7">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-7"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value value-7">온도</div>
-									<div class="ondo-n">12.20 °C</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value value-7">DO</div>
-									<div class="do-n">12 ppm</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value value-7">pH</div>
-									<div class="ph-n">7.5 ph</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value value-7">염분</div>
-									<div class="salt-n">25.30 psu</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조 8</div>
-							<button class="report" id="report-8">
-							리포트
-						</button>
-							<div class="warning">
-								<div class="wl"></div>
-								<div  id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div style="display: flex; width:100%; height: 85%">
-							<div class="rectangle-gp">
-							<div id="ondo-gp-8" class="rectangle-gp-8">
-									온도그래프 
-								</div>
-								<div id="do-gp-8" class="rectangle-gp-8">
-									DO그래프 
-								</div>
-								<div id="ph-gp-8" class="rectangle-gp-8">
-									pH그래프 
-								</div>
-								<div id="salt-gp-8" class="rectangle-gp-8">
-									염분그래프 
-								</div>
-								<div class="report-view" id="report-view-8">
-								<div class="report-view-head">
-									<div>예측 결과</div>
-									<a href="#" id="imgtag-8"><img
-										src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8edCu%2Fbtr1zlPfslw%2Fzyo8l5jOpFzMBDzucsKLJ1%2Fimg.png"
-										class="close"></a>
-								</div>
-								<div class="report-text">- 향후 6시간 이내 이상수치 예측이 없습니다.</div>
-							</div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value value-8">온도</div>
-									<div class="ondo-n">12.20 °C</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value value-8">DO</div>
-									<div class="do-n">12 ppm</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value value-8">pH</div>
-									<div class="ph-n">7.5 ph</div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value value-8">염분</div>
+									<div th:class="'rectangle-value value-'+${tank.TANK_NUM}">염분</div>
 									<div class="salt-n">25.30 psu</div>
 								</div>
 							</div>
@@ -567,17 +204,14 @@
 					</div>
 				</div>
 			</div>
+			<!-- 본문 끝 -->
 		</div>
-		<!-- 본문 끝 -->
-	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src='//code.jquery.com/jquery-3.2.1.slim.min.js'></script>
-	<script src="js/predict.js"></script>
-	<script src="https://kit.fontawesome.com/5ecdf6234c.js"
-		crossorigin="anonymous"></script>
-
-
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src='//code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+		<script src="js/predict.js"></script>
+		<script src="https://kit.fontawesome.com/5ecdf6234c.js"
+			crossorigin="anonymous"></script>
 </body>
 </html>

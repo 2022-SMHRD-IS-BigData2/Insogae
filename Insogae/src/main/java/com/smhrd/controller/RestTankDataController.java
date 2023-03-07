@@ -96,12 +96,4 @@ public class RestTankDataController {
 	}
 	// 수조 8개까지 요청 메소드...
 	
-	@RequestMapping("/tank_id")
-	public List<Tank> tank_id(@RequestParam String user){
-		System.out.println(user);
-		List<Tank> tank_id= mapper.tank_id(user);
-		return tank_id;
-	}
-	
-	
 }

@@ -21,4 +21,5 @@ public class Tank {
 	private int INIT_POP;
 	private int INIT_DENSITY;
 	private int START_TEMP;
+	private int TANK_NUM;
 }

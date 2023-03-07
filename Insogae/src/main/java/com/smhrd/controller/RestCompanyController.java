@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smhrd.entity.Company;
+import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
 import com.smhrd.mapper.CompanyMapper;
 import com.smhrd.mapper.TankMapper;
@@ -20,7 +21,7 @@ import com.smhrd.mapper.TankMapper;
 
 
 @RestController
-@SessionAttributes({"user","tank"})
+@SessionAttributes({"user","tank","tankData"})
 public class RestCompanyController {
 
 	@Autowired
@@ -60,11 +61,14 @@ public class RestCompanyController {
 	public String join(Company company, Model model, HttpServletRequest request) {
 		mapper.join(company);
 		Company user = mapper.login(company);
-		List<TankData> tank = tankmapper.dataCheck();
+		List<TankData> tankData = tankmapper.dataCheck();
+		List<Tank> tank = tankmapper.tank_id(company);
 		HttpSession session1 = request.getSession(true);
 		HttpSession session2 = request.getSession(true);
+		HttpSession session3 = request.getSession(true);
 		session1.setAttribute("user", user);
-		session2.setAttribute("tank", tank);
+		session2.setAttribute("tankData", tankData);
+		session3.setAttribute("tank", tank);
 		
 		if(user!=null) {
 			System.out.println("로그인 성공");
@@ -81,11 +85,14 @@ public class RestCompanyController {
 	@RequestMapping("login.do")
 	public String login(Model model, Company company, HttpServletRequest request) {
 		Company user = mapper.login(company);
-		List<TankData> tank = tankmapper.dataCheck();
+		List<TankData> tankData = tankmapper.dataCheck();
+		List<Tank> tank = tankmapper.tank_id(company);
 		HttpSession session1 = request.getSession(true);
 		HttpSession session2 = request.getSession(true);
+		HttpSession session3 = request.getSession(true);
 		session1.setAttribute("user", user); // 세션에 저장
-		session2.setAttribute("tank", tank); // 세션에 저장
+		session2.setAttribute("tankData", tankData); // 세션에 저장
+		session3.setAttribute("tank", tank); // 세션에 저장
 		if(user!=null) {
 			System.out.println("로그인 성공");
 			return "true";  // login.js -> ajax로 true (res, 응답) 리턴

@@ -1,35 +1,13 @@
-console.log($('#user-id')[0].innerText);
-var user = $('#user-id')[0].innerText;
-const tankIdArray = [];
-var data;
-function getData() {
-  return new Promise(function(resolve, reject) {
-    $.ajax({
-      url: "/tank_id",
-      type: "post",
-      data: {"user":user},
-      success: function(response) {
-        resolve(response);
-      },
-      error: function(xhr, status, error) {
-        reject(error);
-      }
-    });
-  });
-}
-
-getData().then(function(data) {
-  // Ajax 요청이 완료되면 실행될 코드
-  console.log(data);
-  for (let i =0; i<data.length;i++){
-	  tankIdArray.push(data[i].tank_ID);
-  }
-}).catch(function(error) {
-  // 에러 처리 코드
-  console.error(error);
+const myButton = document.getElementById("next-page");
+myButton.addEventListener('click', () => {
+	document.getElementById("container").scrollIntoView({ behavior: 'smooth', block: "nearest", inline: "end" });
 });
-console.log(tankIdArray.value);
-console.log(typeof tankIdArray);
+
+const myButton2 = document.getElementById("before-page");
+myButton2.addEventListener('click', () => {
+	document.getElementById("container").scrollIntoView({ behavior: 'smooth', block: "nearest", inline: "start" });
+});
+
 let num = 8; // 수조 개수 설정
 
 const tankdataArray = []; // id선택자 리스트 ex) id = "tank1data
@@ -43,7 +21,7 @@ const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-1(�
 const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-1(수조1), salt-2(수조2)
 const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-1(수조1), ondo-2(수조2)
 for (let i =1; i <=num; i++){
-	tankdataArray.push('tank' + i+'data');
+	tankdataArray.push('tank' +i+'data');
 	chartIdArray1.push('chart-div-' + i+'1');
 	chartIdArray2.push('chart-div-' + i+'2');
 	chartIdArray3.push('chart-div-' + i+'3');
@@ -53,90 +31,6 @@ for (let i =1; i <=num; i++){
 	phArray.push('ph-'+i);
 	saltArray.push('salt-'+i);
 };
-
-var monitor1 = document.getElementById('monitor-1'); // 첫 페이지 화면 ( 수조 1~4 )
-var monitor2 = document.getElementById('monitor-2'); // 오른쪽 버튼 클릭했을때 나타나는 화면 (수조 5~8) 
-    for (let i = 0; i < num; i++) {
-        tankArray[i] = `
-    				<div class="rectangle-2">
-						<div class="tank">
-							<div class="tct">양식장 수조`+(i+1)+`</div>
-							<div class="warning">
-								<div class="wl"></div>
-								<div id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
-							</div>
-						</div>
-						<div class="rectangle-3">
-							<div class="rectangle-gp">
-								<div class="ondo-gp" id="`+chartIdArray1[i]+`"></div>
-								<div class="do-gp" id="`+chartIdArray2[i]+`"></div>
-								<div class="ph-gp" id="`+chartIdArray3[i]+`"></div>
-								<div class="salt-gp" id="`+chartIdArray4[i]+`"></div>
-							</div>
-							<div class="rectangle-data">
-								<div class="ondo">
-									<div class="rectangle-value">온도</div>
-									<div class="ondo-n" id="`+ondoArray[i]+`"></div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="do">
-									<div class="rectangle-value">DO</div>
-									<div class="do-n" id="`+doArray[i]+`"></div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="ph">
-									<div class="rectangle-value">pH</div>
-									<div class="ph-n" id="`+phArray[i]+`"></div>
-								</div>
-								<hr class="line-1"></hr>
-								<div class="salt">
-									<div class="rectangle-value">염분</div>
-									<div class="salt-n" id="`+saltArray[i]+`"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-        `;
-    };
-    arrow1= `
-    <div id="btn-container">
-		<button class="btn" id="next-page">
-			<i class="fa-solid fa-right-long fa-3x"></i>
-		</button>
-		<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
-	</div>
-    `;
-	arrow2= `
-    <div id="btn-container">
-		<button class="btn" id="before-page">
-			<i class="fa-solid fa-right-long fa-3x"></i>
-		</button>
-		<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
-	</div>
-    `;
-	var tags1 = "";
-	var tags2 = "";
-    for (let i = 0; i < num; i++) {
-		if(i<4){
-			tags1 += tankArray[i];
-		} else if(i>=4){
-			tags2 += tankArray[i];
-		}
-    };
-    monitor1.innerHTML = arrow1+tags1;
-	monitor2.innerHTML = arrow2+tags2;
-
-
-const myButton = document.getElementById("next-page");
-myButton.addEventListener('click', () => {
-	document.getElementById("container").scrollIntoView({ behavior: 'smooth', block: "nearest", inline: "end" });
-});
-
-const myButton2 = document.getElementById("before-page");
-myButton2.addEventListener('click', () => {
-	document.getElementById("container").scrollIntoView({ behavior: 'smooth', block: "nearest", inline: "start" });
-});
-
 
 for (let i =0; i <num; i++){
 	$.ajax({
