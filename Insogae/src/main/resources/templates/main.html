@@ -147,31 +147,34 @@
 						</div>
 						<div class="rectangle-3">
 							<div class="rectangle-gp">
-								<div class="ondo-gp"></div>
-								<div class="do-gp"></div>
-								<div class="ph-gp"></div>
-								<div class="salt-gp"></div>
+								<div class="ondo-gp2"><canvas id="Chart_temp2"></canvas></div>
+								<div class="do-gp2"><canvas id="Chart_do2"></canvas></div>
+								<div class="ph-gp2"><canvas id="Chart_ph2"></canvas></div>
+								<div class="salt-gp2"><canvas id="Chart_salt2"></canvas></div>
+								<div class="salt-gp2"></div>
 							</div>
+							
 							<div class="rectangle-data">
 								<div class="ondo">
 									<div class="rectangle-value">온도</div>
-									<div class="ondo-n">12.20 °C</div>
+									<div class="ondo-n2">°C</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="do">
 									<div class="rectangle-value">do</div>
-									<div class="do-n">12 ppm</div>
+									<div class="do-n2">ppm</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="ph">
 									<div class="rectangle-value">ph</div>
-									<div class="ph-n">7.5 ph</div>
+									<div class="ph-n2">ph</div>
 								</div>
 								<hr class="line-1"></hr>
 								<div class="salt">
 									<div class="rectangle-value">염분</div>
-									<div class="salt-n">25.30 psu</div>
+									<div class="salt-n2">psu</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -185,10 +188,13 @@
 						</div>
 						<div class="rectangle-3">
 							<div class="rectangle-gp">
-								<div class="ondo-gp"></div>
-								<div class="do-gp"></div>
-								<div class="ph-gp"></div>
-								<div class="salt-gp"></div>
+							
+																							<div class="ondo-gp" id="chart_div"style="width: 50%; height: 50%;"></div>
+								<div class="do-gp"><canvas id="Chart_do"></canvas></div>
+								<div class="ph-gp"><canvas id="Chart_ph"></canvas></div>
+								<div class="salt-gp"><canvas id="Chart_salt"></canvas></div>
+								
+								
 							</div>
 							<div class="rectangle-data">
 								<div class="ondo">
@@ -223,10 +229,10 @@
 						</div>
 						<div class="rectangle-3">
 							<div class="rectangle-gp">
-								<div class="ondo-gp"></div>
-								<div class="do-gp"></div>
-								<div class="ph-gp"></div>
-								<div class="salt-gp"></div>
+							<div class="ondo-gp4"><canvas id="Chart_temp4"></canvas></div>
+								<div class="do-gp4"><canvas id="Chart_do4"></canvas></div>
+								<div class="ph-gp4"><canvas id="Chart_ph4"></canvas></div>
+								<div class="salt-gp4"><canvas id="Chart_salt4"></canvas></div>
 							</div>
 							<div class="rectangle-data">
 								<div class="ondo">
@@ -445,27 +451,94 @@
 		
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"></script>
 	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>  <!-- 구글 게이지차트 링크 --> 
+	  <script type="text/javascript">
+	  google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(
+            
+        [
+          ['Label', 'Value'],
+          ['DO', 10],
+          
+        ]);
+
+        var options = {
+          width: 800, height: 400,
+          redFrom: 0, redTo: 30,
+          greenFrom:30, greenTo: 100,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+       
+        
+      }
+
+    </script>
+	
+	
+	
+	
+	
 	<script type="text/javascript">
 	$.ajax({
-	    url : "test",
+	    url : "tank1", //수조 wt11
 	    
 	    success : function(res){
 	        // 3. 응답받은 데이터를 console 출력
+	        
+	  google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(
+            
+        [
+          ['Label', 'Value'],
+          ['DO', 10],
+          
+        ]);
+
+        var options = {
+          width: 600, height: 111,
+          redFrom: 0, redTo: 30,
+          greenFrom:30, greenTo: 100,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        
 	        var count = 0;
 	        console.log(res)
 	        setInterval(() => {
 	        	 console.log(res[count])
+	        	 console.log(res[count].do)
 	        	 time_data = res[count].record_DATE.split('T')[1].split('.')[0]
+	        	 do_data = res[count].do.toFixed(2);
+	        	 ph_data = res[count].ph.toFixed(2);
+	        	 temp_data = res[count].temp.toFixed(2);
+	        	 salt_data = res[count].salt.toFixed(2);
 	            $('.ondo-n').html("")
 	            $('.do-n').html("")
 	            $('.temp-n').html("")
 	            $('.salt-n').html("")
 	            $('.ph-n').html("")
 	            
-	       	 let do_do = `<h5>`+res[count].do+`ppm</h5>`;
-	     		let ph=`<h5>`+res[count].ph+`ph</h5>`;
-	     		 let temp=`<h5>`+res[count].temp+`°C</h5>`;
-	     		 let salt=`<h5>`+res[count].salt+`psu</h5>`;
+	       	 let do_do = `<h5>`+do_data+`ppm</h5>`;
+	     		let ph=`<h5>`+ph_data+`ph</h5>`;
+	     		 let temp=`<h5>`+temp_data+`°C</h5>`;
+	     		 let salt=`<h5>`+salt_data+`psu</h5>`;
 	     		
 	     		
 	            $('.ondo-n').append(temp);
@@ -473,11 +546,18 @@
 	            $('.temp-n').append(temp);
 	            $('.salt-n').append(salt);
 	            $('.ph-n').append(ph);
+	            
+	            data.setValue( 0,1,res[count].do.toFixed(1)*10);
+	            chart.draw(data, options);
+	            
 	            count++
 	        }, 3000
 	              
-	        );
+      
 	        
+	        
+	        );
+      
 	        // 차트 초기화
 	          let labels = [];
 	          const data0 = {
@@ -650,7 +730,10 @@
 	          chart3.update();
 	          count++;
 	          }, 3000); 
-	        },
+      } //구글 chart 끝 부분  
+      
+      
+      },
 	        
 	        
 	  
@@ -659,6 +742,231 @@
 	    error : function(){
 	        console.log('요청실패');
 	    }});    
+	
+
+	
+	
+	$.ajax({
+	    url : "tank2", //수조 wt11
+	    
+	    success : function(res){
+	        // 3. 응답받은 데이터를 console 출력
+	        
+	        var count = 0;
+	        console.log(res)
+	        setInterval(() => {
+	        	 console.log(res[count])
+	        	 console.log(res[count].do)
+	        	 time_data = res[count].record_DATE.split('T')[1].split('.')[0]
+	        	 do_data = res[count].do.toFixed(2);
+	        	 ph_data = res[count].ph.toFixed(2);
+	        	 temp_data = res[count].temp.toFixed(2);
+	        	 salt_data = res[count].salt.toFixed(2);
+	            $('.ondo-n2').html("")
+	            $('.do-n2').html("")
+	            $('.temp-n2').html("")
+	            $('.salt-n2').html("")
+	            $('.ph-n2').html("")
+	            
+	       	 let do_do = `<h5>`+do_data+`ppm</h5>`;
+	     		let ph=`<h5>`+ph_data+`ph</h5>`;
+	     		 let temp=`<h5>`+temp_data+`°C</h5>`;
+	     		 let salt=`<h5>`+salt_data+`psu</h5>`;
+	     		
+	     		
+	            $('.ondo-n2').append(temp);
+	            $('.do-n2').append(do_do);
+	            $('.temp-n2').append(temp);
+	            $('.salt-n2').append(salt);
+	            $('.ph-n2').append(ph);
+	            count++
+	        }, 3000
+	              
+	        );
+	        
+	        // 차트 초기화
+	          let labels = [];
+	          const data0 = {
+	            labels: labels,
+	            datasets: [{
+	              label: 'DO',
+	              data: [],
+	              fill: false,
+	              backgroundColor: [],
+	              borderColor: [],
+	              tension: 0.1,
+	              borderWidth: 1
+	            }]
+	          };
+	          
+
+	          const data1 = {
+	            labels: labels,
+	            datasets: [{
+	              label: 'PH',
+	              data: [],
+	              fill: false,
+	              backgroundColor: [],
+	              borderColor: [],
+	              tension: 0.1
+	            }]
+	          };
+	          const data2 = {
+	            labels: labels,
+	            datasets: [{
+	              label: 'TEMP',
+	              data: [],
+	              fill: false,
+	              backgroundColor: [],
+	              borderColor: [],
+	              tension: 0.1
+	            }]
+	          };
+	          const data3 = {
+	            labels: labels,
+	            datasets: [{
+	              label: 'SALT',
+	              data: [],
+	              fill: false,
+	              backgroundColor: [],
+	              borderColor: [],
+	              tension: 0.1
+	            }]
+	          };
+
+	          let hiddenLabel = [];
+	          let config0 = {
+	            type: 'line',
+	            data: data0,
+	            options: {
+	              scales: {
+	                x: {
+	                  tick: {
+	                    display: false,
+	                    callback: function(label, index, labels) {
+	                      return hiddenLabel;
+	                    }
+	                  }
+	                }
+	              }
+	            }
+	          };
+	          let config1 = {
+	            type: 'line',
+	            data: data1,
+	            options: {
+	              scales: {
+	                x: {
+	                  tick: {
+	                    display: false,
+	                    callback: function(label, index, labels) {
+	                      return hiddenLabel;
+	                    }
+	                  }
+	                }
+	              }
+	            }
+	          };
+	          let config2 = {
+	            type : 'line',
+	            data: data2,
+	            options: {
+	              scales: {
+	                x: {
+	                  tick:{
+	                    display: false,
+	                    callback: function(label, index, labels) {
+	                      return hiddenLabel;
+	                    }
+	                  }
+	                }
+	              }
+	            }
+	          };
+	          let config3 = {
+	            type: 'line',
+	            data: data3,
+	            options: {
+	              scales: {
+	                x: {
+	                  tick:{
+	                    display: false,
+	                    callback: function(label, index, labels) {
+	                      return hiddenLabel;
+	                    }
+	                  }
+	                }
+	              }
+	            }
+	          };
+	          let chart0 = new Chart(
+	          document.getElementById('Chart_do2'),
+	          config0
+	          );
+	          let chart1 = new Chart(
+	          document.getElementById('Chart_ph2'),
+	          config1
+	          );
+	          let chart2 = new Chart(
+	          document.getElementById('Chart_temp2'),
+	          config2
+	          );
+	          let chart3 = new Chart(
+	          document.getElementById('Chart_salt2'),
+	          config3
+	          );
+	        
+	          
+
+	          setInterval(()=> {
+	          hiddenLabel.push("");
+	        
+	          if (data0.datasets[0].data.length > 12){
+	            labels.shift();
+	            data0.datasets[0].data.shift();
+	            data0.datasets[0].backgroundColor.shift();
+	            data0.datasets[0].borderColor.shift();
+	            data1.datasets[0].data.shift();
+	            data1.datasets[0].backgroundColor.shift();
+	            data1.datasets[0].borderColor.shift();
+	            data2.datasets[0].data.shift();
+	            data2.datasets[0].backgroundColor.shift();
+	            data2.datasets[0].borderColor.shift();
+	            data3.datasets[0].data.shift();
+	            data3.datasets[0].backgroundColor.shift();
+	            data3.datasets[0].borderColor.shift();
+	          }
+	          labels.push(time_data);
+	          data0.datasets[0].data.push(res[count].do);
+	          data0.datasets[0].backgroundColor.push(3 >=res[count].do ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data0.datasets[0].borderColor.push(3 >= res[count].do ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data1.datasets[0].data.push(res[count].ph);
+	          data1.datasets[0].backgroundColor.push(7.5 >= res[count].ph >= 8.5 ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data1.datasets[0].borderColor.push(7.5 >= res[count].ph >= 8.5 ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data2.datasets[0].data.push(res[count].temp);
+	          data2.datasets[0].backgroundColor.push(25 >= res[count].temp >= 30 ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data2.datasets[0].borderColor.push(25 >= res[count].temp >= 30 ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data3.datasets[0].data.push(res[count].salt);
+	          data3.datasets[0].backgroundColor.push(20 >= res[count].salt >= 34 ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+	          data3.datasets[0].borderColor.push(20 >= res[count].salt >= 34 ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+
+	          chart0.update();
+	          chart1.update();
+	          chart2.update();
+	          chart3.update();
+	          count++;
+	          }, 3000); 
+	        },
+	        
+	        
+	  
+	        
+	   
+	    error : function(){
+	        console.log('요청실패');
+	    }});  
+	
+	
 	</script>
 		
 		
