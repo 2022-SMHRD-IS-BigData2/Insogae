@@ -26,7 +26,7 @@ $('#submit').on('click', function() {
 								title: '이미 존재하는 아이디 입니다.',
 								showClass: {
 									popup: 'animate__animated animate__fadeInDown'
-								},
+							},
 								hideClass: {
 									popup: 'animate__animated animate__fadeOutUp'
 								},
