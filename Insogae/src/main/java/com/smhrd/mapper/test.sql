@@ -1,1 +1,1 @@
-select *from COMPANY
+select *from COMPANY;

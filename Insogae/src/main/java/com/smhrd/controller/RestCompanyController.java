@@ -2,8 +2,12 @@ package com.smhrd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -16,7 +20,7 @@ import com.smhrd.mapper.TankMapper;
 
 
 @RestController
-@SessionAttributes("user") //로그인 후 세션에 저장 하기위한 어노테이션 나중에 로그인 함수에서 바인딩할때 user와 이름 같게 하면 된다.
+@SessionAttributes({"user","tank"})
 public class RestCompanyController {
 
 	@Autowired
@@ -53,12 +57,14 @@ public class RestCompanyController {
 	
 	// 회원가입 메소드 
 	@RequestMapping("join.do")
-	public String join(Company company, Model model) {
+	public String join(Company company, Model model, HttpServletRequest request) {
 		mapper.join(company);
 		Company user = mapper.login(company);
 		List<TankData> tank = tankmapper.dataCheck();
-		
-		model.addAttribute("tank",tank);
+		HttpSession session1 = request.getSession(true);
+		HttpSession session2 = request.getSession(true);
+		session1.setAttribute("user", user);
+		session2.setAttribute("tank", tank);
 		
 		if(user!=null) {
 			System.out.println("로그인 성공");
@@ -73,16 +79,15 @@ public class RestCompanyController {
 	// 로그인 메소드 ( 로그인시 TANK_DATA 테이블 데이터도 갖고옴)
 	//            ( 로그인시 Company user에 세션으로 저장)
 	@RequestMapping("login.do")
-	public String login(Company company, Model model) {
+	public String login(Model model, Company company, HttpServletRequest request) {
 		Company user = mapper.login(company);
 		List<TankData> tank = tankmapper.dataCheck();
-		
-		model.addAttribute("tank",tank);
-		
+		HttpSession session1 = request.getSession(true);
+		HttpSession session2 = request.getSession(true);
+		session1.setAttribute("user", user); // 세션에 저장
+		session2.setAttribute("tank", tank); // 세션에 저장
 		if(user!=null) {
 			System.out.println("로그인 성공");
-			
-			model.addAttribute("user",user);
 			return "true";  // login.js -> ajax로 true (res, 응답) 리턴
 		}else {
 			System.out.println("로그인실패");

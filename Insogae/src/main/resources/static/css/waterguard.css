@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 body {
 	margin: 0;
 	overflow-x: hidden;
@@ -102,3 +103,26 @@ video {
 input {
 	font-size: 1.5rem;
 }
+
+.nav-item {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#about {
+    padding-left: 30px;
+    padding-top: 35px;
+    width: 700px;
+}
+
+#service2{
+    border: 2px solid lightblue;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-top: 35px;
+    margin: auto;
+    width: 700px;
+}
+
