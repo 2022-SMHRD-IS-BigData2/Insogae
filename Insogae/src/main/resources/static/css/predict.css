@@ -256,6 +256,7 @@ a {
 	border-radius: 7px;
 	background-color: #d9bfa2;
 	margin: 5px;
+	margin: -2px 0 0 -350px;
 }
 
 .report-view-head {
@@ -305,4 +306,8 @@ a {
 #imgtag {
 	padding: 0px 10px;
 	display: flex;
+}
+
+.value-1{
+	cursor:pointer;
 }
