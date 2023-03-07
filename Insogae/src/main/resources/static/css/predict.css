@@ -256,7 +256,7 @@ a {
 	border-radius: 7px;
 	background-color: #d9bfa2;
 	margin: 5px;
-	margin: -2px 0 0 -350px;
+	
 }
 
 .report-view-head {
@@ -297,6 +297,7 @@ a {
 	background-color: rgba(233, 168, 93, 0.87);
 	font-size: 19px;
 	border: 0px;
+	margin: -2px 0 0 -350px;
 }
 
 .report>a {
@@ -309,5 +310,33 @@ a {
 }
 
 .value-1{
+	cursor:pointer;
+}
+
+.value-2{
+	cursor:pointer;
+}
+
+.value-3{
+	cursor:pointer;
+}
+
+.value-4{
+	cursor:pointer;
+}
+
+.value-5{
+	cursor:pointer;
+}
+
+.value-6{
+	cursor:pointer;
+}
+
+.value-7{
+	cursor:pointer;
+}
+
+.value{
 	cursor:pointer;
 }
