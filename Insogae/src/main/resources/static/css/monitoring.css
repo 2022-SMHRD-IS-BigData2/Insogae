@@ -281,3 +281,8 @@ a {
 	height: 50%;
 	width: 50%;
 }
+
+.rectangle-gp>div{
+	display: grid;
+	justify-content: center;
+}

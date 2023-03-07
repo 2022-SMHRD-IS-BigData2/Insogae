@@ -63,4 +63,10 @@ select*from TANK_DATA
 where TANK_ID='WT31'
 
 </select>
+
+<select id="tank_id" resultType="com.smhrd.entity.Tank" parameterType="java.lang.String">
+select A.* from TANK A, COMPANY B
+where A.COMPANY_ID = B.COMPANY_ID
+and B.COMPANY_ID = #{user}
+</select>
 </mapper>

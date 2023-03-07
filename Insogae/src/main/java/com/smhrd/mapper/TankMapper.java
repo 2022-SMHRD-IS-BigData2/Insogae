@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.smhrd.entity.Company;
+import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
 
 @Mapper
@@ -19,5 +21,6 @@ public interface TankMapper {
 	public List<TankData> tank6data(); // 수조6
 	public List<TankData> tank7data(); // 수조7
 	public List<TankData> tank8data(); // 수조8
+	public List<Tank> tank_id(String user); // 수조8
 	
 }

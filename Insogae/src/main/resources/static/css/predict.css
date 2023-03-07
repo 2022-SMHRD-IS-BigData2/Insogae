@@ -316,3 +316,10 @@ a {
 .rectangle-gp>div~div{
 	display: none;
 }
+
+.rectangle-gp{
+	color: black;
+    font-size: 3rem;
+    display: grid;
+    align-items: center;
+}

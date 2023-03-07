@@ -2,11 +2,18 @@ package com.smhrd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smhrd.entity.Company;
+import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
 import com.smhrd.mapper.TankMapper;
 
@@ -15,7 +22,7 @@ public class RestTankDataController {
 	
 	@Autowired
 	private TankMapper mapper;
-
+	
 
 	
 	
@@ -89,6 +96,12 @@ public class RestTankDataController {
 	}
 	// 수조 8개까지 요청 메소드...
 	
+	@RequestMapping("/tank_id")
+	public List<Tank> tank_id(@RequestParam String user){
+		System.out.println(user);
+		List<Tank> tank_id= mapper.tank_id(user);
+		return tank_id;
+	}
 	
 	
 }
