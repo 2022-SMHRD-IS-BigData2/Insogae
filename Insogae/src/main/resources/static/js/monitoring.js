@@ -174,8 +174,8 @@ $.ajax({
               fill: false,
               backgroundColor: [],
               borderColor: [],
-              tension: 0.1,
-              borderWidth: 1
+              pointRadius: 0,
+              tension: 0.1
             }]
           };
           
@@ -188,6 +188,7 @@ $.ajax({
               fill: false,
               backgroundColor: [],
               borderColor: [],
+              pointRadius: 0,
               tension: 0.1
             }]
           };
@@ -199,6 +200,7 @@ $.ajax({
               fill: false,
               backgroundColor: [],
               borderColor: [],
+              pointRadius: 0,
               tension: 0.1
             }]
           };
@@ -210,6 +212,7 @@ $.ajax({
               fill: false,
               backgroundColor: [],
               borderColor: [],
+              pointRadius: 0,
               tension: 0.1
             }]
           };
