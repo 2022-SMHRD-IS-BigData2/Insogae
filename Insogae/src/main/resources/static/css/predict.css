@@ -142,7 +142,7 @@ a {
 
 .rectangle-value {
 	display: flex;
-	width: 50px;
+	width: 75px;
 	height: 30px;
 	border-radius: 18px;
 	background-color: #636464;
@@ -171,7 +171,6 @@ a {
 
 .line-1 {
 	margin: 0px;
-	color: black;
 }
 
 .tct {
@@ -196,8 +195,14 @@ a {
 }
 
 .ondo {
+	height: 50%;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 10px;
+}
+.ondo-sub {
 	display: flex;
-	height: 25%;
+	height: 50%;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 10px;
@@ -210,22 +215,34 @@ a {
 }
 
 .do {
+	height: 50%;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 10px;
+}
+.do-sub {
 	display: flex;
-	height: 25%;
+	height: 50%;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 10px;
 }
 
-.do-n {
+.do-n> {
 	display: flex;
 	font-size: 34px;
 	color: whitesmoke;
 }
 
 .ph {
+	height: 50%;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 10px;
+}
+.ph-sub {
 	display: flex;
-	height: 25%;
+	height: 50%;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 10px;
@@ -238,8 +255,14 @@ a {
 }
 
 .salt {
+	height: 50%;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 10px;
+}
+.salt-sub {
 	display: flex;
-	height: 25%;
+	height: 50%;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 10px;
@@ -328,11 +351,15 @@ a {
 }
 
 .rectangle-data>div{
-	margin: 18px 10px;
+	margin: 4px 10px;
 	cursor: pointer;
 }
 
-  .navbar.sticky-top>div:nth-child(2){
-  	padding-left: 140px;
-  	padding-right: 28px;
-  }
+.navbar.sticky-top>div:nth-child(2){
+	padding-left: 140px;
+	padding-right: 28px;
+}
+  
+h5 {
+	margin: 0;
+}

@@ -14,29 +14,41 @@ for (let i =0; i<num ; i++){
          	console.log(res);
          	console.log("성공!!");
              setInterval(() => {
-               console.log(res[count].temp_ACC)
-               console.log(res[count].do_ACC)
-               console.log(res[count].ph_ACC)
-               console.log(res[count].salt_ACC)
-               time_data = res[count].record_DATE.split('T')[1].split('.')[0]
-               do_data = res[count].do_ACC.toFixed(2);
-               ph_data = res[count].ph_ACC.toFixed(2);
-               temp_data = res[count].temp_ACC.toFixed(2);
-               salt_data = res[count].salt_ACC.toFixed(2);
+               time_acc_data = res[count].record_DATE.split('T')[1].split('.')[0]
+               do_acc_data = res[count].do_ACC.toFixed(2);
+               ph_acc_data = res[count].ph_ACC.toFixed(2);
+               temp_acc_data = res[count].temp_ACC.toFixed(2);
+               salt_acc_data = res[count].salt_ACC.toFixed(2);
+               do_pre_data = res[count].do_PRE.toFixed(2);
+               ph_pre_data = res[count].ph_PRE.toFixed(2);
+               temp_pre_data = res[count].temp_PRE.toFixed(2);
+               salt_pre_data = res[count].salt_PRE.toFixed(2);
             
-               $('#ondo-1').html("")
-               $('#do-1').html("")
-               $('#salt-1').html("")
-               $('#ph-1').html("")
+               $('#ondo-acc-1').html("")
+               $('#do-acc-1').html("")
+               $('#salt-acc-1').html("")
+               $('#ph-acc-1').html("")
+               $('#ondo-pre-1').html("")
+               $('#do-pre-1').html("")
+               $('#salt-pre-1').html("")
+               $('#ph-pre-1').html("")
                
-               let do_do = `<h5>`+do_data+`ppm</h5>`;
-               let ph=`<h5>`+ph_data+`ph</h5>`;
-               let temp=`<h5>`+temp_data+`°C</h5>`;
-               let salt=`<h5>`+salt_data+`psu</h5>`;
-               $('#ondo-1').append(temp);
-               $('#do-1').append(do_do);
-               $('#salt-1').append(salt);
-               $('#ph-1').append(ph);
+               let do_acc = `<h5>`+do_acc_data+`ppm</h5>`;
+               let ph_acc=`<h5>`+ph_acc_data+`ph</h5>`;
+               let temp_acc=`<h5>`+temp_acc_data+`°C</h5>`;
+               let salt_acc=`<h5>`+salt_acc_data+`psu</h5>`;
+               let do_pre = `<h5>`+do_pre_data+`ppm</h5>`;
+               let ph_pre=`<h5>`+ph_pre_data+`ph</h5>`;
+               let temp_pre=`<h5>`+temp_pre_data+`°C</h5>`;
+               let salt_pre=`<h5>`+salt_pre_data+`psu</h5>`;
+               $('#ondo-acc-1').append(temp_acc);
+               $('#do-acc-1').append(do_acc);
+               $('#salt-acc-1').append(salt_acc);
+               $('#ph-acc-1').append(ph_acc);
+               $('#ondo-pre-1').append(temp_pre);
+               $('#do-pre-1').append(do_pre);
+               $('#salt-pre-1').append(salt_pre);
+               $('#ph-pre-1').append(ph_pre);
                	count++;
            }, 3000);
 
