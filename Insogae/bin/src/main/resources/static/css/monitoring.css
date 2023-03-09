@@ -10,11 +10,9 @@ body {
 a {
 	text-decoration: none;
 }
-
 .m-0 {
-	font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
 }
-
 #wrap {
 	position: relative;
 	z-index: 1;
@@ -28,7 +26,7 @@ a {
 /* 헤더 스타일 설정 */
 #header {
 	/* height: 8vh; */
-	width: 200vw;
+	width: 200vw; 
 	z-index: 2;
 	background-color: #303C50;
 	position: relative;
@@ -110,6 +108,7 @@ a {
 #main-2>.rectangle-1 {
 	padding-left: 18px;
 } */
+
 .rectangle-2 {
 	width: 49.77%;
 	height: 50%;
@@ -117,6 +116,12 @@ a {
 	background-color: #3c3c40;
 	margin: 2px;
 	padding: 3px;
+}
+
+.rectangle-3 {
+	display: flex;
+	width: 100%;
+	height: 86%
 }
 
 .rectangle-gp {
@@ -152,7 +157,7 @@ a {
 }
 
 .tank {
-	height: 12%;
+	height: 11%;
 	padding: 0px 15px;
 	display: flex;
 	justify-content: space-between;
@@ -205,7 +210,7 @@ a {
 
 .ondo-n {
 	display: flex;
-	font-size: 34px;
+	font-size: 2em;
 	color: #3C3C40;
 }
 
@@ -251,83 +256,35 @@ a {
 	color: #3C3C40;
 }
 
-/* 리포트 스타일 설정 */
-.report-view {
-	width: 98%;
-	height: 97%;
-	padding: 0px 0px 0px 0px;
-	border-radius: 7px;
-	background-color: #d9bfa2;
-	margin: 5px;
+.ondo-gp {
+	border-top-left-radius: 7px;
+	border: 1px solid black;
+	height: 50%;
+	width: 50%;
 }
 
-.report-view-head {
-	font-size: 30px;
-	display: flex;
-	color: black;
-	padding-top: 13px;
-	margin: 0px 6px 0px 267px;
-	justify-content: space-between;
-	font-family: 'Jua', sans-serif;
+.do-gp {
+	border-top-right-radius: 7px;
+	border: 1px solid black;
+	height: 50%;
+	width: 50%;
 }
 
-.close {
-	width: 33px;
-	height: 31px;
+.ph-gp {
+	border-bottom-left-radius: 7px;
+	border: 1px solid black;
+	height: 50%;
+	width: 50%;
 }
 
-.report-text {
-	width: 523px;
-	height: 18px;
-	margin: 21px 105px 0 64px;
-	font-size: 18px;
-	font-weight: normal;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #000;
-	font-family: 'Jua', sans-serif;
-}
-
-.report {
-	width: 99px;
-	height: 42px;
-	border-radius: 9px;
-	box-shadow: 0 4px 4px 0 rgb(0 0 0/ 25%);
-	background-color: rgba(233, 168, 93, 0.87);
-	font-size: 19px;
-	border: 0px;
-	margin: -2px 0 0 -350px;
-}
-
-.report>a {
-	color: black;
-}
-
-#imgtag {
-	padding: 0px 10px;
-	display: flex;
-}
-
-.rectangle-value {
-	cursor: pointer;
-}
-
-.rectangle-gp {
-	color: black;
-	font-size: 3rem;
-	display: grid;
-	align-items: center;
-	align-content: center;
+.salt-gp {
+	border-bottom-right-radius: 7px;
+	border: 1px solid black;
+	height: 50%;
+	width: 50%;
 }
 
 .rectangle-gp>div{
-	width: 670px;
-}
-
-.rectangle-data>div{
-	margin: 18px 10px;
-	cursor: pointer;
+	display: grid;
+	justify-content: center;
 }
