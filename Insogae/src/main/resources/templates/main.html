@@ -2,47 +2,6 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>WaterGuard</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/main.css"/>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
-	  rel="stylesheet">
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WaterGuard</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet" href="css/main.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
-    rel="stylesheet">
-
-
-
-	
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WaterGuard</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet" href="css/main.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
-    rel="stylesheet">
-
-
-
-	
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,6 +25,7 @@
 <body>
 	<!-- header Navbar 시작 -->
 	<div id="wrap">
+
 		<div id="header">
 			<nav class="navbar sticky-top ">
 				<div class="container-fluid col-4">
@@ -121,7 +81,7 @@
 		<div id="container">
 			<!-- 본화면 시작 -->
 			<div id=main>
-			<p style="text-align: center; font-size: 5ch; font-family: 'Do Hyeon', sans-serif; margin-top: 20px;">어떤 페이지라고 할까..?</p>
+			<p style="text-align: center; font-size: 5ch; font-family: 'Do Hyeon', sans-serif; margin-top: 20px; color:#99CCFF;">Information</p>
 				<div id=map style="display: inline-block; float: left; margin-top: 20px; margin-left: 20px;">
 					<img src="img/지도api.png"
 						style="width: 500px; height: 300px; float: left; margin-left: 200px;">
@@ -132,7 +92,7 @@
 						
 						<tr>
 							<td rowspan="4" style="width: 100px; text-align: center;">완주</td>
-							<td> 
+							<td style="width: 450px;"> 
 							&nbsp; 🏠 전라북도 완주군 고산면 대아저수로 410-25</td>
 							
 						</tr>
@@ -179,22 +139,101 @@
 					
 				</div>
 				
+				<hr style="border-left: thick solid #99CCFF; height:100%; left: 50%; position: absolute; margin-top:-10px;"></hr>
 				
-				<div id=weather1
-					style="display: inline-block; float: right; margin-left: 30px; margin-top: 10px;">
-					<img src="img/날씨_누끼.png"
-						style="width: 500px; height: 250px; float: right; margin-right: 250px;"></div>
-				
-				<div id=weather2
-					style="display: inline-block; float: right; margin-left: 300px; margin-top: 30px;">
-					<img src="img/날씨_누끼.png"
-						style="width: 500px; height: 250px; float: right; margin-right: 250px;"></div>
+				<div id=table2 style="display: inline-block; float: right; margin-right:170px;">
+					<table id="tbl" border="4" bordercolor="lightgray" style="text-align:center;">
+						<tr>
+							<td style="width:120px; height: 60px; color:lightgreen;">Tank</td>
+							<td style="width:120px; height: 60px; color:yellow;">온도</td>
+							<td style="width:120px; height: 60px; color:yellow;">DO</td>
+							<td style="width:120px; height: 60px; color:yellow;">pH</td>
+							<td style="width:120px; height: 60px; color:yellow;">염분</td>
+						</tr>
 						
-				<div id=weather3
-					style="display: inline-block; float: right; margin-left: 300px; margin-top: 30px;">
-					<img src="img/날씨_누끼.png"
-						style="width: 500px; height: 250px; float: right; margin-right: 250px;"></div>
-
+						<tr>
+							<td>수조1</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조2</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조3</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조4</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조5</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조6</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조7</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+						
+						<tr>
+							<td style="width:100px; height: 60px;">수조8</td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+							<td style="width:100px; height: 60px;"></td>
+						</tr>
+				
+					</table>
+				</div>
+						
+				<div id=weather1
+					style="display: inline-block; float: right; margin-right: 30px; margin-top: 130px;">
+					<img src="img/날씨1.png"
+						style="width: 200px; height: 100px; float: right; margin-right: 600px;">
+				</div>
+				
+				<div id="weather2" style="display: inline-block; float: right; margin-left: 100px;">
+					<img src="img/날씨2.png"
+						style="width: 200px; height: 100px; float: right; margin-right: 360px; margin-top: -100px;">
+				</div>
+				
+				<div id="weather3" style="display: inline-block; float: right; margin-left: 100px; margin-top: 80px;">
+					<img src="img/날씨3.png"
+						style="width: 200px; height: 100px; float: right; margin-right: 100px; margin-top: -177px;">
+				</div>
+						
 
 			</div>
 		</div>
