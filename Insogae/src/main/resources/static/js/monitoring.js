@@ -39,6 +39,8 @@ for (let i =0; i <num; i++){
 		url: tankdataArray[i],// 수조1
 
 		success: function(res) {
+			
+			
 			// 3. 응답받은 데이터를 console 출력
 	
 			google.charts.load('current', { 'packages': ['gauge'] });
@@ -142,6 +144,30 @@ for (let i =0; i <num; i++){
 						ph_data = res[count].ph.toFixed(2);
 						temp_data = res[count].temp.toFixed(2);
 						salt_data = res[count].salt.toFixed(2);
+						
+						
+						
+						
+						if(do_data<3){
+							document.getElementById(doArray[i]).style.color="red";
+						}
+						
+						else if(ph_data<5){
+							document.getElementById(phArray[i]).style.color="red";
+						}
+						
+						else if(temp_data<6){
+							document.getElementById(ondoArray[i]).style.color="red";
+						}
+						
+						else if(salt_data<10){
+							document.getElementById(saltArray[i]).style.color="red";
+						}
+						
+						
+						
+						
+						
 						$('#'+ondoArray[i]).html("");
 						$('#'+doArray[i]).html("");
 						$('#'+saltArray[i]).html("");
