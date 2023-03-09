@@ -125,7 +125,7 @@ a {
 	height: 100%;
 	margin: 2px;
 	border-radius: 7px;
-	background-color: #d9d9d9;
+	background-color: #212529;
 	flex-wrap: wrap;
 	justify-content: center;
 }
@@ -137,7 +137,7 @@ a {
 	margin: 2px;
 	border-radius: 6px;
 	flex-direction: column;
-	background-color: #d9d9d9;
+	background-color: #212529;
 }
 
 .rectangle-value {
@@ -145,7 +145,7 @@ a {
 	width: 50px;
 	height: 30px;
 	border-radius: 18px;
-	background-color: #919991;
+	background-color: #636464;
 	font-size: 14px;
 	align-items: center;
 	justify-content: center;
@@ -206,7 +206,7 @@ a {
 .ondo-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .do {
@@ -220,7 +220,7 @@ a {
 .do-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .ph {
@@ -234,7 +234,7 @@ a {
 .ph-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .salt {
@@ -248,13 +248,13 @@ a {
 .salt-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 /* 리포트 스타일 설정 */
 .report-view {
 	width: 98%;
-	height: 97%;
+	height: 359%;
 	padding: 0px 0px 0px 0px;
 	border-radius: 7px;
 	background-color: #d9bfa2;
