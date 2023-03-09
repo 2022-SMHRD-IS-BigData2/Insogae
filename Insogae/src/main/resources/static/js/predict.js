@@ -23,10 +23,10 @@ for (let i = 1; i <= num; i++) {
    contentArray.push('#report-view-' + i);
    rectangleArray.push('.rectangle-gp-' + i);
    imgtagArray.push('#imgtag-' + i);
-   dataArray.push('온도');
+   dataArray.push('현재 온도');
 }
-
-
+console.log($(valueArray[0]));
+console.log($(valueArray[0])[0].childNodes[1].firstElementChild.innerHTML);
 
 for (let i = 0; i < num; i++) {
    $(reportArray[i]).on('click', function () {
@@ -36,7 +36,7 @@ for (let i = 0; i < num; i++) {
       console.log(tempArray);
       console.log(tempArray2);
       for (let j = 0; j < 4; j++) {
-         if (tempArray2[j].innerText == dataArray[i]) {
+         if (tempArray2[j].childNodes[1].firstElementChild.innerHTML == dataArray[i]) {
             document.getElementById(tempArray[j].id).style.display = "none";
          }
       }
@@ -49,7 +49,7 @@ for (let i = 0; i < num; i++) {
       let tempArray = $(rectangleArray[i]);
       let tempArray2 = $(valueArray[i]);
       for (let j = 0; j < 4; j++) {
-         if (tempArray2[j].innerText == dataArray[i]) {
+         if (tempArray2[j].childNodes[1].firstElementChild.innerHTML == dataArray[i]) {
             console.log(tempArray[j]);
             document.getElementById(tempArray[j].id).style.display = "block";
          }
@@ -65,17 +65,18 @@ for (let i = 0; i < num; i++) {
 	$(contentArray[i]).hide();
 	
    $(valueArray[i]).on('click', function () {
-      dataArray[i] = $(this).text();
+	   console.log($(this)[0].childNodes[1].childNodes[1].innerText);
+      dataArray[i] = $(this)[0].childNodes[1].childNodes[1].innerText;
       console.log(dataArray[i])
 
-      if (dataArray[i] == '온도') {
+      if (dataArray[i] == '현재 온도') {
          $(ondoArray[i]).show();
          $(doArray[i]).hide();
          $(phArray[i]).hide();
          $(saltArray[i]).hide();
          $(contentArray[i]).hide();
       }
-      else if (dataArray[i] == 'pH') {
+      else if (dataArray[i] == '현재 pH') {
          
          console.log($(ondoArray[i]))
          $(ondoArray[i]).hide();
@@ -83,14 +84,14 @@ for (let i = 0; i < num; i++) {
          $(phArray[i]).show();
          $(saltArray[i]).hide();
          $(contentArray[i]).hide();
-      } else if (dataArray[i] == 'DO') {
+      } else if (dataArray[i] == '현재 DO') {
          $(ondoArray[i]).hide();
          $(doArray[i]).show();
          $(phArray[i]).hide();
          $(saltArray[i]).hide();
          $(contentArray[i]).hide();
       }
-      else if (dataArray[i] == '염분') {
+      else if (dataArray[i] == '현재 염분') {
          $(ondoArray[i]).hide();
          $(doArray[i]).hide();
          $(phArray[i]).hide();
