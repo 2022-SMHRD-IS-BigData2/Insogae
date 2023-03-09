@@ -295,3 +295,7 @@ a {
 	display: grid;
 	justify-content: center;
 }
+  .navbar.sticky-top>div:nth-child(2){
+  	padding-left: 140px;
+  	padding-right: 28px;
+  }

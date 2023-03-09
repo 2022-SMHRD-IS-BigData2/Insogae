@@ -30,7 +30,7 @@ body {
 	/* overflow-y: hidden;
 	overflow-x: hidden; */
 }
-
+ 
 #body {
     width: 100vh;
     display: flex;
@@ -258,4 +258,7 @@ a {
 
   #home-tab{
     background-color: #848484;
+  }
+  .navbar.sticky-top>div:nth-child(2){
+  	padding-left: 140px;
   }

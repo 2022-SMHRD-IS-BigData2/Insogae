@@ -1,6 +1,7 @@
 package com.smhrd.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -24,5 +25,7 @@ public interface TankMapper {
 	public List<TankData> tank8data(); // 수조8
 	public List<Tank> tank_id(Company company); // 수조8
 	public List<TankDataPre2> tankDataPre(String user, String tankId);
+	public List<Object> locationData(String user);
+	public int locationCount(String user);
 	
 }

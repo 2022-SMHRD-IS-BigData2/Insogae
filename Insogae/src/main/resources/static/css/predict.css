@@ -331,3 +331,8 @@ a {
 	margin: 18px 10px;
 	cursor: pointer;
 }
+
+  .navbar.sticky-top>div:nth-child(2){
+  	padding-left: 140px;
+  	padding-right: 28px;
+  }

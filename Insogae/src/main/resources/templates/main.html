@@ -29,7 +29,7 @@
 
     <div id="header">
       <nav class="navbar sticky-top ">
-        <div class="container-fluid col-4">
+        <div class="container-fluid col-6">
           <a href="goMain.do"><img
 						src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmlsI7%2Fbtr0BB7bnSk%2FKiqvCvFrLHKhqg8WS3T3Y1%2Fimg.png"
 						width="200" height="50" class="d-inline-block align-text-top"></a>
@@ -37,8 +37,7 @@
            
           </h3>
         </div>
-        <div class="container-fluid col-3"></div>
-        <div class="container-fluid FT1 col-5">
+        <div class="container-fluid col-6">
 			<div class="item menu0 menu">
 					<a href="goMain.do">
 						<img src="img/main.png" width="20" height="20"> 메인
@@ -77,6 +76,7 @@
               <a class="nav-link dropdown-toggle company" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">[[${user.COMPANY_NAME}]]
               </a>
+              <div id="user-id" style="display: none">[[${user.COMPANY_ID}]]</div>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">[[${user.COMPANY_NAME}]]</a></li>
                 <li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
@@ -102,48 +102,45 @@
 					<table border="3" bordercolor="lightgray" >
 						
 						<tr>
-							<td rowspan="4" style="width: 100px; text-align: center;">완주</td>
-							<td style="width: 450px;"> 
-							&nbsp; 🏠 전라북도 완주군 고산면 대아저수로 410-25</td>
+							<td id="" rowspan="4" style="width: 100px; text-align: center;">완주</td>
+							<td id="" style="width: 450px;">🏠 주소</td>
 							
 						</tr>
 						<tr>
-							<td>&nbsp; 📞 063-553-10</td>
+							<td id=""> 📞 전화번호</td>
 						</tr>
 						<tr>
-							<td> &nbsp; 🌊 4개</td>
+							<td id=""> 🌊 수조개수</td>
 						</tr>
 						<tr>
-							<td> &nbsp; 🦐 약 44,000마리</td>
+							<td id=""> 🦐 양식 마리수</td>
 						</tr>
 						
 						<tr>
-							<td rowspan="4" style="width: 100px; text-align: center;">전주</td>
-							<td > 
-							 &nbsp; 🏠 전라북도 전주시 덕진구 콩쥐팥쥐로 1515 </td>
+							<td id="" rowspan="4" style="width: 100px; text-align: center;">전주</td>
+							<td id="" > 
+							🏠 주소</td>
 							
 						</tr>
 						<tr>
-							<td> &nbsp; 📞 063-548-74</td>
+							<td id="">📞 전화</td>
 						</tr>
 						<tr>
-							<td> &nbsp; 🌊 3개</td>
+							<td id="">🌊 수조개수</td>
 						</tr>
 						<tr>
-							<td> &nbsp; 🦐 약 4,500마리</td>
+							<td id="">🦐 양식 마리수</td>
 						</tr>
 						
 						<tr>
-							<td rowspan="4" style="width: 100px; text-align: center;">진도</td>
-							<td > 
-							 &nbsp; 🏠 전라남도 진도군 고군면 동부해안로 427 </td>
-							
+							<td id="" rowspan="4" style="width: 100px; text-align: center;">진도</td>
+							<td id="" >🏠 주소</td>
 						</tr>
 						<tr>
-							<td> &nbsp; 📞 061-589-06</td>
+							<td id="">📞 전화</td>
 						</tr>
 						<tr>
-							<td> &nbsp; 🌊 1개</td>
+							<td id="">🌊 수조 개수</td>
 						</tr>
 
 					</table>
@@ -155,75 +152,19 @@
 				<div id=table2 style="display: inline-block; float: right; margin-right:170px;">
 					<table id="tbl" border="4" bordercolor="lightgray" style="text-align:center;">
 						<tr>
-							<td style="width:120px; height: 60px; color:lightgreen;">Tank</td>
-							<td style="width:120px; height: 60px; color:yellow;">온도</td>
-							<td style="width:120px; height: 60px; color:yellow;">DO</td>
-							<td style="width:120px; height: 60px; color:yellow;">pH</td>
-							<td style="width:120px; height: 60px; color:yellow;">염분</td>
+							<td id="" style="width:120px; height: 60px; color:lightgreen;">Tank</td>
+							<td id="" style="width:120px; height: 60px; color:yellow;">온도</td>
+							<td id="" style="width:120px; height: 60px; color:yellow;">DO</td>
+							<td id="" style="width:120px; height: 60px; color:yellow;">pH</td>
+							<td id="" style="width:120px; height: 60px; color:yellow;">염분</td>
 						</tr>
 						
-						<tr>
-							<td>수조1</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조2</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조3</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조4</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조5</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조6</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조7</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-						</tr>
-						
-						<tr>
-							<td style="width:100px; height: 60px;">수조8</td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
-							<td style="width:100px; height: 60px;"></td>
+						<tr th:each="tank : ${tank}">
+							<td id="">[[${tank.TANK_ID}]]</td>
+							<td th:id="'ondo-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>
+							<td th:id="'do-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>
+							<td th:id="'ph-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>
+							<td th:id="'salt-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>
 						</tr>
 				
 					</table>
@@ -285,7 +226,6 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-	<script src="js/main.js"></script>
 	<script src="https://kit.fontawesome.com/5ecdf6234c.js"
 		crossorigin="anonymous"></script>
 
@@ -300,6 +240,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 
+	<script src="js/main.js"></script>
 	  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAdspPxZ8x7c5uSlWrR3XE2_p8rlBM4Bg&callback=initMap"></script>
 	
 	<script src="js/weather.js"></script>

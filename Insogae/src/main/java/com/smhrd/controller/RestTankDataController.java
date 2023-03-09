@@ -1,11 +1,14 @@
 package com.smhrd.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smhrd.entity.Company;
+import com.smhrd.entity.LocationCount;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
 import com.smhrd.entity.TankDataPre2;
@@ -23,7 +27,8 @@ public class RestTankDataController {
 	
 	@Autowired
 	private TankMapper mapper;
-	
+	@Autowired
+    private JdbcTemplate jdbcTemplate;
 
 	
 	
@@ -97,6 +102,7 @@ public class RestTankDataController {
 	}
 	// 수조 8개까지 요청 메소드...
 	
+	// 실제값 예측값 같이 있는 테이블 반환
 	@RequestMapping("/tank_data_pre")
 	public List<TankDataPre2> tank_data_pre(String user, String tankId, HttpServletRequest request){
 	user = request.getParameter("userData");
@@ -105,6 +111,18 @@ public class RestTankDataController {
 	System.out.println("tank_id : "+tankId);
 	List<TankDataPre2> tank_data_pre = mapper.tankDataPre(user, tankId);
 	return tank_data_pre;
-		
 	}
-}
+	
+	
+	@RequestMapping("/location_data") 
+	public List<Object> locationData(String user, HttpServletRequest request) { 
+		String sql ="select A.LOCATION as loc, COUNT(*) as cnt, SUM(A.INIT_POP) as sum from TANK A, COMPANY B " +
+					"where A.COMPANY_ID = B.COMPANY_ID " + "and B.COMPANY_ID = 'insogae'" +
+					"group by A.LOCATION"; 
+		return jdbcTemplate.query(sql, (rs, rowNum) -> new LocationCount(
+				rs.getString("loc"), 
+				rs.getLong("cnt"),
+				rs.getLong("sum")
+				)); 
+		}
+	 }

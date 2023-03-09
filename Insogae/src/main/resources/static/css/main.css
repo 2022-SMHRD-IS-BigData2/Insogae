@@ -111,4 +111,6 @@ table{
 	font-size: 2.5ch;
 	font-family: 'Do Hyeon', sans-serif;
 }
-
+  .navbar.sticky-top>div:nth-child(2){
+  	padding-left: 140px;
+  }

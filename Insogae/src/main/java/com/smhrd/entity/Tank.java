@@ -1,11 +1,14 @@
 package com.smhrd.entity;
 
+import java.math.BigInteger;
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,4 +25,5 @@ public class Tank {
 	private int INIT_DENSITY;
 	private int START_TEMP;
 	private int TANK_NUM;
+	private int COUNT;
 }
