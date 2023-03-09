@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smhrd.entity.Company;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
+import com.smhrd.entity.TankDataPre2;
 import com.smhrd.mapper.TankMapper;
 
 @RestController
@@ -96,4 +97,14 @@ public class RestTankDataController {
 	}
 	// 수조 8개까지 요청 메소드...
 	
+	@RequestMapping("/tank_data_pre")
+	public List<TankDataPre2> tank_data_pre(String user, String tankId, HttpServletRequest request){
+	user = request.getParameter("userData");
+	tankId = request.getParameter("tankIdData");
+	System.out.println("user_id : "+user);
+	System.out.println("tank_id : "+tankId);
+	List<TankDataPre2> tank_data_pre = mapper.tankDataPre(user, tankId);
+	return tank_data_pre;
+		
+	}
 }

@@ -1,19 +1,28 @@
-
+var user = $('#user-id').text();
+const tankIdList = [];
+for (let i =0; i<num ; i++){
+	tankIdList.push($('.tct').html());
+}
       $.ajax({
-        url : "tank1data",
+        url : "tank_data_pre",
+        data : {
+        	userData :user,
+        	tankIdData : tankIdList[0]
+        },
         success : function(res) {
          var count=0;
-         	console.log(res)
+         	console.log(res);
+         	console.log("성공!!");
              setInterval(() => {
-               console.log(res[count].temp)
-               console.log(res[count].do)
-               console.log(res[count].ph)
-               console.log(res[count].salt)
+               console.log(res[count].temp_ACC)
+               console.log(res[count].do_ACC)
+               console.log(res[count].ph_ACC)
+               console.log(res[count].salt_ACC)
                time_data = res[count].record_DATE.split('T')[1].split('.')[0]
-               do_data = res[count].do.toFixed(2);
-               ph_data = res[count].ph.toFixed(2);
-               temp_data = res[count].temp.toFixed(2);
-               salt_data = res[count].salt.toFixed(2);
+               do_data = res[count].do_ACC.toFixed(2);
+               ph_data = res[count].ph_ACC.toFixed(2);
+               temp_data = res[count].temp_ACC.toFixed(2);
+               salt_data = res[count].salt_ACC.toFixed(2);
             
                $('#ondo-1').html("")
                $('#do-1').html("")
@@ -32,16 +41,24 @@
            }, 3000);
 
 let labels = [];
-             const data0 = {
+ const data0 = {
                labels: labels,
                datasets: [{
-                 label: '온도',
+                 label: '현재 온도',
                  data: [],
                  fill: false,
                  backgroundColor: [],
                  borderColor: [],
                  tension: 0.1,
                  borderWidth: 1
+               },{
+            	   label: '예측 온도',
+                   data: [],
+                   fill: false,
+                   backgroundColor: [],
+                   borderColor: [],
+                   tension: 0.1,
+                   borderWidth: 1
                }]
              };
 
@@ -49,42 +66,66 @@ let labels = [];
  const data1 = {
                labels: labels,
                datasets: [{
-                 label: 'DO',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
+                   label: '현재 DO',
+                   data: [],
+                   fill: false,
+                   backgroundColor: [],
+                   borderColor: [],
+                   tension: 0.1,
+                   borderWidth: 1
+                 },{
+              	   label: '예측 DO',
+                     data: [],
+                     fill: false,
+                     backgroundColor: [],
+                     borderColor: [],
+                     tension: 0.1,
+                     borderWidth: 1
+                 }]
              };
 
 
  const data2 = {
                labels: labels,
                datasets: [{
-                 label: 'pH',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
+                   label: '현재 pH',
+                   data: [],
+                   fill: false,
+                   backgroundColor: [],
+                   borderColor: [],
+                   tension: 0.1,
+                   borderWidth: 1
+                 },{
+              	   label: '예측 pH',
+                     data: [],
+                     fill: false,
+                     backgroundColor: [],
+                     borderColor: [],
+                     tension: 0.1,
+                     borderWidth: 1
+                 }]
              };
 
 
  const data3 = {
                labels: labels,
                datasets: [{
-                 label: '염분',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
+                   label: '현재 염도',
+                   data: [],
+                   fill: false,
+                   backgroundColor: [],
+                   borderColor: [],
+                   tension: 0.1,
+                   borderWidth: 1
+                 },{
+              	   label: '예측 염도',
+                     data: [],
+                     fill: false,
+                     backgroundColor: [],
+                     borderColor: [],
+                     tension: 0.1,
+                     borderWidth: 1
+                 }]
              };
              
 
@@ -163,6 +204,7 @@ let labels = [];
              document.getElementById('ondo-gp-1'),
              config0
              );
+             console.log(chart0);
              let chart1 = new Chart(
              document.getElementById('do-gp-1'),
              config1
@@ -175,6 +217,8 @@ let labels = [];
              document.getElementById('salt-gp-1'),
              config3
              );
+             console.log(chart0);
+             console.log(chart1);
          
              setInterval(()=> {
              hiddenLabel.push("");
@@ -184,36 +228,60 @@ let labels = [];
              data0.datasets[0].data.shift();
              data0.datasets[0].backgroundColor.shift();
              data0.datasets[0].borderColor.shift();
+             data0.datasets[1].data.shift();
+             data0.datasets[1].backgroundColor.shift();
+             data0.datasets[1].borderColor.shift();
 
              data1.datasets[0].data.shift();
              data1.datasets[0].backgroundColor.shift();
              data1.datasets[0].borderColor.shift();
+             data1.datasets[1].data.shift();
+             data1.datasets[1].backgroundColor.shift();
+             data1.datasets[1].borderColor.shift();
 
              data2.datasets[0].data.shift();
              data2.datasets[0].backgroundColor.shift();
              data2.datasets[0].borderColor.shift();
+             data2.datasets[1].data.shift();
+             data2.datasets[1].backgroundColor.shift();
+             data2.datasets[1].borderColor.shift();
 
              data3.datasets[0].data.shift();
              data3.datasets[0].backgroundColor.shift();
              data3.datasets[0].borderColor.shift();
+             data3.datasets[1].data.shift();
+             data3.datasets[1].backgroundColor.shift();
+             data3.datasets[1].borderColor.shift();
 
              }
              labels.push(time_data);
-             data0.datasets[0].data.push(res[count].temp);
-             data0.datasets[0].backgroundColor.push(3 >=res[count].temp ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data0.datasets[0].borderColor.push(3 >= res[count].temp ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data0.datasets[0].data.push(res[count].temp_ACC);
+             data0.datasets[0].backgroundColor.push(3 >=res[count].temp_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data0.datasets[0].borderColor.push(3 >= res[count].temp_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data0.datasets[1].data.push(res[count].temp_PRE);
+             data0.datasets[1].backgroundColor.push(3 >=res[count].temp_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data0.datasets[1].borderColor.push(3 >= res[count].temp_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
             
-             data1.datasets[0].data.push(res[count].do);
-             data1.datasets[0].backgroundColor.push(3 >=res[count].do ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data1.datasets[0].borderColor.push(3 >= res[count].do ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data1.datasets[0].data.push(res[count].do_ACC);
+             data1.datasets[0].backgroundColor.push(3 >=res[count].do_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data1.datasets[0].borderColor.push(3 >= res[count].do_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data1.datasets[1].data.push(res[count].do_PRE);
+             data1.datasets[1].backgroundColor.push(3 >=res[count].do_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data1.datasets[1].borderColor.push(3 >= res[count].do_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
 
-             data2.datasets[0].data.push(res[count].ph);
-             data2.datasets[0].backgroundColor.push(3 >=res[count].ph ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data2.datasets[0].borderColor.push(3 >= res[count].ph ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');   
+             data2.datasets[0].data.push(res[count].ph_ACC);
+             data2.datasets[0].backgroundColor.push(3 >=res[count].ph_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data2.datasets[0].borderColor.push(3 >= res[count].ph_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)'); 
+             data2.datasets[1].data.push(res[count].ph_PRE);
+             data2.datasets[1].backgroundColor.push(3 >=res[count].ph_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data2.datasets[1].borderColor.push(3 >= res[count].ph_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
 
-             data3.datasets[0].data.push(res[count].salt);
-             data3.datasets[0].backgroundColor.push(3 >=res[count].salt ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data3.datasets[0].borderColor.push(3 >= res[count].salt ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data3.datasets[0].data.push(res[count].salt_ACC);
+             data3.datasets[0].backgroundColor.push(3 >=res[count].salt_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data3.datasets[0].borderColor.push(3 >= res[count].salt_ACC ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data3.datasets[1].data.push(res[count].salt_PRE);
+             data3.datasets[1].backgroundColor.push(3 >=res[count].salt_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
+             data3.datasets[1].borderColor.push(3 >= res[count].salt_PRE ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
              
             	 chart0.update();
             	 chart1.update();

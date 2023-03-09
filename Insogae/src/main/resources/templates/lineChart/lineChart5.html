@@ -1,6 +1,7 @@
 <body>
 	<div class="tank">
-		<div class="tct">5</div>
+		<div class="tct" th:if="${tank}"  th:text="${tank.get(4).TANK_ID}"></div>
+		<div class="tct" th:unless="${tank}"></div>
 		<button class="report" id="report-5">리포트</button>
 		<div class="warning">
 			<div class="wl"></div>

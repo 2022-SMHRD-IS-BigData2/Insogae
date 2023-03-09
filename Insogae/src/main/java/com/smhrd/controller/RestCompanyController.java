@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.smhrd.entity.Company;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
+import com.smhrd.entity.TankDataPre2;
 import com.smhrd.mapper.CompanyMapper;
 import com.smhrd.mapper.TankMapper;
 
@@ -92,7 +93,11 @@ public class RestCompanyController {
 		HttpSession session3 = request.getSession(true);
 		session1.setAttribute("user", user); // 세션에 저장
 		session2.setAttribute("tankData", tankData); // 세션에 저장
-		session3.setAttribute("tank", tank); // 세션에 저장
+		if(tank.isEmpty()) {
+		}else {
+			session3.setAttribute("tank", tank); // 세션에 저장			
+		}
+		System.out.println(tank.isEmpty());
 		if(user!=null) {
 			System.out.println("로그인 성공");
 			return "true";  // login.js -> ajax로 true (res, 응답) 리턴
@@ -100,5 +105,6 @@ public class RestCompanyController {
 			System.out.println("로그인실패");
 			return "false"; // login.js -> ajax로 false (res, 응답) 리턴
 		}
+		
 	}
 }

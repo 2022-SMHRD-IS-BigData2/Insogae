@@ -69,4 +69,12 @@ select A.* from TANK A, COMPANY B
 where A.COMPANY_ID = B.COMPANY_ID
 and B.COMPANY_ID = #{COMPANY_ID}
 </select>
+
+<select id="tankDataPre" resultType="com.smhrd.entity.TankDataPre2" parameterType="com.smhrd.entity.Company">
+SELECT * FROM TANK_DATA_PRE2 A, TANK B
+WHERE B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY 
+									WHERE TANK.COMPANY_ID = COMPANY.COMPANY_ID
+									AND COMPANY.COMPANY_ID = #{user}
+									AND TANK.TANK_ID = #{tankId});
+</select>
 </mapper>

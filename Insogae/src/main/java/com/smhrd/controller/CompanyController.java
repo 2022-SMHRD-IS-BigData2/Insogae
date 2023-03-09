@@ -48,7 +48,7 @@ public class CompanyController {
 	}
 
 	@RequestMapping("/goMain.do")
-	public String goMain(HttpServletRequest request) {
+	public String goMain() {
 		return "redirect:/main"; // 메인페이지(양식장 모니터링) 리다이렉트 이동
 	}
 

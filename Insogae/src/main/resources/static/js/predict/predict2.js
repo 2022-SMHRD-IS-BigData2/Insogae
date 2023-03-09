@@ -175,7 +175,8 @@ let labels = [];
              document.getElementById('salt-gp-2'),
              config3
              );
-         
+             console.log(chart0);
+             console.log(chart1);
              setInterval(()=> {
              hiddenLabel.push("");
            
