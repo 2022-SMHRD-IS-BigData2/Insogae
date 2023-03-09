@@ -18,7 +18,59 @@
 <body>
 	<!-- header Navbar 시작 -->
 	<div id="wrap">
-		<div th:include="header.html"></div>
+	<div id="header">
+			<nav class="navbar sticky-top ">
+			
+				<div class="container-fluid col-2">
+					<a href="goMain.do"><img
+						src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmlsI7%2Fbtr0BB7bnSk%2FKiqvCvFrLHKhqg8WS3T3Y1%2Fimg.png"
+						width="200" height="50" class="d-inline-block align-text-top"></a>
+					<h3 class="m-0 title-1">양식장 모니터링</h3>
+				</div>
+				<div class="container-fluid col-2"></div>
+				<div class="container-fluid col-2">
+				<div class="item menu0 menu">
+					<a href="goMain.do">
+						<img src="img/main.png" width="20" height="20"> 메인
+					</a>
+				</div>
+					
+					<div class="item menu1 menu">
+						<a href="goMonitoring.do"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcj7reU%2Fbtr0Ayh4BNO%2FLOJ4gjo2ZmmAK78NuJcVtk%2Fimg.png"
+							width="20" height="20"> 양식장 모니터링
+						</a>
+					</div>
+					<div class="item menu2 menu">
+						<a href="goPredict.do"> <img
+							src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrmAhC%2Fbtr0BCYQeaQ%2Fw0Jqj1s3HSRrHRuIvJK1J1%2Fimg.png"
+							width="20" height="20"> 수질 예측
+						</a>
+					</div>
+					<div class="item menu3 menu">
+						<a href="goSetting.do"> 
+						<img
+			                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq0oYv%2Fbtr0w2rg3Fl%2FZKL1SrUPc49KPmkRdcfK8K%2Fimg.png"
+			                width="20" height="20"> 환경 설정
+						</a>
+					</div>
+					<ul class="nav-item dropdown">
+						<h5 class="m-0">
+							<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+								role="button" data-bs-toggle="dropdown" aria-expanded="false">[[${user.COMPANY_NAME}]]
+							</a>
+							<div id="user-id" style="display: none">[[${user.COMPANY_ID}]]</div>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">[[${user.COMPANY_NAME}]]</a></li>
+								<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
+							</ul>
+						</h5>
+					</ul>
+				</div>
+				<div class="container-fluid col-6"></div>
+			</nav>
+		</div>
 		<!-- header Navbar 끝-->
 		<!-- 본문 시작 -->
 		<div id="container">
@@ -29,6 +81,7 @@
 							<i class="fa-solid fa-right-long fa-3x"></i>
 						</button>
 						<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
+
 					</div>
 					<div class="rectangle-2">
 						<div th:include="lineChart/lineChart1.html"

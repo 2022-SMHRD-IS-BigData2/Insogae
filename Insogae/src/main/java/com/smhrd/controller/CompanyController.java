@@ -90,12 +90,12 @@ public class CompanyController {
 
 	@RequestMapping("/goWaterguard.do")
 	public String goWaterguard() {
-		return "redirect:/waterguard"; // 메인페이지(양식장 모니터링) 리다이렉트 이동
+		return "redirect:/waterguard"; // 워터가드란? 페이지 리다이렉트 이동
 	}
 
 	@RequestMapping("/waterguard")
 	public String waterguard() {
-		return "waterguard"; // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
+		return "waterguard"; // 워터가드란? 페이지 포워드이동 http://localhost:8882/home
 	}
 	@RequestMapping("/goHistory.do")
 	public String goHistory() {
@@ -106,7 +106,7 @@ public class CompanyController {
 	public String history() {
 		return "history"; // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
 	}
-
+	
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus session) {
 		session.setComplete();
