@@ -97,6 +97,15 @@ public class CompanyController {
 	public String waterguard() {
 		return "waterguard"; // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
 	}
+	@RequestMapping("/goHistory.do")
+	public String goHistory() {
+		return "redirect:/history"; // 메인페이지(양식장 모니터링) 리다이렉트 이동
+	}
+	
+	@RequestMapping("/history")
+	public String history() {
+		return "history"; // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
+	}
 
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus session) {

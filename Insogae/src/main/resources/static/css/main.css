@@ -11,6 +11,10 @@ a {
 	text-decoration: none;
 }
 
+.m-0 {
+	font-family: 'Do Hyeon', sans-serif;
+}
+
 #wrap {
 	position: relative;
 	z-index: 1;
@@ -24,7 +28,7 @@ a {
 /* 헤더 스타일 설정 */
 #header {
 	/* height: 8vh; */
-	width: 100vw; 
+	width: 100vw;
 	z-index: 2;
 	background-color: #303C50;
 	position: relative;
@@ -32,6 +36,11 @@ a {
 
 .navbar {
 	padding: 16px 16px;
+}
+
+.nav-item {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .title-1 {

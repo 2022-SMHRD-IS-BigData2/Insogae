@@ -11,6 +11,10 @@ a {
 	text-decoration: none;
 }
 
+.m-0 {
+	font-family: 'Do Hyeon', sans-serif;
+}
+
 #wrap {
 	position: relative;
 	z-index: 1;
@@ -106,7 +110,6 @@ a {
 #main-2>.rectangle-1 {
 	padding-left: 18px;
 } */
-
 .rectangle-2 {
 	width: 49.77%;
 	height: 50%;
@@ -256,7 +259,6 @@ a {
 	border-radius: 7px;
 	background-color: #d9bfa2;
 	margin: 5px;
-	
 }
 
 .report-view-head {
@@ -309,17 +311,23 @@ a {
 	display: flex;
 }
 
-.rectangle-value{
-	cursor:pointer;
+.rectangle-value {
+	cursor: pointer;
 }
 
-.rectangle-gp>div~div{
-	display: none;
-}
-
-.rectangle-gp{
+.rectangle-gp {
 	color: black;
-    font-size: 3rem;
-    display: grid;
-    align-items: center;
+	font-size: 3rem;
+	display: grid;
+	align-items: center;
+	align-content: center;
+}
+
+.rectangle-gp>div{
+	width: 670px;
+}
+
+.rectangle-data>div{
+	margin: 18px 10px;
+	cursor: pointer;
 }

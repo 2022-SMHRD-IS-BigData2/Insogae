@@ -10,7 +10,9 @@ body {
 a {
 	text-decoration: none;
 }
-
+.m-0 {
+    font-family: 'Do Hyeon', sans-serif;
+}
 #wrap {
 	position: relative;
 	z-index: 1;

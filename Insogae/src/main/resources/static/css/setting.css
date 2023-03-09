@@ -10,8 +10,9 @@ body {
 }
 
 .m-0 {
-    font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Do Hyeon', sans-serif;
 }
+
 #header {
 	/* height: 8vh; */
 	width: 100vw; 
