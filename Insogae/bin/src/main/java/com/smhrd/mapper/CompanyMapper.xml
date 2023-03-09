@@ -17,7 +17,7 @@ values(
 </insert>
 
 <select id="login" resultType="com.smhrd.entity.Company" parameterType="com.smhrd.entity.Company">
-select *from COMPANY
+select * from COMPANY
 where COMPANY_ID = #{COMPANY_ID} and COMPANY_PW = #{COMPANY_PW}
 </select>
 
