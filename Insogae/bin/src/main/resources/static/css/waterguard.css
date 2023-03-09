@@ -3,6 +3,7 @@
 body {
 	margin: 0;
 	overflow-x: hidden;
+	overflow-y: hidden;
 	background-color: #636464;
 }
 .navbar {
@@ -10,8 +11,9 @@ body {
 }
 
 .m-0 {
-    font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Do Hyeon', sans-serif;
 }
+
 #header {
 	/* height: 8vh; */
 	width: 100vw; 
@@ -26,8 +28,8 @@ body {
 	margin: 0 auto;
 	background-color: #636464;
 	color: white;
-	/* overflow-y: hidden;
-	overflow-x: hidden; */
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 #body {
@@ -97,13 +99,13 @@ a {
     margin-bottom: auto;
 }
 
-#about {
+#show_sujo {
     padding-left: 30px;
     padding-top: 35px;
     width: 700px;
 }
 
-#service2{
+#sujo_check {
     border: 2px solid lightblue;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -114,3 +116,262 @@ a {
     width: 700px;
 }
 
+#set_alarm {
+    padding-left: 30px;
+    padding-top: 30px;
+    width: 700px;
+    height: 56px;
+}
+
+#switch {
+    position: absolute;
+    /* hidden */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.switch_label {
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    background: lightgrey;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    transition: 0.2s;
+    margin-left: 350px;
+}
+
+.switch_label:hover {
+    background: lightgrey;
+}
+
+.onf_btn {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    display: inline-block;
+    width: 19px;
+    height: 20px;
+    border-radius: 20px;
+    background: #000042;
+    transition: 0.2s;
+}
+
+/* checking style */
+#switch:checked+.switch_label {
+    background: darkred;
+    border: 2px solid darkred;
+}
+
+#switch:checked+.switch_label:hover {
+    background: darkred;
+}
+
+/* move */
+#switch:checked+.switch_label .onf_btn {
+    left: 58px;
+    background: #fff;
+    box-shadow: 1px 2px 3px #00000020;
+}
+
+#alarm_not {
+    width: 700px;
+    height: 56px;
+    padding-left: 30px;
+}
+
+#switch2 {
+    position: absolute;
+    /* hidden */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.switch_label2 {
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    background: lightgrey;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    transition: 0.2s;
+    margin-left: 280px;
+}
+
+.switch_label2:hover {
+    background: lightgrey;
+}
+
+.onf_btn2 {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    display: inline-block;
+    width: 19px;
+    height: 20px;
+    border-radius: 20px;
+    background: #000042;
+    transition: 0.2s;
+}
+
+/* checking style */
+#switch2:checked+.switch_label2 {
+    background: darkred;
+    border: 2px solid darkred;
+}
+
+#switch2:checked+.switch_label2:hover {
+    background: darkred;
+}
+
+/* move */
+#switch2:checked+.switch_label2 .onf_btn2 {
+    left: 58px;
+    background: #fff;
+    box-shadow: 1px 2px 3px #00000020;
+}
+
+#switch3 {
+    position: absolute;
+    /* hidden */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.switch_label3 {
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    background: lightgrey;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    transition: 0.2s;
+    margin-left: 20px;
+}
+
+.switch_label3:hover {
+    background: lightgrey;
+}
+
+.onf_btn3 {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    display: inline-block;
+    width: 19px;
+    height: 20px;
+    border-radius: 20px;
+    background: #000042;
+    transition: 0.2s;
+}
+
+/* checking style */
+#switch3:checked+.switch_label3 {
+    background: darkred;
+    border: 2px solid darkred;
+}
+
+#switch3:checked+.switch_label3:hover {
+    background: darkred;
+}
+
+/* move */
+#switch3:checked+.switch_label3 .onf_btn3 {
+    left: 58px;
+    background: #fff;
+    box-shadow: 1px 2px 3px #00000020;
+}
+
+#alarm_not_time {
+    border: 2px solid lightblue;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-left: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 65px;
+    width: 700px;
+    height: 150px;
+}
+
+#set_solution {
+    padding-left: 30px;
+    margin: auto;
+    width: 700px;
+    height: 56px;
+}
+
+#switch4 {
+    position: absolute;
+    /* hidden */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.switch_label4 {
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    background: lightgrey;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    transition: 0.2s;
+    margin-left: 300px;
+}
+
+.switch_label4:hover {
+    background: lightgrey;
+}
+
+.onf_btn4 {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    display: inline-block;
+    width: 19px;
+    height: 20px;
+    border-radius: 20px;
+    background: #000042;
+    transition: 0.2s;
+}
+
+/* checking style */
+#switch4:checked+.switch_label4 {
+    background: #4374D9;
+    border: 2px solid #4374D9;
+}
+
+#switch4:checked+.switch_label4:hover {
+    background: #4374D9;
+}
+
+/* move */
+#switch4:checked+.switch_label4 .onf_btn4 {
+    left: 58px;
+    background: #fff;
+    box-shadow: 1px 2px 3px #00000020;
+}
+
+
+#login {
+    margin-left: 50px;
+}
+
+input[type=checkbox] {
+    zoom: 1.5;
+}

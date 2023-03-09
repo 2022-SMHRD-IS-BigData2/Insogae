@@ -142,7 +142,9 @@ a {
 	margin: 2px;
 	border-radius: 6px;
 	flex-direction: column;
-	background-color: #d9d9d9;
+	background-color: #212529;
+	border: 1px solid black;
+	
 }
 
 .rectangle-value {
@@ -150,10 +152,11 @@ a {
 	width: 50px;
 	height: 30px;
 	border-radius: 18px;
-	background-color: #919991;
+	background-color: #636464;
 	font-size: 14px;
 	align-items: center;
 	justify-content: center;
+	
 }
 
 .tank {
@@ -211,7 +214,7 @@ a {
 .ondo-n {
 	display: flex;
 	font-size: 2em;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .do {
@@ -225,7 +228,7 @@ a {
 .do-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .ph {
@@ -239,7 +242,7 @@ a {
 .ph-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .salt {
@@ -253,7 +256,7 @@ a {
 .salt-n {
 	display: flex;
 	font-size: 34px;
-	color: #3C3C40;
+	color: whitesmoke;
 }
 
 .ondo-gp {
@@ -261,6 +264,7 @@ a {
 	border: 1px solid black;
 	height: 50%;
 	width: 50%;
+	background-color: #212529;
 }
 
 .do-gp {
@@ -268,6 +272,7 @@ a {
 	border: 1px solid black;
 	height: 50%;
 	width: 50%;
+	background-color: #212529;
 }
 
 .ph-gp {
@@ -275,6 +280,7 @@ a {
 	border: 1px solid black;
 	height: 50%;
 	width: 50%;
+	background-color: #212529;
 }
 
 .salt-gp {
@@ -282,6 +288,7 @@ a {
 	border: 1px solid black;
 	height: 50%;
 	width: 50%;
+	background-color: #212529;
 }
 
 .rectangle-gp>div{

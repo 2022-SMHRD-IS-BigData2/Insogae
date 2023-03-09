@@ -374,3 +374,7 @@ a {
 input[type=checkbox] {
     zoom: 1.5;
 }
+
+.company{
+	color: white;
+}

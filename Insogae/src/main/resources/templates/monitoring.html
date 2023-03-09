@@ -42,6 +42,12 @@
 							width="20" height="20"> 수질 예측
 						</a>
 					</div>
+					<div class="item menu4 menu">
+           				 <a href="goHistory.do"> <img
+			                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEmjod%2Fbtr2D3Bz12N%2FFPPOPvIrk9NYQe9QbHEOM1%2Fimg.png"
+			                width="20" height="20"> 수질 기록
+		                </a>
+		          </div>
 					<div class="item menu3 menu">
 						<a href="goSetting.do"> 
 						<img
@@ -82,8 +88,11 @@
 						<div class="tank">
 							<div class="tct">[[${tank.TANK_ID}]]</div>
 							<div class="warning">
+								
 								<div class="wl"></div>
-								<div id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
+								
+								
+								<div th:id="'time-'+${tank.TANK_NUM}" class="tctm">현재시간</div>
 							</div>
 						</div>
 						<div class="rectangle-3">
@@ -131,8 +140,9 @@
 						<div class="tank">
 							<div class="tct">[[${tank.TANK_ID}]]</div>
 							<div class="warning">
+							
 								<div class="wl"></div>
-								<div id="clock8" class="tctm">2023년 2월 27일 PM 04:55</div>
+								<div th:id="'time-'+${tank.TANK_NUM}" class="tctm">현재시간</div>
 							</div>
 						</div>
 						<div class="rectangle-3">

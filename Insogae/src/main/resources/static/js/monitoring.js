@@ -20,6 +20,7 @@ const doArray = []; // 각 수조별 DO를 담은 id선택자 배열 ex) do-1(�
 const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-1(수조1), ph-2(수조2)
 const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-1(수조1), salt-2(수조2)
 const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-1(수조1), ondo-2(수조2)
+const timeArray = []; // 각 수조별 시간을 담은 id 선택자 배열
 for (let i =1; i <=num; i++){
 	tankdataArray.push('tank' +i+'data');
 	chartIdArray1.push('chart-div-' + i+'1');
@@ -30,6 +31,7 @@ for (let i =1; i <=num; i++){
 	doArray.push('do-'+i);
 	phArray.push('ph-'+i);
 	saltArray.push('salt-'+i);
+	timeArray.push('time-'+i);
 };
 
 for (let i =0; i <num; i++){
@@ -37,6 +39,8 @@ for (let i =0; i <num; i++){
 		url: tankdataArray[i],// 수조1
 
 		success: function(res) {
+			
+			
 			// 3. 응답받은 데이터를 console 출력
 	
 			google.charts.load('current', { 'packages': ['gauge'] });
@@ -140,20 +144,47 @@ for (let i =0; i <num; i++){
 						ph_data = res[count].ph.toFixed(2);
 						temp_data = res[count].temp.toFixed(2);
 						salt_data = res[count].salt.toFixed(2);
+						
+						
+						
+						
+						if(do_data<3){
+							document.getElementById(doArray[i]).style.color="red";
+						}
+						
+						else if(ph_data<5){
+							document.getElementById(phArray[i]).style.color="red";
+						}
+						
+						else if(temp_data<6){
+							document.getElementById(ondoArray[i]).style.color="red";
+						}
+						
+						else if(salt_data<10){
+							document.getElementById(saltArray[i]).style.color="red";
+						}
+						
+						
+						
+						
+						
 						$('#'+ondoArray[i]).html("");
 						$('#'+doArray[i]).html("");
 						$('#'+saltArray[i]).html("");
 						$('#'+phArray[i]).html("");
+						$('#'+timeArray[i]).html("");
 		
 						let do_do = `<h5>` + do_data + `ppm</h5>`;
 						let ph = `<h5>` + ph_data + `ph</h5>`;
 						let temp = `<h5>` + temp_data + `°C</h5>`;
 						let salt = `<h5>` + salt_data + `psu</h5>`;
+						let time = `<h5>현재시간 ` + time_data + `</h5>`;
 		
 						$('#'+ondoArray[i]).append(temp);
 						$('#'+doArray[i]).append(do_do);
 						$('#'+saltArray[i]).append(salt);
 						$('#'+phArray[i]).append(ph);
+						$('#'+timeArray[i]).append(time);
 		
 						data1_guage.setValue(0, 1, res[count].do.toFixed(1));
 						chart1_guage.draw(data1_guage, options1);
@@ -179,6 +210,13 @@ for (let i =0; i <num; i++){
 }
 
 
+
+
+
+
+
+
+/*
 function currentTime() {
 	const date = new Date();
 	let yyyy = date.getFullYear();
@@ -207,3 +245,4 @@ function currentTime() {
 };
 
 currentTime();
+*/

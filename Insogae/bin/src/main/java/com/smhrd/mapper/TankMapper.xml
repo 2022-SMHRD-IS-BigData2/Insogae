@@ -18,6 +18,55 @@ where RECORD_SEQ = #{RECORD_SEQ}
 
 <select id="timedata" resultType="com.smhrd.entity.TankData">
 select*from TANK_DATA
+where TANK_ID='WT11'
 
+</select>
+
+<select id="tank2data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT12'
+
+</select>
+
+<select id="tank3data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT13'
+
+</select>
+
+<select id="tank4data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT14'
+
+</select>
+
+<select id="tank5data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT21'
+
+</select>
+
+<select id="tank6data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT22'
+
+</select>
+
+<select id="tank7data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT23'
+
+</select>
+
+<select id="tank8data" resultType="com.smhrd.entity.TankData">
+select*from TANK_DATA
+where TANK_ID='WT31'
+
+</select>
+
+<select id="tank_id" resultType="com.smhrd.entity.Tank" parameterType="com.smhrd.entity.Company">
+select A.* from TANK A, COMPANY B
+where A.COMPANY_ID = B.COMPANY_ID
+and B.COMPANY_ID = #{COMPANY_ID}
 </select>
 </mapper>
