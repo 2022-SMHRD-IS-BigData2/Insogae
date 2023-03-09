@@ -111,7 +111,7 @@ a {
 }
 
 .rectangle{
-    background-color: #636464;
+    background-color: #848484;
     height: 970px;
     margin-top: 14px;
     border-radius: 11px;
@@ -121,7 +121,7 @@ a {
     --bs-nav-tabs-link-active-color: black;
     --bs-nav-tabs-border-color: #403c3c;
     --bs-nav-tabs-link-active-border-color: #403c3c #403c3c #403c3c;
-    --bs-nav-tabs-link-active-bg: #636464;
+    --bs-nav-tabs-link-active-bg: #848484;
 }
 
 
@@ -257,5 +257,5 @@ a {
   }
 
   #home-tab{
-    background-color: #636464;;
+    background-color: #848484;
   }
