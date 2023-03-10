@@ -89,7 +89,7 @@
 							<div class="tct">[[${tank.TANK_ID}]]</div>
 							<div class="warning">
 								
-								<div class="wl"></div>
+								<div class="wl" th:id="'wl-'+${tank.TANK_NUM}"></div>
 								
 								
 								<div th:id="'time-'+${tank.TANK_NUM}" class="tctm">현재시간</div>
@@ -141,7 +141,7 @@
 							<div class="tct">[[${tank.TANK_ID}]]</div>
 							<div class="warning">
 							
-								<div class="wl"></div>
+								<div class="wl" th:id="'wl-'+${tank.TANK_NUM}"></div>
 								<div th:id="'time-'+${tank.TANK_NUM}" class="tctm">현재시간</div>
 							</div>
 						</div>

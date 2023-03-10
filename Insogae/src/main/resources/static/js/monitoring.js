@@ -21,6 +21,7 @@ const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-1(�
 const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-1(수조1), salt-2(수조2)
 const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-1(수조1), ondo-2(수조2)
 const timeArray = []; // 각 수조별 시간을 담은 id 선택자 배열
+const wlArray=[]; // 상단 경고 색상
 for (let i =1; i <=num; i++){
 	tankdataArray.push('tank' +i+'data');
 	chartIdArray1.push('chart-div-' + i+'1');
@@ -32,6 +33,7 @@ for (let i =1; i <=num; i++){
 	phArray.push('ph-'+i);
 	saltArray.push('salt-'+i);
 	timeArray.push('time-'+i);
+	wlArray.push('wl-'+i);
 };
 
 for (let i =0; i <num; i++){
@@ -152,19 +154,26 @@ for (let i =0; i <num; i++){
 							document.getElementById(doArray[i]).style.color="red";
 						}
 						
-						else if(ph_data<5){
+						 if(ph_data<7.5){
 							document.getElementById(phArray[i]).style.color="red";
 						}
 						
-						else if(temp_data<6){
+						 if(temp_data<6){
 							document.getElementById(ondoArray[i]).style.color="red";
 						}
 						
-						else if(salt_data<10){
+						 if(salt_data<10){
 							document.getElementById(saltArray[i]).style.color="red";
 						}
 						
-						
+					if(do_data<3||ph_data<7.5){
+							var wl = document.getElementById(wlArray[i])
+							wl.style.backgroundColor="red"
+						}
+						 if(temp_data<6||salt_data<10){
+							var wl = document.getElementById(wlArray[i])
+							wl.style.backgroundColor="red"
+						}
 						
 						
 						
