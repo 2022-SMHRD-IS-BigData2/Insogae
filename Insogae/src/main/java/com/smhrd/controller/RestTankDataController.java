@@ -104,12 +104,11 @@ public class RestTankDataController {
 	
 	// 실제값 예측값 같이 있는 테이블 반환
 	@RequestMapping("/tank_data_pre")
-	public List<TankDataPre2> tank_data_pre(String user, String tankId, HttpServletRequest request){
+	public List<TankDataPre2> tank_data_pre(String user, HttpServletRequest request, Model model){
 		user = request.getParameter("userData");
-		tankId = request.getParameter("tankIdData");
-		System.out.println("user_id : "+user);
-		System.out.println("tank_id : "+tankId);
-		List<TankDataPre2> tank_data_pre = mapper.tankDataPre(user, tankId);
+		System.out.println(user);
+		List<TankDataPre2> tank_data_pre = mapper.tankDataPre(user);
+		model.addAttribute("tank_data_pre", tank_data_pre);
 		return tank_data_pre;
 	}
 	

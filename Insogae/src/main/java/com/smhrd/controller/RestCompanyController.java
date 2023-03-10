@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -88,6 +89,8 @@ public class RestCompanyController {
 		Company user = mapper.login(company);
 		List<TankData> tankData = tankmapper.dataCheck();
 		List<Tank> tank = tankmapper.tank_id(company);
+		System.out.println(tank);
+		System.out.println(user);
 		HttpSession session1 = request.getSession(true);
 		HttpSession session2 = request.getSession(true);
 		HttpSession session3 = request.getSession(true);

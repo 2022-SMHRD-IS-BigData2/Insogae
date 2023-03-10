@@ -12,26 +12,27 @@ const fix_ph_pre_dataset = [];
 const fix_temp_pre_dataset = [];
 const fix_salt_pre_dataset = [];
 
-for(let i =0;i<num;i++){
       $.ajax({
         url : "tank_data_pre",
+        type : "post",
         data : {
-        	userData :user,
-        	tankIdData : tankIdList[i]
+        	userData : user,
         },
         success : function(res) {
+        	console.log('요청성공');
+        	console.log(res)
     	const labels = [];
     	
-    	for(let j =0;j<15;i++){
-    		fix_do_acc_dataset.push(res[j].do_ACC.toFixed(2));
-            fix_ph_acc_dataset.push(res[j].ph_ACC.toFixed(2));
-            fix_temp_acc_dataset.push(res[j].temp_ACC.toFixed(2));
-            fix_salt_acc_dataset.push(res[j].salt_ACC.toFixed(2));
-            fix_do_pre_dataset.push(res[j].do_PRE.toFixed(2));
-            fix_ph_pre_dataset.push(res[j].ph_PRE.toFixed(2));
-            fix_temp_pre_dataset.push(res[j].temp_PRE.toFixed(2));
-            fix_salt_pre_dataset.push(res[j].salt_PRE.toFixed(2));
-            labels.push(res[j].record_DATE.split('T')[1].split('.')[0]);
+    	for(let i=0;i<15;i++){
+    		fix_do_acc_dataset.push(res[i].do_ACC.toFixed(2));
+            fix_ph_acc_dataset.push(res[i].ph_ACC.toFixed(2));
+            fix_temp_acc_dataset.push(res[i].temp_ACC.toFixed(2));
+            fix_salt_acc_dataset.push(res[i].salt_ACC.toFixed(2));
+            fix_do_pre_dataset.push(res[i].do_PRE.toFixed(2));
+            fix_ph_pre_dataset.push(res[i].ph_PRE.toFixed(2));
+            fix_temp_pre_dataset.push(res[i].temp_PRE.toFixed(2));
+            fix_salt_pre_dataset.push(res[i].salt_PRE.toFixed(2));
+            labels.push(res[i].record_DATE.split('T')[1].split('.')[0]);
     	}
     	
     	let data0 = {
@@ -392,4 +393,3 @@ for(let i =0;i<num;i++){
           console.log('요청실패');
         }
       });
-}

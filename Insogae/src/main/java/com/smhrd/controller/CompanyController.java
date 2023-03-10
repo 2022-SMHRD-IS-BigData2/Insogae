@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.smhrd.entity.Company;
 import com.smhrd.mapper.CompanyMapper;
 import com.smhrd.mapper.TankMapper;
 
@@ -53,8 +54,7 @@ public class CompanyController {
 	}
 
 	@RequestMapping("/main")
-	public String main() {
-
+	public String main(HttpServletRequest request) {
 		return "main"; // 메인페이지(양식장 모니터링) 포워드이동 http://localhost:8882/main
 	}
 
