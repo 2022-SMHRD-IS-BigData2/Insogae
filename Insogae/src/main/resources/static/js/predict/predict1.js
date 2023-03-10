@@ -11,6 +11,12 @@ const fix_do_pre_dataset = [];
 const fix_ph_pre_dataset = [];
 const fix_temp_pre_dataset = [];
 const fix_salt_pre_dataset = [];
+
+const canvas = document.getElementById('ondo-gp-1');
+const ctx = canvas.getContext("2d");
+
+console.log(ctx);
+
       $.ajax({
         url : "tank_data_pre",
         data : {
@@ -19,7 +25,8 @@ const fix_salt_pre_dataset = [];
         },
         success : function(res) {
     	const labels = [];
-    	for(let i =0;i<13;i++){
+    	
+    	for(let i =0;i<100;i++){
     		fix_do_acc_dataset.push(res[i].do_ACC.toFixed(2));
             fix_ph_acc_dataset.push(res[i].ph_ACC.toFixed(2));
             fix_temp_acc_dataset.push(res[i].temp_ACC.toFixed(2));
@@ -39,6 +46,8 @@ const fix_salt_pre_dataset = [];
 	                      fill: false,
 	                      backgroundColor: ['rgb(0, 255, 0)'],
 	                      borderColor: ['rgb(0, 255, 0)'],
+	                      pointStyle : "none",
+	                      pointRadius : 0,
 	                      tension: 0.1,
 	                      borderWidth: 1
 	                    },{
@@ -47,6 +56,8 @@ const fix_salt_pre_dataset = [];
 	                        fill: false,
 	                        backgroundColor: ['rgb(255, 153, 0)'],
 	                        borderColor: ['rgb(255, 153, 0)'],
+	                        pointStyle : "none",
+	                        pointRadius : 0,
 	                        tension: 0.1,
 	                        borderWidth: 1
 	                    }]
@@ -61,6 +72,8 @@ const fix_salt_pre_dataset = [];
 	                        fill: false,
 	                        backgroundColor: ['rgb(0, 255, 0)'],
 	                        borderColor: ['rgb(0, 255, 0)'],
+	                        pointStyle : "none",
+	                        pointRadius : 0,	
 	                        tension: 0.1,
 	                        borderWidth: 1
 	                      },{
@@ -69,6 +82,8 @@ const fix_salt_pre_dataset = [];
 	                          fill: false,
 	                          backgroundColor: ['rgb(255, 153, 0)'],
 	                          borderColor: ['rgb(255, 153, 0)'],
+	                          pointStyle : "none",
+	                          pointRadius : 0,	
 	                          tension: 0.1,
 	                          borderWidth: 1
 	                      }]
@@ -83,6 +98,8 @@ const fix_salt_pre_dataset = [];
 	                        fill: false,
 	                        backgroundColor: ['rgb(0, 255, 0)'],
 	                        borderColor: ['rgb(0, 255, 0)'],
+	                        pointStyle : "none",
+	                        pointRadius : 0,
 	                        tension: 0.1,
 	                        borderWidth: 1
 	                      },{
@@ -91,6 +108,8 @@ const fix_salt_pre_dataset = [];
 	                          fill: false,
 	                          backgroundColor: ['rgb(255, 153, 0)'],
 	                          borderColor: ['rgb(255, 153, 0)'],
+	                          pointStyle : "none",
+	                          pointRadius : 0,
 	                          tension: 0.1,
 	                          borderWidth: 1
 	                      }]
@@ -105,6 +124,8 @@ const fix_salt_pre_dataset = [];
 	                        fill: false,
 	                        backgroundColor: ['rgb(0, 255, 0)'],
 	                        borderColor: ['rgb(0, 255, 0)'],
+	                        pointStyle : "none",
+	                        pointRadius : 0,
 	                        tension: 0.1,
 	                        borderWidth: 1
 	                      },{
@@ -113,6 +134,8 @@ const fix_salt_pre_dataset = [];
 	                          fill: false,
 	                          backgroundColor: ['rgb(255, 153, 0)'],
 	                          borderColor: ['rgb(255, 153, 0)'],
+	                          pointStyle : "none",
+	                          pointRadius : 0,
 	                          tension: 0.1,
 	                          borderWidth: 1
                       }]
@@ -132,12 +155,20 @@ const fix_salt_pre_dataset = [];
                 }
               },
               y:{
-                  beginAtZero: true
-              }// y축의 값이 0부터 시작하도록 설정
+                  beginAtZero: false,
+                  callback: function(value, index, values) {
+                      return value.toFixed(2);
+                   
+                  },
+                  borderDash: [3,3]
+              },// y축의 값이 0부터 시작하도록 설정
+              animations: {
+            	    duration: 0 // 애니메이션 지속 시간
+            	  }
             }
           }
         };
-
+        console.log(config0.options.scales.y.callback);
         let config1 = {
           type: 'line',
           data: data1,
@@ -220,6 +251,8 @@ const fix_salt_pre_dataset = [];
         document.getElementById('salt-gp-1'),
         config3
         );
+        
+        
         console.log(chart0);
         console.log(chart1);
                   
@@ -264,7 +297,7 @@ const fix_salt_pre_dataset = [];
                $('#salt-pre-1').append(salt_pre);
                $('#ph-pre-1').append(ph_pre);
                	count++;
-           }, 3000);
+           }, 500);
 
 
 
@@ -274,7 +307,7 @@ const fix_salt_pre_dataset = [];
              setInterval(()=> {
              hiddenLabel.push("");
            
-             if (data0.datasets[0].data.length > 12){
+             if (data0.datasets[0].data.length > 100){
              labels.shift();
              data0.datasets[0].data.shift();
              data0.datasets[0].backgroundColor.shift();
@@ -335,13 +368,29 @@ const fix_salt_pre_dataset = [];
              data3.datasets[1].backgroundColor.push(3 >=res[count].salt_PRE ? 'rgba(255, 0, 0)' : 'rgba(255, 153, 0)');
              data3.datasets[1].borderColor.push(3 >= res[count].salt_PRE ? 'rgba(255, 0, 0)' : 'rgba(255, 153, 0)');
              
+             chart0.options.animation.duration = 0;
         	 chart0.update();
         	 chart1.update();
         	 chart2.update();
         	 chart3.update();
+        	 
+        	 /*console.log(ctx.getContextAttributes());
+        	 chart0.data.datasets.forEach(function(dataset, datasetIndex) {
+           	  const meta = chart0.getDatasetMeta(datasetIndex);
+           	  console.log(meta);
+           	  meta.data.forEach(function(point, pointIndex) {
+           	    const value = dataset.data[pointIndex];
+           	    const x = point.x;
+           	    const y = point.y - 10; // 숫자를 위에 그리기 위해 Y값 위치에서 10px 위로 이동
+           	    ctx.font = "50px serif";
+           	    ctx.fillStyle = "rgba(255, 0, 0)";
+           	    ctx.strokeStyle = "rgba(255, 0, 0)";
+           	    ctx.fillText(value, x, y);
+           	  });
+           	});*/
        
              count++;
-             }, 3000);  
+             }, 500);  
         },
         error : function(){
           console.log('요청실패');
