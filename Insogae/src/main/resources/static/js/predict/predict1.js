@@ -12,33 +12,29 @@ const fix_ph_pre_dataset = [];
 const fix_temp_pre_dataset = [];
 const fix_salt_pre_dataset = [];
 
-const canvas = document.getElementById('ondo-gp-1');
-const ctx = canvas.getContext("2d");
-
-console.log(ctx);
-
+for(let i =0;i<num;i++){
       $.ajax({
         url : "tank_data_pre",
         data : {
         	userData :user,
-        	tankIdData : tankIdList[0]
+        	tankIdData : tankIdList[i]
         },
         success : function(res) {
     	const labels = [];
     	
-    	for(let i =0;i<100;i++){
-    		fix_do_acc_dataset.push(res[i].do_ACC.toFixed(2));
-            fix_ph_acc_dataset.push(res[i].ph_ACC.toFixed(2));
-            fix_temp_acc_dataset.push(res[i].temp_ACC.toFixed(2));
-            fix_salt_acc_dataset.push(res[i].salt_ACC.toFixed(2));
-            fix_do_pre_dataset.push(res[i].do_PRE.toFixed(2));
-            fix_ph_pre_dataset.push(res[i].ph_PRE.toFixed(2));
-            fix_temp_pre_dataset.push(res[i].temp_PRE.toFixed(2));
-            fix_salt_pre_dataset.push(res[i].salt_PRE.toFixed(2));
-            labels.push(res[i].record_DATE.split('T')[1].split('.')[0]);
+    	for(let j =0;j<15;i++){
+    		fix_do_acc_dataset.push(res[j].do_ACC.toFixed(2));
+            fix_ph_acc_dataset.push(res[j].ph_ACC.toFixed(2));
+            fix_temp_acc_dataset.push(res[j].temp_ACC.toFixed(2));
+            fix_salt_acc_dataset.push(res[j].salt_ACC.toFixed(2));
+            fix_do_pre_dataset.push(res[j].do_PRE.toFixed(2));
+            fix_ph_pre_dataset.push(res[j].ph_PRE.toFixed(2));
+            fix_temp_pre_dataset.push(res[j].temp_PRE.toFixed(2));
+            fix_salt_pre_dataset.push(res[j].salt_PRE.toFixed(2));
+            labels.push(res[j].record_DATE.split('T')[1].split('.')[0]);
     	}
     	
-    	const data0 = {
+    	let data0 = {
 	                    labels: labels,
 	                    datasets: [{
 	                      label: '현재 온도',
@@ -64,7 +60,7 @@ console.log(ctx);
 	                  };
 
 
-    	const data1 = {
+    	let data1 = {
 	                    labels: labels,
 	                    datasets: [{
 	                        label: '현재 DO',
@@ -90,7 +86,7 @@ console.log(ctx);
 	                  };
 
 
-    	const data2 = {
+    	let data2 = {
 	                    labels: labels,
 	                    datasets: [{
 	                        label: '현재 pH',
@@ -116,7 +112,7 @@ console.log(ctx);
 	                  };
 
 
-    	const data3 = {
+    	let data3 = {
 	                    labels: labels,
 	                    datasets: [{
 	                        label: '현재 염도',
@@ -183,7 +179,7 @@ console.log(ctx);
                 }
               },
               y:{
-                  beginAtZero: true
+                  beginAtZero: false
               }
             }
           }
@@ -235,20 +231,20 @@ console.log(ctx);
        	 console.log(data2)
        	 console.log(data3)
         let chart0 = new Chart(
-        document.getElementById('ondo-gp-1'),
+        document.getElementById(ondoArray[i]),
         config0
         );
         console.log(chart0);
         let chart1 = new Chart(
-        document.getElementById('do-gp-1'),
+        document.getElementById(doArray[i]),
         config1
         );
         let chart2 = new Chart(
-        document.getElementById('ph-gp-1'),
+        document.getElementById(phArray[i]),
         config2
         );
         let chart3 = new Chart(
-        document.getElementById('salt-gp-1'),
+        document.getElementById(saltArray[i]),
         config3
         );
         
@@ -257,7 +253,7 @@ console.log(ctx);
         console.log(chart1);
                   
         	
-         var count=13;
+         var count=15;
          	console.log(res);
          	console.log("성공!!");
              setInterval(() => {
@@ -271,14 +267,14 @@ console.log(ctx);
                temp_pre_data = res[count].temp_PRE.toFixed(2);
                salt_pre_data = res[count].salt_PRE.toFixed(2);
             
-               $('#ondo-acc-1').html("")
-               $('#do-acc-1').html("")
-               $('#salt-acc-1').html("")
-               $('#ph-acc-1').html("")
-               $('#ondo-pre-1').html("")
-               $('#do-pre-1').html("")
-               $('#salt-pre-1').html("")
-               $('#ph-pre-1').html("")
+               $(ondoAccArray[i]).html("")
+               $(doAccArray[i]).html("")
+               $(saltAccArray[i]).html("")
+               $(phAccArray[i]).html("")
+               $(ondoPreArray[i]).html("")
+               $(doPreArray[i]).html("")
+               $(saltPreArray[i]).html("")
+               $(phPreArray[i]).html("")
                
                let do_acc = `<h5>`+do_acc_data+`ppm</h5>`;
                let ph_acc=`<h5>`+ph_acc_data+`ph</h5>`;
@@ -288,14 +284,14 @@ console.log(ctx);
                let ph_pre=`<h5>`+ph_pre_data+`ph</h5>`;
                let temp_pre=`<h5>`+temp_pre_data+`°C</h5>`;
                let salt_pre=`<h5>`+salt_pre_data+`psu</h5>`;
-               $('#ondo-acc-1').append(temp_acc);
-               $('#do-acc-1').append(do_acc);
-               $('#salt-acc-1').append(salt_acc);
-               $('#ph-acc-1').append(ph_acc);
-               $('#ondo-pre-1').append(temp_pre);
-               $('#do-pre-1').append(do_pre);
-               $('#salt-pre-1').append(salt_pre);
-               $('#ph-pre-1').append(ph_pre);
+               $(ondoAccArray[i]).append(temp_acc);
+               $(doAccArray[i]).append(do_acc);
+               $(saltAccArray[i]).append(salt_acc);
+               $(phAccArray[i]).append(ph_acc);
+               $(ondoPreArray[i]).append(temp_pre);
+               $(doPreArray[i]).append(do_pre);
+               $(saltPreArray[i]).append(salt_pre);
+               $(phPreArray[i]).append(ph_pre);
                	count++;
            }, 500);
 
@@ -396,3 +392,4 @@ console.log(ctx);
           console.log('요청실패');
         }
       });
+}
