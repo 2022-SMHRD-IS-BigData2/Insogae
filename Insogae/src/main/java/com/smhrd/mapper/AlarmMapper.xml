@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.AlarmMapper">
+
+<select id="alarmlist" parameterType="com.smhrd.entity.Company" resultType="com.smhrd.entity.Alarm">
+
+select *from ALARM
+where COMPANY_ID = #{COMPANY_ID}
+</select>
+
+<!-- 이상치 데이터 추가 부분 -->
+<insert id="addDO" parameterType="com.smhrd.entity.Company">
+insert into ALARM values(
+select*,
+#{CONTENT},
+#{ALARM_DATE},
+#{COMPANY_ID}
+)
+</insert>
+
+<insert id="addPH">
+insert into ALARM values(#{TANK_ID},#{CONTENT},#{ALARM_DATE},#{COMPANY_ID})
+</insert>
+
+<insert id="addSALT">
+insert into ALARM values(#{TANK_ID},#{CONTENT},#{ALARM_DATE},#{COMPANY_ID})
+</insert>
+
+<insert id="addTEMP">
+insert into ALARM values(#{TANK_ID},#{CONTENT},#{ALARM_DATE},#{COMPANY_ID})
+</insert>
+
+
+<!-- 모니터링 데이터 보여주는 부분 -->
+<select id="monitordata">
+
+</select>
+
+
+</mapper>

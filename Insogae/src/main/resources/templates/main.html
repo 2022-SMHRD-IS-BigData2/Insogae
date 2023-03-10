@@ -77,6 +77,7 @@
                 aria-expanded="false">[[${user.COMPANY_NAME}]]
               </a>
               <div id="user-id" style="display: none">[[${user.COMPANY_ID}]]</div>
+              
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">[[${user.COMPANY_NAME}]]</a></li>
                 <li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
@@ -159,6 +160,7 @@
 							<td id="" style="width:120px; height: 60px; color:yellow;">염분</td>
 						</tr>
 						
+						 
 						<tr th:each="tank : ${tank}">
 							<td id="">[[${tank.TANK_ID}]]</td>
 							<td th:id="'ondo-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>

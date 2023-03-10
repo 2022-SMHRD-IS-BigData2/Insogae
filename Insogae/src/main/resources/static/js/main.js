@@ -1,5 +1,5 @@
 let num = 8;
-
+var tank = $('#tank-id').innerText;
 console.log($('#user-id'));
 var user = $('#user-id').innerText;
 var loc1 = document.querySelector('#info > table > tbody > tr:nth-child(1) > td:nth-child(2)')
@@ -52,7 +52,7 @@ for (let i=0;i<num;i++){
 	$.ajax({
 		url : tankdataArray[i],
 		success : function(res){
-			console.log(res);
+		
 			
 			var count = 0;
 			setInterval(() => {
@@ -63,20 +63,30 @@ for (let i=0;i<num;i++){
 					temp_data = res[count].temp.toFixed(2);
 					salt_data = res[count].salt.toFixed(2);
 					
-					if(do_data<3){
+					if(do_data<6.1){
 						document.getElementById(doArray[i]).style.color="red";
-					}
+						console.log(do_data)
+					}else{document.getElementById(doArray[i]).style.color="white";}
 					
-					else if(ph_data<5){
+					
+					 if(ph_data<5){
 						document.getElementById(phArray[i]).style.color="red";
+	
 					}
+					else{document.getElementById(phArray[i]).style.color="white";}
 					
-					else if(temp_data<6){
+					if(temp_data<6){
 						document.getElementById(ondoArray[i]).style.color="red";
+						
+					}else{
+						document.getElementById(ondoArray[i]).style.color="white";
 					}
 					
-					else if(salt_data<10){
+					 if(salt_data<10){
 						document.getElementById(saltArray[i]).style.color="red";
+						
+					}else{
+						document.getElementById(saltArray[i]).style.color="white";
 					}
 					$('#'+ondoArray[i]).html("");
 					$('#'+doArray[i]).html("");
@@ -94,7 +104,7 @@ for (let i=0;i<num;i++){
 					$('#'+phArray[i]).append(ph);
 	
 					count++;
-				}, 1500
+				}, 5000
 				)
 		},
 		error : function(){
