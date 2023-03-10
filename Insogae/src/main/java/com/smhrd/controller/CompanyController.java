@@ -117,4 +117,8 @@ public class CompanyController {
 	public String goGraph() {
 		return "graph";
 	}
+	@RequestMapping("/test")
+	public String goTest() {
+		return "test";
+	}
 }
