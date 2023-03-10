@@ -41,6 +41,8 @@ const doArray = []; // 각 수조별 DO를 담은 id선택자 배열 ex) do-1(�
 const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-1(수조1), ph-2(수조2)
 const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-1(수조1), salt-2(수조2)
 const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-1(수조1), ondo-2(수조2)
+
+let dangerDo = "";
 for (let i =1; i <=num; i++){
 	tankdataArray.push('tank' +i+'data');
 	ondoArray.push('ondo-'+i);
@@ -65,7 +67,10 @@ for (let i=0;i<num;i++){
 					
 					if(do_data<6.1){
 						document.getElementById(doArray[i]).style.color="red";
-						console.log(do_data)
+						console.log("위험수치"+do_data)
+						dangerDo = do_data;
+						console.log(dangerDo)
+						
 					}else{document.getElementById(doArray[i]).style.color="white";}
 					
 					
@@ -102,6 +107,10 @@ for (let i=0;i<num;i++){
 					$('#'+doArray[i]).append(do_do);
 					$('#'+saltArray[i]).append(salt);
 					$('#'+phArray[i]).append(ph);
+					
+					$.ajax({
+						url : 
+					})
 	
 					count++;
 				}, 5000
