@@ -210,7 +210,18 @@ for (let i =0; i <num; i++){
 }
 
 
+var toast = new bootstrap.Toast($('#liveToast'));
 
+function showToast() {
+  toast.show();
+}
+
+setInterval(function() {
+  showToast();
+  setTimeout(function() {
+    toast.hide(false);
+  }, 3000);
+}, 5000);
 
 
 
