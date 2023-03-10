@@ -162,7 +162,7 @@
 						
 						 
 						<tr th:each="tank : ${tank}">
-							<td id="">[[${tank.TANK_ID}]]</td>
+							<td th:id="'tank-'+${tank.TANK_NUM}">[[${tank.TANK_ID}]]</td>
 							<td th:id="'ondo-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>
 							<td th:id="'do-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>
 							<td th:id="'ph-'+${tank.TANK_NUM}" style="width:100px; height: 60px;"></td>

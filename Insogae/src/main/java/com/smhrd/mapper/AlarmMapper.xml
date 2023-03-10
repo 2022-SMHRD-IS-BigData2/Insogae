@@ -10,20 +10,19 @@ where COMPANY_ID = #{COMPANY_ID}
 
 <!-- 이상치 데이터 추가 부분 -->
 <insert id="addDO" parameterType="String">
-insert into ALARM values(#{tankId},#{dangerDO},NOW(),#{COMPANY_ID},"DO"}
-)
+insert into ALARM values(null,#{tankId},#{dangerDO},NOW(),#{user},"DO")
 </insert>
 
 <insert id="addPH" parameterType="String">
-insert into ALARM values(#{tankId},#{dangerPH},NOW(),#{COMPANY_ID},"pH")
+insert into ALARM values(null,#{tankId},#{dangerPH},NOW(),#{user},"pH")
 </insert>
 
 <insert id="addSALT" parameterType="String">
-insert into ALARM values(#{tankId},#{dangerSALT},NOW(),#{COMPANY_ID},"염도")
+insert into ALARM values(null,#{tankId},#{dangerSALT},NOW(),#{user},"염도")
 </insert>
 
 <insert id="addTEMP" parameterType="String">
-insert into ALARM values(#{tankId},#{dangerTEMP},NOW(),#{COMPANY_ID},"온도")
+insert into ALARM values(null,#{tankId},#{dangerTEMP},NOW(),#{user},"온도")
 </insert>
 
 

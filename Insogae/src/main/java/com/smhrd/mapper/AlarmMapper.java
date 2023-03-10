@@ -11,9 +11,9 @@ public interface AlarmMapper {
 
 	public List<Alarm>alarmlist(String User);
 	
-	public List<Alarm>addDO(String user, String tankId, String dangerDO);
-	public List<Alarm>addPH(String user, String tankId, String dangerPH);
-	public List<Alarm>addSALT(String user, String tankId, String dangerSALT);
-	public List<Alarm>addTEMP(String user, String tankId, String dangerSALT);
+	public int addDO(String user, String tankId, String dangerDO, String dataName);
+	public int addPH(String user, String tankId, String dangerPH, String dataName);
+	public int addSALT(String user, String tankId, String dangerSALT, String dataName);
+	public int addTEMP(String user, String tankId, String dangerSALT, String dataName);
 	
 }

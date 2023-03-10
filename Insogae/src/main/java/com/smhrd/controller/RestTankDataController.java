@@ -124,7 +124,9 @@ public class RestTankDataController {
 				rs.getLong("cnt"),
 				rs.getLong("sum")
 				)); 
-		}
-	 }
+	}
+	
+}
+	
 
 
