@@ -40,13 +40,13 @@ $.ajax({
 	}
 })
 
-/*
+
 const tankdataArray = []; // id선택자 리스트 ex) id = "tank1data
-const ondoArray = []; // 각 수조별 온도를 담은 id선택자 배열 ex) ondo-1(수조1), ondo-2(수조2)
-const doArray = []; // 각 수조별 DO를 담은 id선택자 배열 ex) do-1(수조1), do-2(수조2)
-const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-1(수조1), ph-2(수조2)
-const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-1(수조1), salt-2(수조2)
-const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-1(수조1), ondo-2(수조2)
+const ondoArray = []; // 각 수조별 온도를 담은 id선택자 배열 ex) ondo-3(수조1), ondo-2(수조2)
+const doArray = []; // 각 수조별 DO를 담은 id선택자 배열 ex) do-3(수조1), do-2(수조2)
+const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-3(수조1), ph-2(수조2)
+const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-3(수조1), salt-2(수조2)
+const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-3(수조1), ondo-2(수조2)
 
 
 for (let i =1; i <=num; i++){
@@ -64,9 +64,11 @@ let dangerDOName ="?"; // 전달 값 초기화
 let dangerPHName ="?";
 let dangerTEMPName ="?";
 let dangerSALTName ="?";
-for (let i=0;i<num;i++){
 	$.ajax({
-		url : tankdataArray[i],
+		url : "tankData",
+		data : {
+			userData : user
+		},
 		success : function(res){
 		
 			
@@ -81,10 +83,10 @@ for (let i=0;i<num;i++){
 					salt_data = res[count].salt.toFixed(2);
 					
 					
-					if(do_data<6.1){
-						document.getElementById(doArray[i]).style.color="red";
+					if(do_data<6.01){
+						document.getElementById('do-3').style.color="red";
 						console.log("위험수치"+do_data)
-						$.ajax({
+						/*$.ajax({
 							url : "alarm_data",
 							data : {
 								userData : user,
@@ -98,14 +100,16 @@ for (let i=0;i<num;i++){
 							error : function(){
 								console.log('에러~')
 							}
-						})
+						})*/
 						
-					}else{document.getElementById(doArray[i]).style.color="white";}
+					}else{document.getElementById('do-3').style.color="white";
+						console.log('정상')
+					}
 						
 					
 					 if(ph_data<5){
-						document.getElementById(phArray[i]).style.color="red";
-						$.ajax({
+						document.getElementById('ph-3').style.color="red";
+						/*$.ajax({
 							url : "alarm_data",
 							data : {
 								userData : user,
@@ -119,14 +123,15 @@ for (let i=0;i<num;i++){
 							error : function(){
 								console.log('에러~')
 							}
-						})
+						})*/
 	
 					}
-					else{document.getElementById(phArray[i]).style.color="white";}
+					else{document.getElementById('ph-3').style.color="white";   
+					}
 					
 					if(temp_data<6){
-						document.getElementById(ondoArray[i]).style.color="red";
-						$.ajax({
+						document.getElementById('ondo-3').style.color="red";
+					/*	$.ajax({
 							url : "alarm_data",
 							data : {
 								userData : user,
@@ -140,15 +145,15 @@ for (let i=0;i<num;i++){
 							error : function(){
 								console.log('에러~')
 							}
-						})
+						})*/
 						
 					}else{
-						document.getElementById(ondoArray[i]).style.color="white";
+						document.getElementById('ondo-3').style.color="white";
 					}
 					
 					 if(salt_data>10){
-						document.getElementById(saltArray[i]).style.color="red";
-						$.ajax({
+						document.getElementById('salt-3').style.color="red";
+						/*$.ajax({
 							url : "alarm_data",
 							data : {
 								userData : user,
@@ -162,32 +167,31 @@ for (let i=0;i<num;i++){
 							error : function(){
 								console.log('에러~')
 							}
-						})
+						})*/
 						
 					}else{
-						document.getElementById(saltArray[i]).style.color="white";
+						document.getElementById('salt-3').style.color="white";
 					}
-					$('#'+ondoArray[i]).html("");
-					$('#'+doArray[i]).html("");
-					$('#'+saltArray[i]).html("");
-					$('#'+phArray[i]).html("");
+					$('#ondo-3').html("");
+					$('#do-3').html("");
+					$('#salt-3').html("");
+					$('#ph-3').html("");
 	
 					let do_do = `<h5>` + do_data + `ppm</h5>`;
 					let ph = `<h5>` + ph_data + `ph</h5>`;
 					let temp = `<h5>` + temp_data + `°C</h5>`;
 					let salt = `<h5>` + salt_data + `psu</h5>`;
 	
-					$('#'+ondoArray[i]).append(temp);
-					$('#'+doArray[i]).append(do_do);
-					$('#'+saltArray[i]).append(salt);
-					$('#'+phArray[i]).append(ph);
+					$('#ondo-3').append(temp);
+					$('#do-3').append(do_do);
+					$('#salt-3').append(salt);
+					$('#ph-3').append(ph);
 					
 					count++;
-				}, 5000
+				}, 1000
 				)
 		},
 		error : function(){
 			console.log("에러!");
 		}
 	})
-};*/

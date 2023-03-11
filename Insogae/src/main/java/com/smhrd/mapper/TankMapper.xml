@@ -87,4 +87,9 @@ and B.COMPANY_ID = #{COMPANY_ID}
 group by A.LOCATION
 </select>
 
+<select id="tankData" resultType="com.smhrd.entity.TankData" parameterType="com.smhrd.entity.Company">
+select * from TANK_DATA
+where COMPANY_ID= #{COMPANY_ID}
+
+</select>
 </mapper>

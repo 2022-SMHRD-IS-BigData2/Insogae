@@ -36,7 +36,6 @@ for (let i =1; i <=num; i++){
 	wlArray.push('wl-'+i);
 };
 
-for (let i =0; i <num; i++){
 	$.ajax({
 		url: tankdataArray[i],// 수조1
 
@@ -244,7 +243,6 @@ for (let i =0; i <num; i++){
 			console.log('요청실패');
 		}
 	});
-}
 
 
 var toast = new bootstrap.Toast($('#liveToast'));

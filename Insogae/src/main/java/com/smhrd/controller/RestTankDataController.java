@@ -100,6 +100,16 @@ public class RestTankDataController {
 	List<TankData>tank8_data= mapper.tank8data();
 	return tank8_data;
 	}
+	@RequestMapping("/tankData")
+	public List<TankData> tankData(String user, HttpServletRequest request, Model model) {
+		user =  request.getParameter("userData");
+		List <TankData> tankData = mapper.tankData(user);
+		System.out.println(tankData);
+		System.out.println(user);
+		  Model test = model.addAttribute("userData", user);
+		  System.out.println(test);
+		  return tankData;
+	}
 	// 수조 8개까지 요청 메소드...
 	
 	// 실제값 예측값 같이 있는 테이블 반환
