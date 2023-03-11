@@ -16,5 +16,5 @@ public class Alarm {
 	private String ALARM_CONTENT;
 	private Timestamp ALARM_DATE;
 	private String COMPANY_ID;
-	
+	private String TANK_DATA_TYPE;
 }
