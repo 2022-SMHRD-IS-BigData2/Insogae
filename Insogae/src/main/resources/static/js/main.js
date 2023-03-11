@@ -40,7 +40,7 @@ $.ajax({
 	}
 })
 
-
+/*
 const tankdataArray = []; // id선택자 리스트 ex) id = "tank1data
 const ondoArray = []; // 각 수조별 온도를 담은 id선택자 배열 ex) ondo-1(수조1), ondo-2(수조2)
 const doArray = []; // 각 수조별 DO를 담은 id선택자 배열 ex) do-1(수조1), do-2(수조2)
@@ -190,4 +190,4 @@ for (let i=0;i<num;i++){
 			console.log("에러!");
 		}
 	})
-};
+};*/
