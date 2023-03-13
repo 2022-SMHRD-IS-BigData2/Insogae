@@ -7,9 +7,7 @@ body {
 	background-color: #636464;
 }
 
-a {
-	text-decoration: none;
-}
+
 .m-0 {
     font-family: 'Do Hyeon', sans-serif;
 }
@@ -49,7 +47,7 @@ a {
 }
 
 .item>a {
-	color: white;
+	color: white !important;
 }
 
 .item:hover {
@@ -312,4 +310,8 @@ a {
   color: #fff;
   border-radius: 8px;
   z-index: 1;
+}
+
+a {
+	text-decoration: none !important;
 }

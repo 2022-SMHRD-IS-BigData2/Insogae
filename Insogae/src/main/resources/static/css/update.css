@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	background-color: #636464;
+}
+.navbar {
+    padding: 16px 16px
+}
+
+.m-0 {
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+#header {
+	/* height: 8vh; */
+	width: 100vw; 
+	z-index: 2;
+	background-color: #303C50;
+	position: relative;
+}
+
+#wrap {
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+	background-color: #403c3c;
+	color: white;
+	/* overflow-y: hidden;
+	overflow-x: hidden; */
+}
+ 
+#body {
+    width: 100vh;
+    display: flex;
+}
+
+#container {
+    background-color: #303C50;
+}
+
+
+
+.item {
+    font-family: 'Jua', sans-serif;
+}
+
+.menu {
+    display: flex;
+
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.item>a {
+    color: white;
+}
+
+.item:hover {
+    background-color: silver;
+}
+
+
+#main{
+    background-color: #403c3c;
+    width: 100%;
+    height: 980px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+
+  .company{
+    color: white;
+  }
+
+
+
+#title-join {
+	margin-top: 70px;
+	color: #24FCFF;
+	font-size: 7ch;
+	text-align: center;
+}
+
+#join {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.m-0 {
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+input[type=checkbox] {
+	zoom: 1.5;
+}
+
+table {
+	font-size: 3ch;
+	border-collapse: separate;
+	border-spacing: 0 50px;
+}
+
+#submit {
+	background-color: #8BBDFF;
+	height: 40px;
+	width: 150px;
+	border-color: white;
+	color: #000030;
+	padding-left: 40px;
+	padding-right: 40px;
+	font-size: 2ch;
+	font-family: 'Poor Story', cursive;
+	font-weight: bold;
+}

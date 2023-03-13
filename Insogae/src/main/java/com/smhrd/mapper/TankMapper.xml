@@ -95,4 +95,25 @@ AND B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY
 					WHERE TANK.COMPANY_ID = COMPANY.COMPANY_ID
 					AND COMPANY.COMPANY_ID = #{user})
 </select>
-</mapper>
+
+<!-- 데이터 50개 불러오기 -->
+<!-- <select id="monitoringdata" resultType="Object">
+
+SELECT * FROM (
+  SELECT a.*, ROW_NUMBER() OVER (PARTITION BY a.tank_id ORDER BY PRE_RECORD_DATE DESC) AS row_num
+  FROM TANK_DATA_PRE a, TANK b
+  WHERE a.TANK_ID = b.TANK_ID
+  AND b.COMPANY_ID = 'insogae'
+) AS subquery
+WHERE row_num <![CDATA[<=]]> 12
+ORDER BY TANK_ID, PRE_RECORD_DATE DESC;
+
+</select>
+ -->
+
+<select id="monitoringdata" resultType="com.smhrd.entity.TankDataPre2" parameterType="String">
+select * from TANK_DATA_PRE2
+ where tank_id=#{tankId}
+ ORDER BY PRE_RECORD_DATE DESC LIMIT 12
+</select> 
+ </mapper>
