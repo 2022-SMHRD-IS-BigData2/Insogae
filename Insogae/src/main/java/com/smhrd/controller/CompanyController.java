@@ -121,4 +121,14 @@ public class CompanyController {
 	public String goTest() {
 		return "test";
 	}
+	
+	@RequestMapping("/goUpdate.do")
+	public String goUpdate() {
+		return "redirect:/update"; // 회원정보수정 리다이렉트 이동
+	}
+	
+	@RequestMapping("/update")
+	public String update() {
+		return "update"; // 회원정보수정 포워드이동 http://localhost:8882/main
+	}
 }

@@ -69,7 +69,7 @@
               
               <div id="user-id" style="display: none">[[${user.COMPANY_ID}]]</div>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">[[${user.COMPANY_NAME}]]</a></li>
+                <li><a class="dropdown-item" href="update">[[${user.COMPANY_NAME}]]</a></li>
                 <li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
               </ul>
             </h5>
@@ -97,54 +97,51 @@
           
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active monitoring-tab" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                <h3><div id="clock" class="tab-date">[오늘날짜]</div></h3>
-                <div class="tab-body">
-                    <h4><p class="t-head">----- DO</p></h4>
-                    <div class="t-name tb">                               <div class="rectangle-title5">수조이름</div>
-                    <div class="ans"> WT11 </div>
-                    </div>
-                    <div class="t-time tb">                               <div class="rectangle-title1">시 간</div>
-                    <div class="ans">11 : 33 AM </div>
-                    </div>
-                    <div class="t-trouble tb">
-                        <div class="rectangle-title2">현수치</div>
-                        <div class="t-tro-b ans">3 ppm</div>
-                    </div>
-                    <div class="t-normal tb">
-                        <div class="rectangle-title3">정 상</div>
-                        <div class="ans">4 ppm 이상</div>
-                    </div>
-                    <div class="t-sol tb">
-                        <div class="rectangle-title4">솔루션</div>
-                        <div class="t-sol-b ans" id="test">5ppm 이상 될 때까지 공기 주입 펌프 가동</div>
-                    </div>
-                </div>
+                <p>양식장 모니터링 로그</p>
+                <table class="table table-bordered mo-his">
+                  <thead>
+                    <tr class="mo-his-title">
+                      <td class="col-3">시간</td>
+                      <td class="col-2">수조명</td>
+                      <td class="col-5">내용</td>
+                      <td class="col-2">현재 수치</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="mo-his-log">
+                      <td>23-03-13 12:10</td>
+                      <td>WT11</td>
+                      <td>온도 상승</td>
+                      <td>20 °C</td>
+                    </tr>
+                  </tbody>
+               
+                </table>
+
+
+
             </div>
-            
-            
             <div class="tab-pane fade predict-tab" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                <h3><div id="clock2" class="tab-date">[오늘날짜]</div></h3>
-                <div class="tab-body">
-                    <h4><p class="t-head">----- DO</p></h4>
-                    <div class="t-name tb">                               <div class="rectangle-title5">수조이름</div>
-                    <div class="ans"> WT11 </div>
-                    </div>
-                    <div class="t-time tb">                               <div class="rectangle-title1">시 간</div>
-                    <div class="ans">11 : 33 AM </div>
-                    </div>
-                    <div class="t-trouble tb">
-                        <div class="rectangle-title2-2">예상수치</div>
-                        <div class="t-tro-b ans">3 ppm</div>
-                    </div>
-                    <div class="t-normal tb">
-                        <div class="rectangle-title3">정 상</div>
-                        <div class="ans">4 ppm 이상</div>
-                    </div>
-                    <div class="t-sol tb">
-                        <div class="rectangle-title4">솔루션</div>
-                        <div class="t-sol-b ans">5ppm 이상 될 때까지 공기 주입 펌프 가동</div>
-                    </div>
-                </div>
+              <p>수질 예측 로그</p>
+              <table class="table table-bordered pre-his">
+                <thead>
+                  <tr class="pre-his-title">
+                    <td class="col-3">시간</td>
+                    <td class="col-2">수조명</td>
+                    <td class="col-5">내용</td>
+                    <td class="col-2">예측 수치</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="pre-his-log">
+                    <td>23-03-13 12:10</td>
+                    <td>WT11</td>
+                    <td>온도 상승</td>
+                    <td>20 °C</td>
+                  </tr>
+                </tbody>
+             
+              </table>
             </div>
 
           </div>
