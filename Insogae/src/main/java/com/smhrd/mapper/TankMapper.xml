@@ -80,17 +80,20 @@ AND B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY
 </select>
 
 
-<select id="locationData" resultType="object" parameterType="com.smhrd.entity.Company">
+<!-- <select id="locationData" resultType="object" parameterType="com.smhrd.entity.Company">
 select A.LOCATION from TANK A, COMPANY B
 where A.COMPANY_ID = B.COMPANY_ID
 and B.COMPANY_ID = #{COMPANY_ID}
 group by A.LOCATION
-</select>
+</select> -->
 
-<select id="tankData" resultType="com.smhrd.entity.TankData" parameterType="com.smhrd.entity.Company">
-select * from TANK_DATA
-where COMPANY_ID= #{COMPANY_ID}
-
+<select id="tankData" resultType="com.smhrd.entity.TankData" parameterType="String">
+SELECT * 
+FROM TANK_DATA A, TANK B
+WHERE A.TANK_ID = B.TANK_ID
+AND B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY 
+					WHERE TANK.COMPANY_ID = COMPANY.COMPANY_ID
+					AND COMPANY.COMPANY_ID = #{user})
 </select>
 
 <!-- 데이터 96개 불러오기 -->
