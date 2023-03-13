@@ -17,7 +17,6 @@ var sum2 = document.querySelector("#info > table > tbody > tr:nth-child(8) > td"
 var loc3 = document.querySelector('#info > table > tbody > tr:nth-child(9) > td:nth-child(2)')
 var cnt3 = document.querySelector("#info > table > tbody > tr:nth-child(11) > td");
 var sum3 = document.querySelector("#info > table > tbody > tr:nth-child(13) > td");
-
 $.ajax({
 	url : 'location_data',
 	data : {
@@ -67,11 +66,11 @@ let dangerSALTName ="?";
 	$.ajax({
 		url : "tankData",
 		data : {
-			userData : user
+			COMPANY_ID : user
 		},
 		success : function(res){
-		
 			
+			console.log(res);
 			var count = 0;
 			
 			setInterval(() => {
@@ -86,89 +85,21 @@ let dangerSALTName ="?";
 					if(do_data<6.01){
 						document.getElementById('do-3').style.color="red";
 						console.log("위험수치"+do_data)
-						/*$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : do_data,
-								dangerDataName : "DO"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-						
 					}else{document.getElementById('do-3').style.color="white";
 						console.log('정상')
 					}
-						
-					
 					 if(ph_data<5){
 						document.getElementById('ph-3').style.color="red";
-						/*$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : ph_data,
-								dangerDataName : "pH"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-	
 					}
 					else{document.getElementById('ph-3').style.color="white";   
 					}
-					
 					if(temp_data<6){
 						document.getElementById('ondo-3').style.color="red";
-					/*	$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : temp_data,
-								dangerDataName : "온도"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-						
 					}else{
 						document.getElementById('ondo-3').style.color="white";
 					}
-					
 					 if(salt_data>10){
 						document.getElementById('salt-3').style.color="red";
-						/*$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : salt_data,
-								dangerDataName : "염도"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-						
 					}else{
 						document.getElementById('salt-3').style.color="white";
 					}
@@ -188,7 +119,7 @@ let dangerSALTName ="?";
 					$('#ph-3').append(ph);
 					
 					count++;
-				}, 1000
+				}, 5000
 				)
 		},
 		error : function(){

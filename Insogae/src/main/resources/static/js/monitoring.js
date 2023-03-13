@@ -9,7 +9,11 @@ myButton2.addEventListener('click', () => {
 });
 
 let num = 8; // 수조 개수 설정
-
+const tankNameArray = []; // 수조이름을 넣을 배열
+// 배열에 수조 이름들 차례대로 넣기
+for (let i =0; i<num; i++){
+	tankNameArray.push($('.tct')[i].text());	
+}
 const tankdataArray = []; // id선택자 리스트 ex) id = "tank1data
 const chartIdArray1 = []; // 차트를 담은 id선택자 배열 ex) chart-div-11, chart-div-12 ...
 const chartIdArray2 = []; // 차트를 담은 id선택자 배열 ex) chart-div-21, chart-div-22 ...
@@ -37,12 +41,13 @@ for (let i =1; i <=num; i++){
 };
 
 	$.ajax({
-		url: tankdataArray[i],// 수조1
+		url: 'tankData',// 수조1
 
 		success: function(res) {
-			
-			
-			// 3. 응답받은 데이터를 console 출력
+			// 1. res에서 얻어낸 데이터랑 tankNameArray 배열에담긴 수조이름이랑 비교
+			// 2. 수조별로 분리해서 for문을 통해 함수로 나누기
+			// 2. 각 수조이름별로 setInterval() 함수를 통해 출력
+			// 3. 
 	
 			google.charts.load('current', { 'packages': ['gauge'] });
 			google.charts.setOnLoadCallback(drawChart);
