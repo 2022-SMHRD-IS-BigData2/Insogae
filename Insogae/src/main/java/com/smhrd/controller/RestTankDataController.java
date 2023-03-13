@@ -7,14 +7,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.smhrd.entity.Company;
 import com.smhrd.entity.LocationCount;
 import com.smhrd.entity.TankDataPre;
@@ -134,34 +140,40 @@ public class RestTankDataController {
 	}
 	
 	
-	
-	@RequestMapping("/datamonitoring") // 50개 데이터 가져오는 
-	public List<TankDataPre2>monitoring(String tankId,HttpServletRequest request){
-		tankId = request.getParameter("tankId");
-		List<TankDataPre2> tank_data_pre = mapper.monitoringdata(tankId);
-		System.out.println(tank_data_pre);
-		return tank_data_pre;
-	}
-	
-	
-	
-	
-	
 	/*
-	 * @RequestMapping("/datamonitoring") // 50개 데이터 가져오는 public
-	 * List<Object>monitoring(String user,HttpServletRequest request){ String sql =
-	 * "SELECT * FROM (\r\n" +
-	 * "  SELECT a.*, ROW_NUMBER() OVER (PARTITION BY a.tank_id ORDER BY PRE_RECORD_DATE DESC) AS row_num\r\n"
-	 * + "  FROM TANK_DATA_PRE a, TANK b\r\n" + "  WHERE a.tank_id = b.tank_id\r\n"
-	 * + "  AND b.COMPANY_ID = 'insogae'\r\n" + ") AS subquery\r\n" +
-	 * "WHERE row_num <= 12\r\n" + "order by TANK_ID,PRE_RECORD_DATE desc"; return
-	 * jdbcTemplate.query(sql, (rs, rowNum) -> new LocationCount(
+	 * @RequestMapping("/datamonitoring") // 50개 데이터 가져오는 public void
+	 * monitoring(String[] tankId,HttpServletRequest request){
 	 * 
-	 * )); }
+	 * tankId = request.getParameterValues("tankId"); List<TankDataPre2>
+	 * tank_data_pre = mapper.monitoringdata(tankId);
+	 * System.out.println(tank_data_pre); }
 	 */
 	
 	
 	
+	
+	
+	
+	  @PostMapping("/datamonitoring") // 50개 데이터 가져오는 public
+	  public List<TankDataPre2> monitoring(@RequestBody List<String> tankId){
+		  System.out.println(tankId);
+		  for (String tank : tankId) {
+			if(tank.equals("WT11")) {
+				
+			}
+		}
+		  return null;
+	  }
+	 
+	
+	
+//	@PostMapping("/datamonitoring")
+//	public ResponseEntity<?> handleRequest(@RequestBody Tank tank) {
+//		
+//		System.out.println("성공?");
+//	    // request handling logic
+//	    return ResponseEntity.ok().build();
+//	}
 	
 	
 }

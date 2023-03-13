@@ -65,12 +65,13 @@ let dangerPHName ="?";
 let dangerTEMPName ="?";
 let dangerSALTName ="?";*/
 	
-
+var tankIdJson = JSON.stringify(tankIdList);
 	$.ajax({
+		method:  "post",
 		url : "datamonitoring",
-		data: {
-			tankId : tankIdList[0]
-		},
+		data: tankIdJson,
+		dataType : "json",
+		contentType: "application/json",
 		success : function(res){
 		
 		
