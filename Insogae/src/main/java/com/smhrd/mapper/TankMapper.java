@@ -32,6 +32,6 @@ public interface TankMapper {
 	
 	
 	
-	public List<TankDataPre2> monitoringdata(String tankId); // 데이터 50개 불러오는 테스트 메소드
+	public List<TankDataPre2> monitoringdata(String user); // 데이터 수조별 1개씩 불러오는 테스트 메소드
 	
 }

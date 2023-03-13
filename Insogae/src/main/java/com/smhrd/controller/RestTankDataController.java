@@ -140,6 +140,19 @@ public class RestTankDataController {
 	}
 	
 	
+	@RequestMapping("/datamonitoring") // 수조별  데이터 1개씩  가져오는 메소드 
+	public List<TankDataPre2>monitoring(String user, HttpServletRequest request){
+		user = request.getParameter("COMPANY_ID");
+		System.out.println(user);
+		List<TankDataPre2> tank_data_pre = mapper.monitoringdata(user);
+		System.out.println(tank_data_pre.size());
+		return tank_data_pre;
+	}
+	
+	
+	
+	
+	
 	/*
 	 * @RequestMapping("/datamonitoring") // 50개 데이터 가져오는 public void
 	 * monitoring(String[] tankId,HttpServletRequest request){

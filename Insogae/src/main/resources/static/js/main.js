@@ -1,6 +1,5 @@
 let num = 8;
 var tank = $('#tank-id').text();
-
 const tankIdList =[];
 for (let i =1; i<=num; i++){
 	tankIdList.push($("#tank-"+i).text());
@@ -76,13 +75,13 @@ var tankIdJson = JSON.stringify(tankIdList);
 		
 		
 	var count =0;
-			console.log(res);
+			
 			
 		
 			
 			
 function currentData() {
-console.log(res[count]);
+console.log(res);
   time_data = res[count].record_DATE;
   do_data = res[count].do_ACC.toFixed(2);
   ph_data = res[count].ph_ACC.toFixed(2);
@@ -227,7 +226,7 @@ else if(res[count].tank_ID=='WT31'){
     $(`#ph-8`).append(ph);
  }
 
-if(count==11){
+if(count==7){
 	count=
 	0;
 }
@@ -235,7 +234,7 @@ if(count==11){
   count++;
 
 
-  setTimeout(() => currentData(), 3000);
+  setTimeout(() => currentData(), 1000);
 
 
 }
