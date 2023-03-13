@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.smhrd.entity.Company;
+import com.smhrd.entity.TankDataPre;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
 import com.smhrd.entity.TankDataPre2;
@@ -28,5 +29,9 @@ public interface TankMapper {
 	public List<TankDataPre2> tankDataPre(String user);
 	public List<Object> locationData(String user);
 	public int locationCount(String user);
+	
+	
+	
+	public List<TankDataPre> monitoringdata(); // 데이터 50개 불러오는 테스트 메소드
 	
 }

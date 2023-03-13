@@ -56,142 +56,197 @@ for (let i =1; i <=num; i++){
 	phArray.push('ph-'+i);
 	saltArray.push('salt-'+i);
 };
-let dangerDO ="?"; // 전달 값 초기화
+/*let dangerDO ="?"; // 전달 값 초기화
 let dangerPH ="?";
 let dangerTEMP ="?";
 let dangerSALT ="?";
 let dangerDOName ="?"; // 전달 값 초기화
 let dangerPHName ="?";
 let dangerTEMPName ="?";
-let dangerSALTName ="?";
+let dangerSALTName ="?";*/
+	
+
+	
+	
 	$.ajax({
-		url : "tankData",
-		data : {
-			userData : user
-		},
+		url : "datamonitoring",
+		
 		success : function(res){
 		
+		
+	var count =0;
+			console.log(res);
 			
-			var count = 0;
+		
 			
-			setInterval(() => {
-					time_data = res[count].record_DATE.split('T')[1].split('.')[0]
-	
-					do_data = res[count].do.toFixed(2);
-					ph_data = res[count].ph.toFixed(2);
-					temp_data = res[count].temp.toFixed(2);
-					salt_data = res[count].salt.toFixed(2);
-					
-					
-					if(do_data<6.01){
-						document.getElementById('do-3').style.color="red";
-						console.log("위험수치"+do_data)
-						/*$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : do_data,
-								dangerDataName : "DO"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-						
-					}else{document.getElementById('do-3').style.color="white";
-						console.log('정상')
-					}
-						
-					
-					 if(ph_data<5){
-						document.getElementById('ph-3').style.color="red";
-						/*$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : ph_data,
-								dangerDataName : "pH"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-	
-					}
-					else{document.getElementById('ph-3').style.color="white";   
-					}
-					
-					if(temp_data<6){
-						document.getElementById('ondo-3').style.color="red";
-					/*	$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : temp_data,
-								dangerDataName : "온도"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-						
-					}else{
-						document.getElementById('ondo-3').style.color="white";
-					}
-					
-					 if(salt_data>10){
-						document.getElementById('salt-3').style.color="red";
-						/*$.ajax({
-							url : "alarm_data",
-							data : {
-								userData : user,
-								tankIdData : tankIdList[i],
-								dangerData : salt_data,
-								dangerDataName : "염도"
-							},
-							success : function(res){
-								console.log(res)
-							},
-							error : function(){
-								console.log('에러~')
-							}
-						})*/
-						
-					}else{
-						document.getElementById('salt-3').style.color="white";
-					}
-					$('#ondo-3').html("");
-					$('#do-3').html("");
-					$('#salt-3').html("");
-					$('#ph-3').html("");
-	
-					let do_do = `<h5>` + do_data + `ppm</h5>`;
-					let ph = `<h5>` + ph_data + `ph</h5>`;
-					let temp = `<h5>` + temp_data + `°C</h5>`;
-					let salt = `<h5>` + salt_data + `psu</h5>`;
-	
-					$('#ondo-3').append(temp);
-					$('#do-3').append(do_do);
-					$('#salt-3').append(salt);
-					$('#ph-3').append(ph);
-					
-					count++;
-				}, 1000
-				)
+			
+function currentData() {
+console.log(res[count]);
+  time_data = res[count].record_DATE;
+  do_data = res[count].do_ACC.toFixed(2);
+  ph_data = res[count].ph_ACC.toFixed(2);
+  temp_data = res[count].temp_ACC.toFixed(2);
+  salt_data = res[count].salt_ACC.toFixed(2);
+
+
+
+if(res[count].tank_ID=='WT11'){ 
+ 	$(`#ondo-1`).html("");
+    $(`#do-1`).html("");
+    $(`#salt-1`).html("");
+    $(`#ph-1`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-1`).append(temp);
+    $(`#do-1`).append(do_do);
+    $(`#salt-1`).append(salt);
+    $(`#ph-1`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT12'){ 
+ 	$(`#ondo-2`).html("");
+    $(`#do-2`).html("");
+    $(`#salt-2`).html("");
+    $(`#ph-2`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-2`).append(temp);
+    $(`#do-2`).append(do_do);
+    $(`#salt-2`).append(salt);
+    $(`#ph-2`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT13'){ 
+ 	$(`#ondo-3`).html("");
+    $(`#do-3`).html("");
+    $(`#salt-3`).html("");
+    $(`#ph-3`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-3`).append(temp);
+    $(`#do-3`).append(do_do);
+    $(`#salt-3`).append(salt);
+    $(`#ph-3`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT14'){ 
+ 	$(`#ondo-4`).html("");
+    $(`#do-4`).html("");
+    $(`#salt-4`).html("");
+    $(`#ph-4`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-4`).append(temp);
+    $(`#do-4`).append(do_do);
+    $(`#salt-4`).append(salt);
+    $(`#ph-4`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT21'){ 
+ 	$(`#ondo-5`).html("");
+    $(`#do-5`).html("");
+    $(`#salt-5`).html("");
+    $(`#ph-5`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-5`).append(temp);
+    $(`#do-5`).append(do_do);
+    $(`#salt-5`).append(salt);
+    $(`#ph-5`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT22'){ 
+ 	$(`#ondo-6`).html("");
+    $(`#do-6`).html("");
+    $(`#salt-6`).html("");
+    $(`#ph-6`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-6`).append(temp);
+    $(`#do-6`).append(do_do);
+    $(`#salt-6`).append(salt);
+    $(`#ph-6`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT23'){ 
+ 	$(`#ondo-7`).html("");
+    $(`#do-7`).html("");
+    $(`#salt-7`).html("");
+    $(`#ph-7`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-7`).append(temp);
+    $(`#do-7`).append(do_do);
+    $(`#salt-7`).append(salt);
+    $(`#ph-7`).append(ph);
+ }
+
+else if(res[count].tank_ID=='WT31'){ 
+ 	$(`#ondo-8`).html("");
+    $(`#do-8`).html("");
+    $(`#salt-8`).html("");
+    $(`#ph-8`).html("");
+
+    let do_do = `<h5>` + do_data + `ppm</h5>`;
+    let ph = `<h5>` + ph_data + `ph</h5>`;
+    let temp = `<h5>` + temp_data + `°C</h5>`;
+    let salt = `<h5>` + salt_data + `psu</h5>`;
+
+    $(`#ondo-8`).append(temp);
+    $(`#do-8`).append(do_do);
+    $(`#salt-8`).append(salt);
+    $(`#ph-8`).append(ph);
+ }
+
+if(count==11){
+	count=0;
+}
+
+  count++;
+
+
+  setTimeout(() => currentData(), 1000);
+
+
+}
+
+currentData();
+				
+
+			
+
 		},
 		error : function(){
 			console.log("에러!");
 		}
 	})
+	
+	

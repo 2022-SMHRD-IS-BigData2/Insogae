@@ -36,8 +36,11 @@ for (let i =1; i <=num; i++){
 	wlArray.push('wl-'+i);
 };
 
+
+
+	
 	$.ajax({
-		url: tankdataArray[i],// 수조1
+		url: tankdataArray[i],// 수조1       // 이부분이 새로 변경 되야할 부부너
 
 		success: function(res) {
 			
@@ -237,12 +240,17 @@ for (let i =1; i <=num; i++){
 						count++;
 					}, 3000
 				);
+				
 			}
+			
 		},
+		
 		error: function() {
 			console.log('요청실패');
 		}
 	});
+	
+	
 
 
 var toast = new bootstrap.Toast($('#liveToast'));

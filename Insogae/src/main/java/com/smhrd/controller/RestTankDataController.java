@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smhrd.entity.Company;
 import com.smhrd.entity.LocationCount;
+import com.smhrd.entity.TankDataPre;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
 import com.smhrd.entity.TankDataPre2;
@@ -100,6 +101,7 @@ public class RestTankDataController {
 	List<TankData>tank8_data= mapper.tank8data();
 	return tank8_data;
 	}
+	
 	@RequestMapping("/tankData")
 	public List<TankData> tankData(String user, HttpServletRequest request, Model model) {
 		user =  request.getParameter("userData");
@@ -134,6 +136,18 @@ public class RestTankDataController {
 				rs.getLong("sum")
 				)); 
 	}
+	
+	
+	
+	@RequestMapping("/datamonitoring") // 50개 데이터 가져오는 
+	public List<TankDataPre>monitoring(){
+		List<TankDataPre>testresult = mapper.monitoringdata();
+		System.out.println(testresult);
+		return testresult;
+	}
+	
+	
+	
 	
 }
 	
