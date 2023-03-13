@@ -127,11 +127,11 @@ a {
 
 
 .monitoring-tab{
-    padding: 23px 0 0 29px;
+    padding: 23px 23px 0 23px;
 }
 
 .predict-tab{
-    padding: 23px 0 0 29px;
+    padding: 23px 23px 0 23px;
 }
 
 .tab-content{
@@ -261,4 +261,22 @@ a {
   }
   .navbar.sticky-top>div:nth-child(2){
   	padding-left: 140px;
+  }
+  
+   .mo-his-title{
+    text-align: center;
+    background-color: #919991;
+  }
+
+  .mo-his-log{
+    text-align: center;
+  }
+
+  .pre-his-title{
+    text-align: center;
+    background-color: #919991;
+  }
+
+  .pre-his-log{
+    text-align: center;
   }
