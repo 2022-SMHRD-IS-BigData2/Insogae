@@ -140,11 +140,30 @@ public class RestTankDataController {
 	
 	
 	@RequestMapping("/datamonitoring") // 50개 데이터 가져오는 
-	public List<TankDataPre>monitoring(){
-		List<TankDataPre>testresult = mapper.monitoringdata();
-		System.out.println(testresult);
-		return testresult;
+	public List<TankDataPre2>monitoring(String tankId,HttpServletRequest request){
+		tankId = request.getParameter("tankId");
+		List<TankDataPre2> tank_data_pre = mapper.monitoringdata(tankId);
+		System.out.println(tank_data_pre);
+		return tank_data_pre;
 	}
+	
+	
+	
+	
+	
+	/*
+	 * @RequestMapping("/datamonitoring") // 50개 데이터 가져오는 public
+	 * List<Object>monitoring(String user,HttpServletRequest request){ String sql =
+	 * "SELECT * FROM (\r\n" +
+	 * "  SELECT a.*, ROW_NUMBER() OVER (PARTITION BY a.tank_id ORDER BY PRE_RECORD_DATE DESC) AS row_num\r\n"
+	 * + "  FROM TANK_DATA_PRE a, TANK b\r\n" + "  WHERE a.tank_id = b.tank_id\r\n"
+	 * + "  AND b.COMPANY_ID = 'insogae'\r\n" + ") AS subquery\r\n" +
+	 * "WHERE row_num <= 12\r\n" + "order by TANK_ID,PRE_RECORD_DATE desc"; return
+	 * jdbcTemplate.query(sql, (rs, rowNum) -> new LocationCount(
+	 * 
+	 * )); }
+	 */
+	
 	
 	
 	

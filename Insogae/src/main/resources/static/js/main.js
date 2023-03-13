@@ -66,11 +66,11 @@ let dangerTEMPName ="?";
 let dangerSALTName ="?";*/
 	
 
-	
-	
 	$.ajax({
 		url : "datamonitoring",
-		
+		data: {
+			tankId : tankIdList[0]
+		},
 		success : function(res){
 		
 		
@@ -227,13 +227,14 @@ else if(res[count].tank_ID=='WT31'){
  }
 
 if(count==11){
-	count=0;
+	count=
+	0;
 }
 
   count++;
 
 
-  setTimeout(() => currentData(), 1000);
+  setTimeout(() => currentData(), 3000);
 
 
 }
