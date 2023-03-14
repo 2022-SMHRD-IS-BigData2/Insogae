@@ -36,27 +36,23 @@ for (let i =1; i <=num; i++){
 	wlArray.push('wl-'+i);
 };
 
-	$.ajax({
-		url: tankdataArray[i],// 수조1
 
-		success: function(res) {
-			
-			
-			// 3. 응답받은 데이터를 console 출력
+
+	
+	$.ajax({
+		// 2. 수조별로 분리해서 for문을 통해 함수로 나누기
+			// 2. 각 수조이름별로 setInterval() 함수를 통해 출력
+			// 3. 
 	
 			google.charts.load('current', { 'packages': ['gauge'] });
 			google.charts.setOnLoadCallback(drawChart);
 	
 			function drawChart() {
 	
-				var data1_guage = google.visualization.arrayToDataTable(
-	
-					[
-						['Label', 'Value'],
-						['DO', 10],
-					]);
-	
-				var data2_guage = google.visualization.arrayToDataTable(
+			
+			
+			// 3. 응답받은 데이터를 console 출력
+guage = google.visualization.arrayToDataTable(
 	
 					[
 						['Label', 'Value'],

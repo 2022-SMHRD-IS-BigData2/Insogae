@@ -80,16 +80,40 @@ AND B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY
 </select>
 
 
-<select id="locationData" resultType="object" parameterType="com.smhrd.entity.Company">
+<!-- <select id="locationData" resultType="object" parameterType="com.smhrd.entity.Company">
 select A.LOCATION from TANK A, COMPANY B
 where A.COMPANY_ID = B.COMPANY_ID
 and B.COMPANY_ID = #{COMPANY_ID}
 group by A.LOCATION
+</select> -->
+
+<select id="tankData" resultType="com.smhrd.entity.TankData" parameterType="String">
+SELECT * 
+FROM TANK_DATA A, TANK B
+WHERE A.TANK_ID = B.TANK_ID
+AND B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY 
+					WHERE TANK.COMPANY_ID = COMPANY.COMPANY_ID
+					AND COMPANY.COMPANY_ID = #{user})
 </select>
 
-<select id="tankData" resultType="com.smhrd.entity.TankData" parameterType="com.smhrd.entity.Company">
-select * from TANK_DATA
-where COMPANY_ID= #{COMPANY_ID}
+<!-- 데이터 96개 불러오기 -->
+ <select id="monitoringdata" parameterType="String" resultType="com.smhrd.entity.TankDataPre2">
+
+SELECT * FROM (
+  SELECT a.*, ROW_NUMBER() OVER (PARTITION BY a.tank_id ORDER BY PRE_RECORD_DATE DESC) AS row_num
+  FROM TANK_DATA_PRE a, TANK b
+  WHERE a.TANK_ID = b.TANK_ID
+  AND b.COMPANY_ID = #{COMPANY_ID}
+) AS subquery
+WHERE row_num <![CDATA[<=]]> 1 <!-- 96개 데이터 불러올려면 12적으면 됨 -->
+ORDER BY TANK_ID, PRE_RECORD_DATE DESC;
 
 </select>
-</mapper>
+
+<!--  
+<select id="monitoringdata" resultType="com.smhrd.entity.TankDataPre2" parameterType="String">
+select * from TANK_DATA_PRE2
+ where tank_id=#{tankId}
+ ORDER BY PRE_RECORD_DATE DESC LIMIT 12
+</select> -->
+ </mapper>

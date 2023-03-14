@@ -89,8 +89,6 @@ public class RestCompanyController {
 		Company user = mapper.login(company);
 		List<TankData> tankData = tankmapper.dataCheck();
 		List<Tank> tank = tankmapper.tank_id(company);
-		System.out.println(tank);
-		System.out.println(user);
 		HttpSession session1 = request.getSession(true);
 		HttpSession session2 = request.getSession(true);
 		HttpSession session3 = request.getSession(true);
@@ -100,7 +98,6 @@ public class RestCompanyController {
 		}else {
 			session3.setAttribute("tank", tank); // 세션에 저장			
 		}
-		System.out.println(tank.isEmpty());
 		if(user!=null) {
 			System.out.println("로그인 성공");
 			return "true";  // login.js -> ajax로 true (res, 응답) 리턴
