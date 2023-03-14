@@ -17,6 +17,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -69,6 +70,16 @@
 	      <artifactId>json-simple</artifactId>
 	      <version>1.1.1</version> 
 	    </dependency>
+	    <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-websocket</artifactId>
+		    <version>2.6.2</version> <!-- 원하는 버전으로 변경 -->
+		</dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.9</version>
+		</dependency>
 		
 	</dependencies>
 
@@ -88,5 +99,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 </project>
