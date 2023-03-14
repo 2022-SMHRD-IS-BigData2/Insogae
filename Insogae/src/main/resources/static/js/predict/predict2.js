@@ -177,6 +177,11 @@ let labels = [];
              );
              console.log(chart0);
              console.log(chart1);
+             
+             
+             
+             
+             
              setInterval(()=> {
              hiddenLabel.push("");
            
