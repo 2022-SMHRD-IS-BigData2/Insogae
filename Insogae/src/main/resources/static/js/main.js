@@ -68,9 +68,10 @@ var tankIdJson = JSON.stringify(tankIdList);
 	$.ajax({
 		method:  "post",
 		url : "datamonitoring",
-		data: tankIdJson,
-		dataType : "json",
-		contentType: "application/json",
+		data : {
+		COMPANY_ID : user
+	}, 
+		
 		success : function(res){
 		
 		

@@ -30,8 +30,7 @@ public interface TankMapper {
 	public List<Object> locationData(String user);
 	public int locationCount(String user);
 	
-	
-	
+
 	public List<TankDataPre2> monitoringdata(String user); // 데이터 수조별 1개씩 불러오는 테스트 메소드
 	
 }

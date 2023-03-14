@@ -95,8 +95,8 @@ AND B.TANK_ID IN (SELECT TANK.TANK_ID FROM TANK, COMPANY
 					WHERE TANK.COMPANY_ID = COMPANY.COMPANY_ID
 					AND COMPANY.COMPANY_ID = #{user})
 </select>
+  
 
-<!-- 데이터 96개 불러오기 -->
  <select id="monitoringdata" parameterType="String" resultType="com.smhrd.entity.TankDataPre2">
 
 SELECT * FROM (
@@ -105,10 +105,12 @@ SELECT * FROM (
   WHERE a.TANK_ID = b.TANK_ID
   AND b.COMPANY_ID = #{COMPANY_ID}
 ) AS subquery
-WHERE row_num <![CDATA[<=]]> 1 <!-- 96개 데이터 불러올려면 12적으면 됨 -->
+WHERE row_num <![CDATA[<=]]> 1 
 ORDER BY TANK_ID, PRE_RECORD_DATE DESC;
 
 </select>
+
+
 
 <!--  
 <select id="monitoringdata" resultType="com.smhrd.entity.TankDataPre2" parameterType="String">
