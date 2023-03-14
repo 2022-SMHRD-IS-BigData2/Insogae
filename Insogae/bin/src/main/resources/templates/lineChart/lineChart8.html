@@ -1,6 +1,7 @@
 <body>
 	<div class="tank">
-		<div class="tct">8</div>
+		<div class="tct" th:if="${tank}"  th:text="${tank.get(7).TANK_ID}"></div>
+		<div class="tct" th:unless="${tank}"></div>
 		<button class="report" id="report-8">리포트</button>
 		<div class="warning">
 			<div class="wl"></div>
@@ -32,24 +33,48 @@
 			</div>
 		</div>
 		<div class="rectangle-data">
-			<div class="ondo">
-				<div class="rectangle-value value-8">온도</div>
-				<div class="ondo-n" id="ondo-8">12.20 °C</div>
+			<div class="ondo value-8">
+				<div class="ondo-sub">
+					<div class="rectangle-value">현재 온도</div>
+					<div class="ondo-n" id="ondo-acc-8">12.20 °C</div>
+				</div>
+				<div class="ondo-sub">
+					<div class="rectangle-value">예측 온도</div>
+					<div class="ondo-n" id="ondo-pre-8">12.20 °C</div>
+				</div>
 			</div>
 			<hr class="line-1"></hr>
-			<div class="do">
-				<div class="rectangle-value value-8">DO</div>
-				<div class="do-n" id="do-8">12 ppm</div>
+			<div class="do value-8">
+				<div class="do-sub">
+					<div class="rectangle-value">현재 DO</div>
+					<div class="do-n" id="do-acc-8">12 ppm</div>
+				</div>
+				<div class="do-sub">
+					<div class="rectangle-value">예측 DO</div>
+					<div class="do-n" id="do-pre-8">12 ppm</div>
+				</div>
 			</div>
 			<hr class="line-1"></hr>
-			<div class="ph">
-				<div class="rectangle-value value-8">pH</div>
-				<div class="ph-n" id="ph-8">7.5 ph</div>
+			<div class="ph value-8">
+				<div class="ph-sub">
+					<div class="rectangle-value">현재 pH</div>
+					<div class="ph-n" id="ph-acc-8">7.5 ph</div>
+				</div>
+				<div class="ph-sub">
+					<div class="rectangle-value">예측 pH</div>
+					<div class="ph-n" id="ph-pre-8">7.5 ph</div>
+				</div>
 			</div>
 			<hr class="line-1"></hr>
-			<div class="salt">
-				<div class="rectangle-value value-8">염분</div>
-				<div class="salt-n" id="salt-8">25.30 psu</div>
+			<div class="salt value-8">
+				<div class="salt-sub">
+					<div class="rectangle-value">현재 염분</div>
+					<div class="salt-n" id="salt-acc-8">25.30 psu</div>
+				</div>
+				<div class="salt-sub">
+					<div class="rectangle-value">예측 염분</div>
+					<div class="salt-n" id="salt-pre-8">25.30 psu</div>
+				</div>
 			</div>
 		</div>
 	</div>
