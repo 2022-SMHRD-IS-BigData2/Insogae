@@ -107,4 +107,24 @@ public class RestCompanyController {
 		}
 		
 	}
+	
+	@RequestMapping("/update.do") // 회원정보 수정
+	public String Update(Company company) {
+		System.out.println(company); 
+		
+		int cnt = mapper.update(company);
+		
+		System.out.println(cnt);
+		
+		if(cnt>0) {
+		return "true";
+		}
+		else {
+		return "false";
+		}
+		
+}
+		
+	
+	
 }

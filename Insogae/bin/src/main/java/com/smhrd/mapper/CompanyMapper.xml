@@ -27,4 +27,14 @@ select *from COMPANY
 where COMPANY_ID = #{COMPANY_ID}
 </select>
 
+<update id="update" parameterType="com.smhrd.entity.Company">
+
+update COMPANY set COMPANY_PW = #{COMPANY_PW},
+COMPANY_NAME = #{COMPANY_NAME},
+COMPANY_TEL = #{COMPANY_TEL},
+COMPANY_ADDRESS = #{COMPANY_ADDRESS} where COMPANY_ID = #{COMPANY_ID}
+
+
+</update>
+
 </mapper>

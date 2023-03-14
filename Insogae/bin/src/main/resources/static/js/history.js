@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 /* 모니터링 날짜*/
 function currentTime() {
     const date = new Date(); 
@@ -32,3 +39,18 @@ function currentTime() {
   }
   
   currentTime2();
+
+var user = $('#user-id').text();
+
+$.ajax({
+	url : 'testlist',
+	data : {
+		userData: user
+	},
+	success : function(res){
+		console.log(res)
+	},
+	error : function(){
+		console.log('에러')
+	}
+});

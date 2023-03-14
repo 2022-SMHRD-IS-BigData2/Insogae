@@ -87,36 +87,32 @@
         <p>회원정보 수정</p>
     </div>
     <div id="join">
-        <form method="post" action="/user/edit">
+        <form method="post" >
             <table style="text-align: center;">
-                <tr>
-                    <td>💡 ID &nbsp;</td>
-                    <td><input id="id" name="id" type="text" readonly value="[[${user.COMPANY_ID}]]" size="34" maxlength="30"></td>
-                </tr>
 
                 <tr>
                     <td>💡 PassWord &nbsp;</td>
-                    <td><input id="pw" name="password" type="password" placeholder="비밀번호를 입력해주세요" size="34" maxlength="30"></td>
+                    <td><input id="pw" name="password" type="password" placeholder="변경할 비밀번호를 입력해주세요" size="34" maxlength="30"></td>
                 </tr>
 
                 <tr>
                     <td>💡 Name &nbsp;</td>
-                    <td><input id="name" name="name" type="text" value="[[${user.COMPANY_NAME}]]" size="34" maxlength="30"></td>
+                    <td><input id="name" name="name" type="text" placeholder="변경할 회사 이름을 입력해주세요" size="34" maxlength="30"></td>
                 </tr>
 
                 <tr>
                     <td>💡 TEL &nbsp;</td>
-                    <td><input id="tel" name="tel" type="text" value="[[${user.COMPANY_TEL}]]" size="34" maxlength="30"></td>
+                    <td><input id="tel" name="tel" type="text" placeholder="변경할 전화번호를 입력해주세요" size="34" maxlength="30"></td>
                 </tr>
 
                 <tr>
                     <td>💡 Address &nbsp;</td>
-                    <td><input id="address" name="address" type="text" value="[[${user.COMPANY_ADDRES}]]" size="34" maxlength="30"></td>
+                    <td><input id="address" name="address" type="text" placeholder="변경할 회사 주소를 입력해주세요" size="34" maxlength="30"></td>
                 </tr>
             </table>
 
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <button id="send" type="submit">수정</button>
+                <button id="send" type="button">수정</button>
             </div>
         </form>
     </div>

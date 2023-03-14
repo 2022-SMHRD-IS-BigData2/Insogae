@@ -175,7 +175,8 @@ let labels = [];
              document.getElementById('salt-gp-2'),
              config3
              );
-         
+             console.log(chart0);
+             console.log(chart1);
              setInterval(()=> {
              hiddenLabel.push("");
            
@@ -198,6 +199,10 @@ let labels = [];
              data3.datasets[0].borderColor.shift();
 
              }
+             console.log(data0)
+             console.log(data1)
+             console.log(data2)
+             console.log(data3)
              labels.push(time_data);
              data0.datasets[0].data.push(res[count].temp);
              data0.datasets[0].backgroundColor.push(3 >=res[count].temp ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
