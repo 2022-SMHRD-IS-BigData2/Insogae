@@ -16,4 +16,6 @@ public interface CompanyMapper {
 	
 	public Company idCheck(String COMPANY_ID); // 중복아이디 확인 메소드
 	
+	public int update(Company company); // 회원정보 수정 메소드
+	
 }
