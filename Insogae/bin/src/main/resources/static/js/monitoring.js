@@ -21,6 +21,7 @@ const phArray = []; // 각 수조별 pH를 담은 id선택자 배열 ex) ph-1(�
 const saltArray = []; // 각 수조별 염분을 담은 id선택자 배열 ex) salt-1(수조1), salt-2(수조2)
 const tankArray = []; // 수조의 갯수만큼 div박스를 생성해줄 배열 ex) ondo-1(수조1), ondo-2(수조2)
 const timeArray = []; // 각 수조별 시간을 담은 id 선택자 배열
+const wlArray=[]; // 상단 경고 색상
 for (let i =1; i <=num; i++){
 	tankdataArray.push('tank' +i+'data');
 	chartIdArray1.push('chart-div-' + i+'1');
@@ -32,28 +33,26 @@ for (let i =1; i <=num; i++){
 	phArray.push('ph-'+i);
 	saltArray.push('salt-'+i);
 	timeArray.push('time-'+i);
+	wlArray.push('wl-'+i);
 };
 
-for (let i =0; i <num; i++){
-	$.ajax({
-		url: tankdataArray[i],// 수조1
 
-		success: function(res) {
-			// 3. 응답받은 데이터를 console 출력
+
+	
+	$.ajax({
+		// 2. 수조별로 분리해서 for문을 통해 함수로 나누기
+			// 2. 각 수조이름별로 setInterval() 함수를 통해 출력
+			// 3. 
 	
 			google.charts.load('current', { 'packages': ['gauge'] });
 			google.charts.setOnLoadCallback(drawChart);
 	
 			function drawChart() {
 	
-				var data1_guage = google.visualization.arrayToDataTable(
-	
-					[
-						['Label', 'Value'],
-						['DO', 10],
-					]);
-	
-				var data2_guage = google.visualization.arrayToDataTable(
+			
+			
+			// 3. 응답받은 데이터를 console 출력
+guage = google.visualization.arrayToDataTable(
 	
 					[
 						['Label', 'Value'],
@@ -80,10 +79,10 @@ for (let i =0; i <num; i++){
 				var options1 = { // DO
 					width: 180, height: 180, 
 					redFrom: 0, redTo: 3,
-					greenFrom: 3, greenTo: 10,
+					greenFrom: 3, greenTo: 15,
 					minorTicks: 5,
 					animation: { duration: 400 },
-					max: 10
+					max: 15
 				};
 	
 	
@@ -96,7 +95,7 @@ for (let i =0; i <num; i++){
 					greenFrom: 10, greenTo: 34,
 					minorTicks: 5,
 					animation: { duration: 400 },
-					max: 40
+					max: 100
 				};
 	
 	
@@ -141,7 +140,66 @@ for (let i =0; i <num; i++){
 						do_data = res[count].do.toFixed(2);
 						ph_data = res[count].ph.toFixed(2);
 						temp_data = res[count].temp.toFixed(2);
-						salt_data = res[count].salt.toFixed(2);
+						salt_data = res[count].salt.toFixed(2)*100;
+						
+						
+						
+					
+					
+					
+					if(do_data<6.1){
+						document.getElementById(doArray[i]).style.color="red";
+						console.log(do_data)
+						console.log("DO 위험!!!")
+							document.getElementById(doArray[i]).style.color="red";
+							
+							function showToast(message, duration) {
+							  const toast = document.getElementById('toast');
+							  toast.innerText = message;
+							  toast.style.display = 'block';
+							  setTimeout(() => {
+							    toast.style.display = 'none';
+							  }, duration);
+							}
+							showToast('경고!', 1500);
+						
+						
+					}else{document.getElementById(doArray[i]).style.color="white";}
+					
+					
+					 if(ph_data<5){
+						document.getElementById(phArray[i]).style.color="red";
+	
+					}
+					else{document.getElementById(phArray[i]).style.color="white";}
+					
+					if(temp_data<6){
+						document.getElementById(ondoArray[i]).style.color="red";
+						
+					}else{
+						document.getElementById(ondoArray[i]).style.color="white";
+					}
+					
+					 if(salt_data<10){
+						document.getElementById(saltArray[i]).style.color="red";
+						
+					}else{
+						document.getElementById(saltArray[i]).style.color="white";
+					}
+					
+					
+						
+					if(do_data<3||ph_data<7.5){
+							var wl = document.getElementById(wlArray[i])
+							wl.style.backgroundColor="red"
+						}
+						 if(temp_data<6||salt_data<10){
+							var wl = document.getElementById(wlArray[i])
+							wl.style.backgroundColor="red"
+						}
+						
+						
+						
 						$('#'+ondoArray[i]).html("");
 						$('#'+doArray[i]).html("");
 						$('#'+saltArray[i]).html("");
@@ -163,7 +221,7 @@ for (let i =0; i <num; i++){
 						data1_guage.setValue(0, 1, res[count].do.toFixed(1));
 						chart1_guage.draw(data1_guage, options1);
 		
-						data2_guage.setValue(0, 1, res[count].salt.toFixed(1));
+						data2_guage.setValue(0, 1, res[count].salt.toFixed(1)*100);
 						chart2_guage.draw(data2_guage, options2);
 		
 						data3_guage.setValue(0, 1, res[count].ph.toFixed(1));
@@ -173,7 +231,7 @@ for (let i =0; i <num; i++){
 						chart4_guage.draw(data4_guage, options4);
 		
 						count++;
-					}, 1500
+					}, 3000
 				);
 			}
 		},
@@ -181,10 +239,20 @@ for (let i =0; i <num; i++){
 			console.log('요청실패');
 		}
 	});
+
+
+var toast = new bootstrap.Toast($('#liveToast'));
+
+function showToast() {
+  toast.show();
 }
 
-
-
+setInterval(function() {
+  showToast();
+  setTimeout(function() {
+    toast.hide(false);
+  }, 3000);
+}, 5000);
 
 
 

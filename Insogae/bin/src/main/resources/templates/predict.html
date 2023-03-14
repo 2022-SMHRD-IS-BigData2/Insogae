@@ -10,9 +10,8 @@
 <link rel="stylesheet" href="css/predict.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -21,14 +20,13 @@
 	<div id="header">
 			<nav class="navbar sticky-top ">
 			
-				<div class="container-fluid col-2">
+				<div class="container-fluid col-3">
 					<a href="goMain.do"><img
 						src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmlsI7%2Fbtr0BB7bnSk%2FKiqvCvFrLHKhqg8WS3T3Y1%2Fimg.png"
 						width="200" height="50" class="d-inline-block align-text-top"></a>
-					<h3 class="m-0 title-1">양식장 모니터링</h3>
+					<h3 class="m-0 title-1"></h3>
 				</div>
-				<div class="container-fluid col-2"></div>
-				<div class="container-fluid col-2">
+				<div class="container-fluid col-3">
 				<div class="item menu0 menu">
 					<a href="goMain.do">
 						<img src="img/main.png" width="20" height="20"> 메인
@@ -68,7 +66,7 @@
 							<div id="user-id" style="display: none">[[${user.COMPANY_ID}]]</div>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="#">[[${user.COMPANY_NAME}]]</a></li>
+								<li><a class="dropdown-item" href="update">[[${user.COMPANY_NAME}]]</a></li>
 								<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
 							</ul>
 						</h5>
@@ -80,13 +78,13 @@
 		<!-- header Navbar 끝-->
 		<!-- 본문 시작 -->
 		<div id="container">
-			<div id="main-1" class="main">
+			 <div id="main-1" class="main">
 				<div class="rectangle-1">
 					<div id="btn-container">
 						<button class="btn" id="next-page">
 							<i class="fa-solid fa-right-long fa-3x"></i>
 						</button>
-						<!-- <button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button> -->
+						<button class="btn"><i class="fa-solid fa-left-long fa-3x"></i></button>
 
 					</div>
 					<div class="rectangle-2">
@@ -111,7 +109,7 @@
 			<div id="main-2" class="main">
 				<div class="rectangle-1">
 					<div id="btn-container">
-						<!--<button class="btn" id="nextPage"><i class="fa-solid fa-right-long fa-3x"></i></button> -->
+						<button class="btn" id="nextPage"><i class="fa-solid fa-right-long fa-3x"></i></button>
 						<button class="btn" id="before-page">
 							<i class="fa-solid fa-left-long fa-3x"></i>
 						</button>
@@ -147,13 +145,14 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="js/predict.js"></script>
  	<script src="js/predict/predict1.js"></script>
-	<script src="js/predict/predict2.js"></script>
+	<!-- <script src="js/predict/predict2.js"></script>
 	<script src="js/predict/predict3.js"></script>
 	<script src="js/predict/predict4.js"></script>
 	<script src="js/predict/predict5.js"></script>
 	<script src="js/predict/predict6.js"></script>
 	<script src="js/predict/predict7.js"></script>
-	<script src="js/predict/predict8.js"></script>
+	<script src="js/predict/predict8.js"></script> -->
+<!-- 	<script src="js/predict/predictTest.js"></script> -->
 	<script src="https://kit.fontawesome.com/5ecdf6234c.js"
 		crossorigin="anonymous"></script>
 </body>
