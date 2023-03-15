@@ -23,7 +23,20 @@ socket.onopen = function(event) {
 
 
 socket.onmessage = function(event) {
-    var data = JSON.parse(event.data);
-    console.dir("서버로부터 데이터 수신: " + data);
-    console.dir(data);
+	var dataSet = JSON.parse(event.data);
+	console.log(dataSet[0])
+	for(let i=0;i<dataSet.length;i++){
+		dataSet[i] = dataSet[i].substring(0, dataSet[i].length - 4) + "H" + dataSet[i].substring(dataSet[i].length - 3,dataSet[i].length-1);
+	}
+	console.log(dataSet[0]);
+	dataList = [];
+	for (let i =0;i<dataSet.length;i++){
+		dataList.push(Object.fromEntries(dataSet[i].split(',').map(item => {
+			const [key, value] = item.split(':');
+			return [key, value];
+		})));
+	}
+
+	console.log(dataList);
+    
 };

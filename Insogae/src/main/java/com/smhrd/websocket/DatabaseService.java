@@ -32,7 +32,6 @@ public class DatabaseService {
             data.add(rowData);
             
         }
-        logger.debug("Received data from database: {}", data);
         return data;
     }
     
