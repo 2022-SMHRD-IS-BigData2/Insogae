@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.smhrd.entity.Company;
 import com.smhrd.entity.LocationCount;
+import com.smhrd.entity.PredictView;
 import com.smhrd.entity.Predict_View;
 import com.smhrd.entity.TankDataPre;
 import com.smhrd.entity.Tank;
@@ -141,6 +142,7 @@ public class RestTankDataController {
 	}
 	
 	
+
 //	@RequestMapping("/datamonitoring") // 수조별  데이터 1개씩  가져오는 메소드 
 //	public List<TankDataPre2>monitoring(String user, HttpServletRequest request){
 //		user = request.getParameter("COMPANY_ID");
@@ -150,10 +152,21 @@ public class RestTankDataController {
 //		return tank_data_pre;
 //	}
 	
-	@RequestMapping("/mainpagedata") // 데이터 1개씩 메인페이지 보여주는 메소드
-	public List<Predict_View>mainpagedata(){
-		List<Predict_View>data = mapper.mainpagedata();
-		return data;
+
+	@RequestMapping("/datamonitoring") // 수조별  데이터 1개씩  가져오는 메소드 
+	public List<PredictView>monitoring(){
+		List<PredictView> predictView = mapper.monitoringdata();
+		System.out.println(predictView);
+		System.out.println(predictView.size());
+		return predictView;
+	}
+	@RequestMapping("/dataPredict") // 수조별  데이터 1개씩  가져오는 메소드 
+	public List<PredictView>predict(){
+		List<PredictView> predictView = mapper.predictData();
+		System.out.println(predictView);
+		System.out.println(predictView.size());
+		return predictView;
+
 	}
 	
 	
@@ -174,16 +187,16 @@ public class RestTankDataController {
 	
 	
 	
-	  @PostMapping("/datamonitoring") // 50개 데이터 가져오는 public
-	  public List<TankDataPre2> monitoring(@RequestBody List<String> tankId){
-		  System.out.println(tankId);
-		  for (String tank : tankId) {
-			if(tank.equals("WT11")) {
-				
-			}
-		}
-		  return null;
-	  }
+//	  @PostMapping("/datamonitoring") // 50개 데이터 가져오는 public
+//	  public List<TankDataPre2> monitoring(@RequestBody List<String> tankId){
+//		  System.out.println(tankId);
+//		  for (String tank : tankId) {
+//			if(tank.equals("WT11")) {
+//				
+//			}
+//		}
+//		  return null;
+//	  }
 	 
 	
 	

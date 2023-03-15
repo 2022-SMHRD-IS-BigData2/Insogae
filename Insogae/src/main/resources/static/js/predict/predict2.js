@@ -1,234 +1,291 @@
-
-      $.ajax({
-        url : "tank2data",
-        success : function(res) {
-         var count=0;
-         	console.log(res)
-             setInterval(() => {
-               console.log(res[count].temp)
-               console.log(res[count].do)
-               console.log(res[count].ph)
-               console.log(res[count].salt)
-               time_data = res[count].record_DATE.split('T')[1].split('.')[0]
-               do_data = res[count].do.toFixed(2);
-               ph_data = res[count].ph.toFixed(2);
-               temp_data = res[count].temp.toFixed(2);
-               salt_data = res[count].salt.toFixed(2);
-            
-               $('#ondo-2').html("");
-               $('#do-2').html("");
-               $('#salt-2').html("");
-               $('#ph-2').html("");
-               
-               let do_do = `<h5>`+do_data+`ppm</h5>`;
-               let ph=`<h5>`+ph_data+`ph</h5>`;
-               let temp=`<h5>`+temp_data+`°C</h5>`;
-               let salt=`<h5>`+salt_data+`psu</h5>`;
-               $('#ondo-2').append(temp);
-               $('#do-2').append(do_do);
-               $('#salt-2').append(salt);
-               $('#ph-2').append(ph);
-               	count++;
-           }, 3000);
-
-let labels = [];
-             const data0 = {
-               labels: labels,
-               datasets: [{
-                 label: '온도',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
-             };
+var user = $('#user-id').text();
+const tankIdList = [];
+for (let i =0; i<num ; i++){
+	tankIdList.push($('.tct').html());
+}	
+const labels = []
 
 
- const data1 = {
-               labels: labels,
-               datasets: [{
-                 label: 'DO',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
-             };
+const ondo_AccListSet = [];
+const ondo_PreListSet = [];
+const do_AccListSet = [];
+const do_PreListSet = [];
+const ph_AccListSet = [];
+const ph_PreListSet = [];
+const salt_AccListSet = [];
+const salt_PreListSet = [];
 
-
- const data2 = {
-               labels: labels,
-               datasets: [{
-                 label: 'pH',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
-             };
-
-
- const data3 = {
-               labels: labels,
-               datasets: [{
-                 label: '염분',
-                 data: [],
-                 fill: false,
-                 backgroundColor: [],
-                 borderColor: [],
-                 tension: 0.1,
-                 borderWidth: 1
-               }]
-             };
-             
-
-             let hiddenLabel = [];
-             let config0 = {
-               type: 'line',
-               data: data0,
-               options: {
-                 scales: {
-                   x: {
-                     tick: {
-                       display: false,
-                       callback: function(label, index, labels) {
-                         return hiddenLabel;
-                       }
-                     }
-                   }
-                 }
-               }
-             };
-
-             let config1 = {
-               type: 'line',
-               data: data1,
-               options: {
-                 scales: {
-                   x: {
-                     tick: {
-                       display: false,
-                       callback: function(label, index, labels) {
-                         return hiddenLabel;
-                       }
-                     }
-                   }
-                 }
-               }
-             };
-
- 
-             let config2 = {
-               type: 'line',
-               data: data2,
-               options: {
-                 scales: {
-                   x: {
-                     tick: {
-                       display: false,
-                       callback: function(label, index, labels) {
-                         return hiddenLabel;
-                       }
-                     }
-                   }
-                 }
-               }
-             };
-
- 
-             let config3 = {
-               type: 'line',
-               data: data3,
-               options: {
-                 scales: {
-                   x: {
-                     tick: {
-                       display: false,
-                       callback: function(label, index, labels) {
-                         return hiddenLabel;
-                       }
-                     }
-                   }
-                 }
-               }
-             };
-            	 
-             let chart0 = new Chart(
-             document.getElementById('ondo-gp-2'),
-             config0
-             );
-             let chart1 = new Chart(
-             document.getElementById('do-gp-2'),
-             config1
-             );
-             let chart2 = new Chart(
-             document.getElementById('ph-gp-2'),
-             config2
-             );
-             let chart3 = new Chart(
-             document.getElementById('salt-gp-2'),
-             config3
-             );
-             console.log(chart0);
-             console.log(chart1);
-             setInterval(()=> {
-             hiddenLabel.push("");
-           
-             if (data0.datasets[0].data.length > 12){
-             labels.shift();
-             data0.datasets[0].data.shift();
-             data0.datasets[0].backgroundColor.shift();
-             data0.datasets[0].borderColor.shift();
-
-             data1.datasets[0].data.shift();
-             data1.datasets[0].backgroundColor.shift();
-             data1.datasets[0].borderColor.shift();
-
-             data2.datasets[0].data.shift();
-             data2.datasets[0].backgroundColor.shift();
-             data2.datasets[0].borderColor.shift();
-
-             data3.datasets[0].data.shift();
-             data3.datasets[0].backgroundColor.shift();
-             data3.datasets[0].borderColor.shift();
-
-             }
-             console.log(data0)
-             console.log(data1)
-             console.log(data2)
-             console.log(data3)
-             labels.push(time_data);
-             data0.datasets[0].data.push(res[count].temp);
-             data0.datasets[0].backgroundColor.push(3 >=res[count].temp ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data0.datasets[0].borderColor.push(3 >= res[count].temp ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-            
-             data1.datasets[0].data.push(res[count].do);
-             data1.datasets[0].backgroundColor.push(3 >=res[count].do ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data1.datasets[0].borderColor.push(3 >= res[count].do ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-
-             data2.datasets[0].data.push(res[count].ph);
-             data2.datasets[0].backgroundColor.push(3 >=res[count].ph ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data2.datasets[0].borderColor.push(3 >= res[count].ph ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');   
-
-             data3.datasets[0].data.push(res[count].salt);
-             data3.datasets[0].backgroundColor.push(3 >=res[count].salt ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             data3.datasets[0].borderColor.push(3 >= res[count].salt ? 'rgba(255, 0, 0)' : 'rgba(0, 255, 0)');
-             
-            	 chart0.update();
-            	 chart1.update();
-            	 chart2.update();
-            	 chart3.update();
-       
-             count++;
-             }, 3000);  
-        },
-        error : function(){
-          console.log('요청실패');
+$.ajax({
+    url : "dataPredict",
+    success : function(res) {
+    	console.log(res);
+    	const labels =[]
+    	
+    	for (let i =0;i<12;i++){
+    		labels.push(res[0].record_DATE.split('T')[1].split('.')[0]);
+    	}
+        for (i =0; i<num;i++){
+        	let ondo_AccList = [];
+        	let ondo_PreList = [];
+        	let do_AccList = [];
+        	let do_PreList = [];
+        	let ph_AccList = [];
+        	let ph_PreList = [];
+        	let salt_AccList = [];
+        	let salt_PreList = [];
+        	for (j = 0; j < 12; j++) {
+        		ondo_AccList.push(res[i*12+j].temp_ACC);
+        		ondo_PreList.push(res[i*12+j].temp_PRE);
+        		do_AccList.push(res[i*12+j].do_ACC);
+        		do_PreList.push(res[i*12+j].do_PRE);
+        		ph_AccList.push(res[i*12+j].ph_ACC);
+        		ph_PreList.push(res[i*12+j].ph_PRE);
+        		salt_AccList.push(res[i*12+j].salt_ACC);
+        		salt_PreList.push(res[i*12+j].salt_PRE);
+        	}
+        	ondo_AccListSet.push(ondo_AccList);
+        	ondo_PreListSet.push(ondo_PreList);
+        	do_AccListSet.push(do_AccList);
+        	do_PreListSet.push(do_PreList);
+        	ph_AccListSet.push(ph_AccList);
+        	ph_PreListSet.push(ph_PreList);
+        	salt_AccListSet.push(salt_AccList);
+        	salt_PreListSet.push(salt_PreList);
         }
-      });
+        
+        
+        let dataList0 = []
+        let dataList1 = []
+        let dataList2 = []
+        let dataList3 = []
+        for (let i =0; i<num;i++){
+        	dataList0.push({
+                    labels: labels,
+                    datasets: [{
+                        label: '현재 온도',
+                        data: ondo_AccListSet[i],
+                        borderColor: 'green',
+                        backgroundColor: 'green',
+                        fill: false
+                    }, {
+                        label: '예측 온도',
+                        data: ondo_PreListSet[i],
+                        borderColor: 'orange',
+                        backgroundColor: 'orange',
+                        fill: false
+                    }]
+                })
+            dataList1.push({
+                		labels: labels,
+                		datasets: [{
+                			label: '현재 DO',
+                			data: do_AccListSet[i],
+                			borderColor: 'green',
+                            backgroundColor: 'green',
+                			fill: false
+                		}, {
+                			label: '예측 DO',
+                			data: do_PreListSet[i],
+                			borderColor: 'orange',
+                            backgroundColor: 'orange',
+                			fill: false
+                		}]
+                })
+            dataList2.push({
+                		labels: labels,
+                		datasets: [{
+                			label: '현재 pH',
+                			data: ph_AccListSet[i],
+                			borderColor: 'green',
+                            backgroundColor: 'green',
+                			fill: false
+                		}, {
+                			label: '예측 pH',
+                			data: ph_PreListSet[i],
+                			borderColor: 'orange',
+                            backgroundColor: 'orange',
+                			fill: false
+                		}]
+                })
+            dataList3.push({
+                		labels: labels,
+                		datasets: [{
+                			label: '현재 염도',
+                			data: salt_AccListSet[i],
+                			borderColor: 'green',
+                            backgroundColor: 'green',
+                			fill: false
+                		}, {
+                			label: '예측 염도',
+                			data: salt_PreListSet[i],
+                			borderColor: 'orange',
+                            backgroundColor: 'orange',
+                			fill: false
+                		}]
+                })
+        }
+
+        let dataList = [dataList0, dataList1, dataList2, dataList3]
+        console.log(dataList)
+            // 차트 객체가 이미 생성된 경우, 업데이트를 수행합니다.
+//                window.myChart.data.datasets[0].data = ondo_AccList[0];
+//            	window.myChart.data.datasets[1].data = ondo_PreList[0];
+//            	window.myChart.data.labels = labels;
+//                window.myChart.update();
+            // 차트 객체가 생성되지 않은 경우, 새로운 차트를 생성합니다.
+        chartListONDO = []
+        chartListDO = []
+        chartListPH= []
+        chartListSALT = []
+        chartListSet = []
+        	for (let i=0;i<num;i++){
+        		chartListONDO.push(new Chart(document.querySelector(ondoArray[i]).getContext('2d'), {
+        			type: 'line',
+        			data : dataList[0][i]
+        		})); // 차트 객체 생성
+        		chartListDO.push(new Chart(document.querySelector(doArray[i]).getContext('2d'), {
+        			type: 'line',
+        			data : dataList[1][i]
+        		})); // 차트 객체 생성
+        		chartListPH.push(new Chart(document.querySelector(phArray[i]).getContext('2d'), {
+        			type: 'line',
+        			data : dataList[2][i]
+        		})); // 차트 객체 생성
+        		chartListSALT.push(new Chart(document.querySelector(saltArray[i]).getContext('2d'), {
+        			type: 'line',
+        			data : dataList[3][i]
+        		})); // 차트 객체 생성
+        }
+        chartListSet = [chartListONDO, chartListDO, chartListPH, chartListSALT];
+        console.log(ondo_AccListSet)
+setInterval(() => {
+	const labels =[]
+	
+	for (let i =0;i<12;i++){
+		labels.push(res[0].record_DATE.split('T')[1].split('.')[0]);
+	}
+    for (i =0; i<num;i++){
+    	let ondo_AccList = [];
+    	let ondo_PreList = [];
+    	let do_AccList = [];
+    	let do_PreList = [];
+    	let ph_AccList = [];
+    	let ph_PreList = [];
+    	let salt_AccList = [];
+    	let salt_PreList = [];
+    	for (j = 0; j < 12; j++) {
+    		ondo_AccList.push(res[i*12+j].temp_ACC);
+    		ondo_PreList.push(res[i*12+j].temp_PRE);
+    		do_AccList.push(res[i*12+j].do_ACC);
+    		do_PreList.push(res[i*12+j].do_PRE);
+    		ph_AccList.push(res[i*12+j].ph_ACC);
+    		ph_PreList.push(res[i*12+j].ph_PRE);
+    		salt_AccList.push(res[i*12+j].salt_ACC);
+    		salt_PreList.push(res[i*12+j].salt_PRE);
+    	}
+    	ondo_AccListSet.push(ondo_AccList);
+    	ondo_PreListSet.push(ondo_PreList);
+    	do_AccListSet.push(do_AccList);
+    	do_PreListSet.push(do_PreList);
+    	ph_AccListSet.push(ph_AccList);
+    	ph_PreListSet.push(ph_PreList);
+    	salt_AccListSet.push(salt_AccList);
+    	salt_PreListSet.push(salt_PreList);
+    }
+    
+    
+    let dataList0 = []
+    let dataList1 = []
+    let dataList2 = []
+    let dataList3 = []
+    for (let i =0; i<num;i++){
+    	dataList0.push({
+                labels: labels,
+                datasets: [{
+                    label: '현재 온도',
+                    data: ondo_AccListSet[i],
+                    borderColor: 'green',
+                    backgroundColor: 'green',
+                    fill: false
+                }, {
+                    label: '예측 온도',
+                    data: ondo_PreListSet[i],
+                    borderColor: 'orange',
+                    backgroundColor: 'orange',
+                    fill: false
+                }]
+            })
+        dataList1.push({
+            		labels: labels,
+            		datasets: [{
+            			label: '현재 DO',
+            			data: do_AccListSet[i],
+            			borderColor: 'green',
+                        backgroundColor: 'green',
+            			fill: false
+            		}, {
+            			label: '예측 DO',
+            			data: do_PreListSet[i],
+            			borderColor: 'orange',
+                        backgroundColor: 'orange',
+            			fill: false
+            		}]
+            })
+        dataList2.push({
+            		labels: labels,
+            		datasets: [{
+            			label: '현재 pH',
+            			data: ph_AccListSet[i],
+            			borderColor: 'green',
+                        backgroundColor: 'green',
+            			fill: false
+            		}, {
+            			label: '예측 pH',
+            			data: ph_PreListSet[i],
+            			borderColor: 'orange',
+                        backgroundColor: 'orange',
+            			fill: false
+            		}]
+            })
+        dataList3.push({
+            		labels: labels,
+            		datasets: [{
+            			label: '현재 염도',
+            			data: salt_AccListSet[i],
+            			borderColor: 'green',
+                        backgroundColor: 'green',
+            			fill: false
+            		}, {
+            			label: '예측 염도',
+            			data: salt_PreListSet[i],
+            			borderColor: 'orange',
+                        backgroundColor: 'orange',
+            			fill: false
+            		}]
+            })
+    }
+
+    for (let i=0;i<num;i++){
+		chartListSet[0][i].data.datasets[0].data = ondo_AccListSet[i];
+		chartListSet[0][i].data.datasets[1].data = ondo_PreListSet[i];
+		chartListSet[1][i].data.datasets[0].data = do_AccListSet[i];
+		chartListSet[1][i].data.datasets[1].data = do_PreListSet[i];
+		chartListSet[2][i].data.datasets[0].data = ph_AccListSet[i];
+		chartListSet[2][i].data.datasets[1].data = ph_PreListSet[i];
+		chartListSet[3][i].data.datasets[0].data = salt_AccListSet[i];
+		chartListSet[3][i].data.datasets[1].data = salt_PreListSet[i];
+    	}
+    for (let i=0;i<num;i++){
+    	chartListSet[0][i].update();
+    	chartListSet[1][i].update();
+    	chartListSet[2][i].update();
+    	chartListSet[3][i].update();
+    }
+    	
+		}, 5000);
+        
+    },
+    error : function() {
+        console.log('요청실패');
+    }
+});

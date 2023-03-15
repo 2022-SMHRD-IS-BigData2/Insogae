@@ -6,7 +6,11 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.smhrd.entity.Company;
+
 import com.smhrd.entity.Predict_View;
+
+import com.smhrd.entity.PredictView;
+
 import com.smhrd.entity.TankDataPre;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
@@ -34,6 +38,12 @@ public interface TankMapper {
 
 	public List<TankDataPre2> monitoringdata(String user); // 데이터 수조별 1개씩 불러오는 테스트 메소드 테스트 중...
 	
-	public List<Predict_View>mainpagedata(); // 메인 페이지 데이터 1개씩 보여지는 메소드
+
+
+	
+	public List<PredictView> monitoringdata(); // 데이터 수조별 1개씩 불러오는 테스트 메소드
+	public List<PredictView> predictData();
+	
+
 	
 }

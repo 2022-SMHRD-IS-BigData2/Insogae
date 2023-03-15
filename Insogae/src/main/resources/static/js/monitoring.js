@@ -43,76 +43,72 @@ for (let i =1; i <=num; i++){
 		// 2. 수조별로 분리해서 for문을 통해 함수로 나누기
 			// 2. 각 수조이름별로 setInterval() 함수를 통해 출력
 			// 3. 
-	
+			url : 'datamonitoring',
+			success : function(res){				
+			console.log(res)
 			google.charts.load('current', { 'packages': ['gauge'] });
-			google.charts.setOnLoadCallback(drawChart);
-	
+			
+			for (let i=0;i<num;i++){
 			function drawChart() {
-	
-			
-			
 			// 3. 응답받은 데이터를 console 출력
-guage = google.visualization.arrayToDataTable(
-	
-					[
-						['Label', 'Value'],
-						['SALT', 10],
-					]);
-	
+				var data1_guage = google.visualization.arrayToDataTable(
+						[
+							['Label', 'Value'],
+							['온도', 10],
+						]);
+				var data2_guage = google.visualization.arrayToDataTable(
+						[
+							['Label', 'Value'],
+							['DO', 10],
+						]);
 				var data3_guage = google.visualization.arrayToDataTable(
-	
-					[
-						['Label', 'Value'],
-						['PH', 10],
-					]);
-	
+		
+						[
+							['Label', 'Value'],
+							['pH', 10],
+						]);
 				var data4_guage = google.visualization.arrayToDataTable(
+						[
+							['Label', 'Value'],
+							['염도', 10],
+						]);
 	
-					[
-						['Label', 'Value'],
-						['TEMP', 10],
-					]);
-	
-	
-	
-	
-				var options1 = { // DO
+				var options1 = { // 온도
 					width: 180, height: 180, 
-					redFrom: 0, redTo: 3,
-					greenFrom: 3, greenTo: 15,
+					redFrom: 0, redTo: 23,
+					greenFrom: 23, greenTo: 32,
+					yellowFrom: 32, yellowTo: 50,
 					minorTicks: 5,
 					animation: { duration: 400 },
-					max: 15
+					min: 15,
+					max: 40
 				};
 	
-	
-	
-	
-				var options2 = { // salt
+				var options2 = { // DO
 					width: 180, height: 180, 
-					redFrom: 0, redTo: 10,
-					yellowFrom: 34, yellowTo: 40,
-					greenFrom: 10, greenTo: 34,
-					minorTicks: 5,
-					animation: { duration: 400 },
-					max: 100
-				};
-	
-	
-				var options3 = {// ph
-					width: 180, height: 180, 
-					redFrom: 0, redTo: 7.5,
-					greenFrom: 7.5, greenTo: 10,
+					redFrom: 0, redTo: 4,
+					greenFrom: 4, greenTo: 10,
 					minorTicks: 5,
 					animation: { duration: 400 },
 					max: 10
 				};
 	
-				var options4 = {// temp
+				var options3 = {// pH
 					width: 180, height: 180, 
-					redFrom: 0, redTo: 6,
-					yellowFrom: 32, yellowTo: 50,
-					greenFrom: 6, greenTo: 34,
+					redFrom: 6.5, redTo: 7.5,
+					greenFrom: 7.5, greenTo: 8.5,
+					yellowFrom: 8.5, yellowTo: 9.5,
+					minorTicks: 5,
+					animation: { duration: 400 },
+					min:6.5,
+					max:9.5
+				};
+	
+				var options4 = {// 염도
+					width: 180, height: 180, 
+					redFrom: 0, redTo: 20,
+					yellowFrom: 34, yellowTo: 50,
+					greenFrom: 20, greenTo: 34,
 					minorTicks: 5,
 					animation: { duration: 400 },
 					max: 50
@@ -123,29 +119,17 @@ guage = google.visualization.arrayToDataTable(
 				var chart3_guage = new google.visualization.Gauge(document.getElementById(chartIdArray3[i]));
 				var chart4_guage = new google.visualization.Gauge(document.getElementById(chartIdArray4[i]));
 	
-	
-	
 				chart1_guage.draw(data1_guage, options1);
 				chart2_guage.draw(data2_guage, options2);
 				chart3_guage.draw(data3_guage, options3);
 				chart4_guage.draw(data4_guage, options4);
 	
-	
-	
-	
-				var count = 0;
-				setInterval(() => {
-						time_data = res[count].record_DATE.split('T')[1].split('.')[0]
-		
-						do_data = res[count].do.toFixed(2);
-						ph_data = res[count].ph.toFixed(2);
-						temp_data = res[count].temp.toFixed(2);
-						salt_data = res[count].salt.toFixed(2)*100;
-						
-						
-						
-					
-					
+				time_data = res[i].record_DATE.split('T')[1].split('.')[0]
+
+				temp_data = res[i].temp_ACC.toFixed(2);
+				do_data = res[i].do_ACC.toFixed(2);
+				ph_data = res[i].ph_ACC.toFixed(2);
+				salt_data = res[i].salt_ACC.toFixed(2)*100;
 					
 					if(do_data<6.1){
 						document.getElementById(doArray[i]).style.color="red";
@@ -162,10 +146,7 @@ guage = google.visualization.arrayToDataTable(
 							  }, duration);
 							}
 							showToast('경고!', 1500);
-						
-						
 					}else{document.getElementById(doArray[i]).style.color="white";}
-					
 					
 					 if(ph_data<5){
 						document.getElementById(phArray[i]).style.color="red";
@@ -186,8 +167,6 @@ guage = google.visualization.arrayToDataTable(
 					}else{
 						document.getElementById(saltArray[i]).style.color="white";
 					}
-					
-					
 						
 					if(do_data<3||ph_data<7.5){
 							var wl = document.getElementById(wlArray[i])
@@ -198,41 +177,33 @@ guage = google.visualization.arrayToDataTable(
 							wl.style.backgroundColor="red"
 						}
 						
-						
-						
-						$('#'+ondoArray[i]).html("");
-						$('#'+doArray[i]).html("");
-						$('#'+saltArray[i]).html("");
-						$('#'+phArray[i]).html("");
-						$('#'+timeArray[i]).html("");
-		
 						let do_do = `<h5>` + do_data + `ppm</h5>`;
 						let ph = `<h5>` + ph_data + `ph</h5>`;
 						let temp = `<h5>` + temp_data + `°C</h5>`;
 						let salt = `<h5>` + salt_data + `psu</h5>`;
 						let time = `<h5>현재시간 ` + time_data + `</h5>`;
 		
-						$('#'+ondoArray[i]).append(temp);
-						$('#'+doArray[i]).append(do_do);
-						$('#'+saltArray[i]).append(salt);
-						$('#'+phArray[i]).append(ph);
-						$('#'+timeArray[i]).append(time);
+						$('#'+ondoArray[i]).html(temp);
+						$('#'+doArray[i]).html(do_do);
+						$('#'+saltArray[i]).html(salt);
+						$('#'+phArray[i]).html(ph);
+						$('#'+timeArray[i]).html(time);
 		
-						data1_guage.setValue(0, 1, res[count].do.toFixed(1));
+						data1_guage.setValue(0, 1, res[i].temp_ACC.toFixed(1));
 						chart1_guage.draw(data1_guage, options1);
 		
-						data2_guage.setValue(0, 1, res[count].salt.toFixed(1)*100);
+						data2_guage.setValue(0, 1, res[i].do_ACC.toFixed(1));
 						chart2_guage.draw(data2_guage, options2);
 		
-						data3_guage.setValue(0, 1, res[count].ph.toFixed(1));
+						data3_guage.setValue(0, 1, res[i].ph_ACC.toFixed(1));
 						chart3_guage.draw(data3_guage, options3);
 		
-						data4_guage.setValue(0, 1, res[count].temp.toFixed(1));
+						data4_guage.setValue(0, 1, res[i].salt_ACC.toFixed(1)*100);
 						chart4_guage.draw(data4_guage, options4);
 		
-						count++;
-					}, 3000
-				);
+			};
+			google.charts.setOnLoadCallback(drawChart);
+			
 			}
 		},
 		error: function() {
@@ -247,12 +218,12 @@ function showToast() {
   toast.show();
 }
 
-setInterval(function() {
-  showToast();
-  setTimeout(function() {
-    toast.hide(false);
-  }, 3000);
-}, 5000);
+//setInterval(function() {
+//  showToast();
+//  setTimeout(function() {
+//    toast.hide(false);
+//  }, 3000);
+//}, 5000);
 
 
 
