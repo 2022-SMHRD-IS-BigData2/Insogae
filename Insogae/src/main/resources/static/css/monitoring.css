@@ -8,6 +8,10 @@ body {
 }
 
 
+a {
+	text-decoration: none !important;
+}
+
 .m-0 {
     font-family: 'Do Hyeon', sans-serif;
 }
@@ -28,6 +32,7 @@ body {
 	z-index: 2;
 	background-color: #303C50;
 	position: relative;
+	padding: 0.9vh;
 }
 
 .navbar {
@@ -312,6 +317,4 @@ body {
   z-index: 1;
 }
 
-a {
-	text-decoration: none !important;
-}
+
