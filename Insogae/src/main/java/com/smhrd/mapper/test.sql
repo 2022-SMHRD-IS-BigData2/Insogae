@@ -19,3 +19,9 @@ SELECT * FROM (
 ) AS subquery
 WHERE row_num <= 1
 ORDER BY tank_id, PRE_RECORD_DATE DESC;
+
+
+
+
+select * from PREDICT_VIEW 
+ORDER BY RECORD_DATE DESC LIMIT 8;

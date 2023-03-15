@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.smhrd.entity.Company;
 import com.smhrd.entity.LocationCount;
+import com.smhrd.entity.Predict_View;
 import com.smhrd.entity.TankDataPre;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
@@ -140,13 +141,19 @@ public class RestTankDataController {
 	}
 	
 	
-	@RequestMapping("/datamonitoring") // 수조별  데이터 1개씩  가져오는 메소드 
-	public List<TankDataPre2>monitoring(String user, HttpServletRequest request){
-		user = request.getParameter("COMPANY_ID");
-		System.out.println(user);
-		List<TankDataPre2> tank_data_pre = mapper.monitoringdata(user);
-		System.out.println(tank_data_pre.size());
-		return tank_data_pre;
+//	@RequestMapping("/datamonitoring") // 수조별  데이터 1개씩  가져오는 메소드 
+//	public List<TankDataPre2>monitoring(String user, HttpServletRequest request){
+//		user = request.getParameter("COMPANY_ID");
+//		System.out.println(user);
+//		List<TankDataPre2> tank_data_pre = mapper.monitoringdata(user);
+//		System.out.println(tank_data_pre.size());
+//		return tank_data_pre;
+//	}
+	
+	@RequestMapping("/mainpagedata") // 데이터 1개씩 메인페이지 보여주는 메소드
+	public List<Predict_View>mainpagedata(){
+		List<Predict_View>data = mapper.mainpagedata();
+		return data;
 	}
 	
 	

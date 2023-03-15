@@ -64,14 +64,9 @@ let dangerPHName ="?";
 let dangerTEMPName ="?";
 let dangerSALTName ="?";*/
 	
-var tankIdJson = JSON.stringify(tankIdList);
 	$.ajax({
 		method:  "post",
-		url : "datamonitoring",
-		data : {
-		COMPANY_ID : user
-	}, 
-		
+		url : "mainpagedata",	
 		success : function(res){
 		
 		

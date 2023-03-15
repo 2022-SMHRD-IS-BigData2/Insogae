@@ -110,6 +110,15 @@ ORDER BY TANK_ID, PRE_RECORD_DATE DESC;
 
 </select>
 
+<select id="mainpagedata" resultType="com.smhrd.entity.Predict_View">
+select * from PREDICT_VIEW 
+ORDER BY RECORD_DATE DESC LIMIT 8
+</select>
+
+
+
+
+
 
 
 <!--  
