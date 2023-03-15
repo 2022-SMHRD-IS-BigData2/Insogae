@@ -2,14 +2,21 @@ package com.smhrd.entity;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "PREDICT_VIEW")
 public class Predict_View {
-
+	
+	@Id
 	private String TANK_ID;
 	private float DO_ACC;
 	private float DO_PRE;
