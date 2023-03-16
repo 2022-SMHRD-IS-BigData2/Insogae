@@ -263,6 +263,28 @@ a {
   	padding-left: 140px;
   }
   
+  .log-1{
+  	display: flex;
+  }
+  
+  .log-2{
+  	display: flex;
+  }
+  
+  .mo-log{
+    width: 3px;
+    height: 20px;
+    margin: 2px 5px 0 0;
+    background-color: #82dbd0;
+  }
+  
+    .pre-log{
+    width: 3px;
+    height: 20px;
+    margin: 2px 5px 0 0;
+    background-color: #82dbd0;
+  }
+  
    .mo-his-title{
     text-align: center;
     background-color: #919991;
