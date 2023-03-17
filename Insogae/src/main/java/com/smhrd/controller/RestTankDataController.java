@@ -160,7 +160,7 @@ public class RestTankDataController {
 		System.out.println(predictView.size());
 		return predictView;
 	}
-	@RequestMapping("/dataPredict") // 수조별  데이터 1개씩  가져오는 메소드 
+	@RequestMapping("/dataPredict") // 수조별  데이터 여러개  가져오는 메소드 
 	public List<PredictView>predict(){
 		List<PredictView> predictView = mapper.predictData();
 		System.out.println(predictView);

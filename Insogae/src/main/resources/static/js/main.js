@@ -71,27 +71,39 @@ let dangerSALTName ="?";*/
 		url : "datamonitoring",
 		success : function(res){
 		
+			for (let i =0; i<num; i++){
+				let do_do = `<h5>` + res[i].do_ACC.toFixed(2) + `ppm</h5>`;
+			    let ph = `<h5>` + res[i].ph_ACC.toFixed(2) + `ph</h5>`;
+			    let temp = `<h5>` + res[i].temp_ACC.toFixed(2) + `°C</h5>`;
+			    let salt = `<h5>` + res[i].salt_ACC.toFixed(2) + `psu</h5>`;
 		
-function currentData() {
-console.log(res);
-	for (let i =0; i<num; i++){
-		let do_do = `<h5>` + res[i].do_ACC.toFixed(2) + `ppm</h5>`;
-	    let ph = `<h5>` + res[i].ph_ACC.toFixed(2) + `ph</h5>`;
-	    let temp = `<h5>` + res[i].temp_ACC.toFixed(2) + `°C</h5>`;
-	    let salt = `<h5>` + res[i].salt_ACC.toFixed(2) + `psu</h5>`;
-
-	    $('#ondo-'+(i+1)).html(temp);
-	    $('#do-'+(i+1)).html(do_do);
-	    $('#salt-'+(i+1)).html(salt);
-	    $('#ph-'+(i+1)).html(ph);
-
-	}
-
-  setTimeout(() => currentData(), 3000);
-
-}
-
-currentData();
+			    $('#ondo-'+(i+1)).html(temp);
+			    $('#do-'+(i+1)).html(do_do);
+			    $('#salt-'+(i+1)).html(salt);
+			    $('#ph-'+(i+1)).html(ph);
+		
+			}
+		
+//function currentData() {
+//console.log(res);
+//	for (let i =0; i<num; i++){
+//		let do_do = `<h5>` + res[i].do_ACC.toFixed(2) + `ppm</h5>`;
+//	    let ph = `<h5>` + res[i].ph_ACC.toFixed(2) + `ph</h5>`;
+//	    let temp = `<h5>` + res[i].temp_ACC.toFixed(2) + `°C</h5>`;
+//	    let salt = `<h5>` + res[i].salt_ACC.toFixed(2) + `psu</h5>`;
+//
+//	    $('#ondo-'+(i+1)).html(temp);
+//	    $('#do-'+(i+1)).html(do_do);
+//	    $('#salt-'+(i+1)).html(salt);
+//	    $('#ph-'+(i+1)).html(ph);
+//
+//	}
+//
+//  setTimeout(() => currentData(), 3000);
+//
+//}
+//
+//currentData();
 				
 
 			
@@ -102,4 +114,39 @@ currentData();
 		}
 	})
 	
-	
+var socketTest = new WebSocket("ws://localhost:8123/socket");
+
+socketTest.onopen = function() {
+	console.dir("WebSocket 연결 성공");
+	socketTest.send("Hello, server! script");
+};
+socketTest.onmessage = function(event) {
+
+	var dataList = JSON.parse(event.data);
+	console.log(dataList);	
+//	console.log(dataSet[0]);
+//	dataList = [];
+//	for (let i =0;i<dataSet.length;i++){
+//		dataList.push(Object.fromEntries(dataSet[i].split(',').map(item => {
+//			const [key, value] = item.split(':');
+//			return [key, value];
+//		})));
+//	}
+	updateData(dataList);
+
+};
+
+function updateData(res){
+	for (let i =0; i<num; i++){
+		let do_do = `<h5>` + parseFloat(res[i].DO).toFixed(2) + `ppm</h5>`;
+	    let ph = `<h5>` + parseFloat(res[i].PH).toFixed(2) + `ph</h5>`;
+	    let temp = `<h5>` + parseFloat(res[i].TEMP).toFixed(2) + `°C</h5>`;
+	    let salt = `<h5>` + parseFloat(res[i].SALT).toFixed(2) + `psu</h5>`;
+
+	    $('#ondo-'+(i+1)).html(temp);
+	    $('#do-'+(i+1)).html(do_do);
+	    $('#salt-'+(i+1)).html(salt);
+	    $('#ph-'+(i+1)).html(ph);
+
+	}
+}
