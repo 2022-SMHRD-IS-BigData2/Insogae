@@ -20,10 +20,10 @@ public class RestAlarmController {
 	@RequestMapping("/testlist")
 	public List<Alarm> testlist(String user, HttpServletRequest request) {
 		
-		user = request.getParameter("userData");
+		user = request.getParameter("COMPANY_ID");
 		
 		List<Alarm>alarmlist = mapper.alarmlist(user);
-		System.out.println(alarmlist);
+		System.out.println(alarmlist.get(0));
 		return alarmlist;
 	}
 	

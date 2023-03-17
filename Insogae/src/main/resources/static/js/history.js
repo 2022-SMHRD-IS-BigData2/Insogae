@@ -1,12 +1,11 @@
-
-
+var user = $('#user-id').text();
 
 
 
 
 
 /* 모니터링 날짜*/
-function currentTime() {
+/*function currentTime() {
     const date = new Date(); 
     let yyyy = date.getFullYear();
     let MM = date.getMonth()+1;
@@ -21,9 +20,10 @@ function currentTime() {
   }
   
   currentTime();
-
+*/
 
 /* 수질예측 날짜*/
+/*
   function currentTime2() {
     const date2 = new Date(); 
     let yyyy = date2.getFullYear();
@@ -38,17 +38,19 @@ function currentTime() {
     setTimeout(() => currentTime2(), 1000);
   }
   
-  currentTime2();
+  currentTime2();*/
 
 var user = $('#user-id').text();
 
 $.ajax({
 	url : 'testlist',
 	data : {
-		userData: user
+		COMPANY_ID: user
 	},
 	success : function(res){
 		console.log(res)
+		
+		
 	},
 	error : function(){
 		console.log('에러')
