@@ -38,7 +38,7 @@ $.ajax({
       description: ['수조위치:  '+res[2].location, '수조의 개수: '+res[2].count, '사육개시일: 2021-07-13', '온도: 28°C']
     },
 		{
-      name: 'SD-tech',
+      name: '주식회사 에스디테크',
       lat: 35.2275945,
       lng: 126.8393882,
       description: ['회사 번호:  062-416-5345',
@@ -59,7 +59,7 @@ $.ajax({
       position: position,
       map: map,
       title: marker.name,
-      icon: marker.name ==='SD-tech' ? newIcon : myIcon, // 회사 데이터만 다른 이미지로 설정
+      icon: marker.name ==='주식회사 에스디테크' ? newIcon : myIcon, // 회사 데이터만 다른 이미지로 설정
     });
 
 
@@ -71,7 +71,7 @@ $.ajax({
       let content = `<h6 style = "color:black">${marker.name}</h6><br>`;
       marker.description.forEach(desc => {
    if (desc.includes('사이트바로가기')) {
-    content += `<h8 style = "color:black"> ${desc.replace('사이트바로가기', '<a href="http://sd-tech.kr/">사이트 이동하기</a>')}</h8><br>`;
+    content += `<h8 style = "color:black"> ${desc.replace('사이트바로가기', '<a href="http://sd-tech.kr/">사이트 이동</a>')}</h8><br>`;
 
 
   }else{
