@@ -128,7 +128,7 @@ $.ajax({
 			temp_data = res[i].temp_ACC.toFixed(2);
 			do_data = res[i].do_ACC.toFixed(2);
 			ph_data = res[i].ph_ACC.toFixed(2);
-			salt_data = res[i].salt_ACC.toFixed(2)*100;
+			salt_data = Math.round(res[i].salt_ACC.toFixed(2)*100);
 				
 				if(do_data<6.1){
 					document.getElementById(doArray[i]).style.color="red";
@@ -307,7 +307,7 @@ function updateData(res){
 			temp_data = parseFloat(res[i].TEMP).toFixed(2);
 			do_data =   parseFloat(res[i].DO).toFixed(2);
 			ph_data =   parseFloat(res[i].PH).toFixed(2);
-			salt_data = parseFloat(res[i].SALT).toFixed(2)*100;
+			salt_data = Math.round(parseFloat(res[i].SALT).toFixed(1)*100);
 				
 				if(do_data<6.1){
 					document.getElementById(doArray[i]).style.color="red";
