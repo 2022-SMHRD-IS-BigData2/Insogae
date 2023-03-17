@@ -2,13 +2,11 @@ package com.smhrd.controller;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.smhrd.entity.Company;
 import com.smhrd.entity.Tank;
 import com.smhrd.entity.TankData;
-import com.smhrd.entity.TankDataPre2;
 import com.smhrd.mapper.CompanyMapper;
 import com.smhrd.mapper.TankMapper;
 

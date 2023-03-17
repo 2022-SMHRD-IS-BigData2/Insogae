@@ -1,46 +1,28 @@
-var socket = new WebSocket("ws://localhost:8882/socket1");
-var socket2 = new WebSocket("ws://localhost:8882/socket2");
+var socket1 = new WebSocket("ws://localhost:8882/socket1");  // 첫 화면 그래프 출력을 위한 소켓
+var socket2 = new WebSocket("ws://localhost:8882/socket2"); // 최종 로직을 짜기 전 단계 ( 파이썬 <-> DB <-> 웹서버 <-> 클라이언트
+var socketPy = new WebSocket("ws://localhost:8123/socketPy");  // 최종 로직 ( 파이썬 <-> DB , 파이썬 웹소켓서버 -> 클라이언트)
 
-var socketTest = new WebSocket("ws://localhost:8123/socket");
-
-
-socketTest.onopen = function() {
-	console.dir("WebSocket 연결 성공");
-	socketTest.send("Hello, server! script");
-};
-socketTest.onmessage = function(event) {
-
-	var dataList = JSON.parse(event.data);
-	console.log(dataList);	
-//	console.log(dataSet[0]);
-//	dataList = [];
-//	for (let i =0;i<dataSet.length;i++){
-//		dataList.push(Object.fromEntries(dataSet[i].split(',').map(item => {
-//			const [key, value] = item.split(':');
-//			return [key, value];
-//		})));
-//	}
-	updateData(dataList);
-
-};
-
-socket.onclose = (event) => {
+socket1.onclose = (event) => {
 	  console.log('WebSocket closed:', event.code, event.reason);
 	};
-socket.onopen = function() {
-    console.dir("WebSocket 연결 성공");
-    socket.send("Hello, server!");
+	
+socket1.onopen = function() {
+  console.dir("스프링서버: WebSocketHandler1");
+  socket1.send("스프링서버 연결!!, 클라이언트 :predictDataHandling.js");
 };
 
+socketPy.onopen = function() {
+	console.dir("WebSocket 연결 성공");
+	socketPy.send("파이썬서버 연결!! 클라이언트: predictDataHandling.js");
+};
 
-socket.onmessage = function(event) {
-	console.log('첫번째 소켓');
+socket1.onmessage = function(event) {
 	var dataSet = JSON.parse(event.data);
-//	console.log(dataSet[0])
+	// 날짜 가공
 	for(let i=0;i<dataSet.length;i++){
 		dataSet[i] = dataSet[i].substring(0, dataSet[i].length - 4) + "시" + dataSet[i].substring(dataSet[i].length - 3,dataSet[i].length-1);
 	}
-//	console.log(dataSet[0]);
+	// DB에서 가져온 데이터 딕셔너리형태{} 로 변환
 	dataList = [];
 	for (let i =0;i<dataSet.length;i++){
 		dataList.push(Object.fromEntries(dataSet[i].split(',').map(item => {
@@ -48,7 +30,10 @@ socket.onmessage = function(event) {
 			return [key, value];
 		})));
 	}
+	// 초기 그래프에 나타날 데이터 보여주는 함수 
 	showData(dataList);
+	
+	// 그래프 오른쪽 위 날짜 보여주기
 	let date = new Date(dataList[0].RECORD_DATE);
 	let formatter = new Intl.DateTimeFormat("ko-KR", {
 	  year: "numeric",
@@ -58,54 +43,35 @@ socket.onmessage = function(event) {
 	  minute: "2-digit"
 	});
 	let result = formatter.format(date);
-	console.log(result); // "2021년 09월 09일 19시10분"
 	for(let i =0; i<$(".tctm").length;i++){
 		$(".tctm")[i].innerText = result;
 	};
 };
 
-
-socket2.onopen = function() {
-	console.dir("WebSocket 2번째 연결 성공");
-	socket2.send("Hello, server!");
+socketPy.onmessage = function(event) {
+	var dataList = JSON.parse(event.data);
+	updateData(dataList);
 };
 
-//socket2.onmessage = function(event) {
-//
-//	var dataSet = JSON.parse(event.data);
-////	console.log(dataSet[0])
-//	for(let i=0;i<dataSet.length;i++){
-//		dataSet[i] = dataSet[i].substring(0, dataSet[i].length - 4) + "H" + dataSet[i].substring(dataSet[i].length - 3,dataSet[i].length-1);
-//	}
-////	console.log(dataSet[0]);
-//	dataList = [];
-//	for (let i =0;i<dataSet.length;i++){
-//		dataList.push(Object.fromEntries(dataSet[i].split(',').map(item => {
-//			const [key, value] = item.split(':');
-//			return [key, value];
-//		})));
-//	}
-//	console.log(dataList);
-//	updateData();
-//};
 
+// num = 8; // 수조 개수 -> predict.js 에 이미 선언되어있음
+let range = 15; // 그래프 x축 범위 설정
 
-num = 8; // 수조 개수
-let range = 15;
-
-var user = $('#user-id').text();
+// 수조별 이름을 담을 배열 
 let tankIdList = [];
 for (let i =0; i<num ; i++){
 	tankIdList.push($('.tct').html());
 }	
-let labels = [];
 
+// labels -> x축 값들을 저장할 배열
+let labels = [];
 
 let dataList0 = [];
 let dataList1 = [];
 let dataList2 = [];
 let dataList3 = [];
 
+// 각 차트별 옵션 설정
 option_TEMP = {
 		  scales: {
 		    y: {
@@ -165,6 +131,7 @@ option_SALT = {
 		}
 }
 
+
 let dataList = [dataList0, dataList1, dataList2, dataList3]
 
 const chartListONDO = [];
@@ -173,6 +140,7 @@ const chartListPH= [];
 const chartListSALT = [];
 const chartListSet = [];
 
+// 수조별 초기 차트 각각 양식에 맞춰 설정 ( 수조개수 * 측정치 개수 )
 for (let i=0;i<num;i++){
 	chartListONDO.push(new Chart(document.querySelector(ondoArray[i]).getContext('2d'), {
 		type: 'line',
@@ -195,15 +163,16 @@ for (let i=0;i<num;i++){
 		//options : option_SALT
 	})); // 차트 객체 생성
 }
+
+// 차트들을 배열에 담기
+// chartListSet -> [온도차트리스트(8개수조), ... ,염도차트리스트(8개수조)]
 chartListSet.push(chartListONDO);
 chartListSet.push(chartListDO);
 chartListSet.push(chartListPH);
 chartListSet.push(chartListSALT);
 
-
+// 스프링웹소켓 서버 (DB)로부터 데이터 받아서 실행시키는 로직
 function showData(data){
-	console.log("성공");
-	console.log(data);
 	// 실행 로직
 	const ondo_AccListSet = [];
 	const ondo_PreListSet = [];
@@ -215,10 +184,13 @@ function showData(data){
 	const salt_PreListSet = [];
 	const dataListLocal = [];
 	let labelsLocal = [];
+	// 날짜 초기값 담기
 	for (let i =0;i<range;i++){
 		labelsLocal.push(data[i].RECORD_DATE.split('T')[0].substring(8, 10)+"일 "+data[i].RECORD_DATE.split('T')[1]+"분");
 	}
 	labels = labelsLocal;
+	
+	
     for (i =0; i<num;i++){
     	let ondo_AccList = [];
     	let ondo_PreList = [];
@@ -229,10 +201,10 @@ function showData(data){
     	let salt_AccList = [];
     	let salt_PreList = [];
     	
-    	
-    	
+    	// 범위별로 각각의 차트에 들어갈 데이터들을 배열에 담기
+    	// i -> 수조별, j -> 범위별
+    	// ex ) ondo_AccList -> 각 수조별 데이터 범위를 배열에 담음
     	for (j = 0; j < range; j++) {
-    		
     		ondo_AccList.push((parseFloat(data[i*range+j].TEMP_ACC)).toFixed(2));
     		ondo_PreList.push((parseFloat(data[i*range+j].TEMP_PRE)).toFixed(2));
     		do_AccList.push((parseFloat(data[i*range+j].DO_ACC)).toFixed(2));
@@ -242,6 +214,8 @@ function showData(data){
     		salt_AccList.push((parseFloat(data[i*range+j].SALT_ACC)).toFixed(2));
     		salt_PreList.push((parseFloat(data[i*range+j].SALT_PRE)).toFixed(2));
     	}
+    	// j가 한번씩 실행될때마다 새로운 배열에 다시 담기
+    	// ex ) ondo_AccListSet = [WT11수조의 15개 행,.. , WT31수조의 15개 행]
     	ondo_AccListSet.push(ondo_AccList);
     	ondo_PreListSet.push(ondo_PreList);
     	do_AccListSet.push(do_AccList);
@@ -256,6 +230,8 @@ function showData(data){
     let dataListLocal1 = [];
     let dataListLocal2 = [];
     let dataListLocal3 = [];
+    
+    // 수조별 데이터 차트에 담기위한 딕셔너리 생성
     for (let i =0; i<num;i++){
     	dataListLocal0.push({
                 labels: labels,
@@ -322,23 +298,36 @@ function showData(data){
             		}]
             })
     }
+    
+    // 수조별 측정값들의 배열을 더 상위 배열에 다시 담음
+    // ex dataListLocal = [[WT11의 온도데이터,..,WT31의 온도데이터],
+    // 					   [.. ],
+    // 					   [.. ], 
+    // 					   [WT11의 염도데이터,..,WT31의 염도데이터]]
     dataListLocal.push(dataListLocal0);
     dataListLocal.push(dataListLocal1);
     dataListLocal.push(dataListLocal2);
     dataListLocal.push(dataListLocal3);
+    
+    // 각 차트에 각각 매칭이 되는 데이터를 담기
+    // chartListSet[0][0] : 첫번째 [0] 온도, 두번째 [0] 수조WT11
+    // dataListLocal[0][0] : 첫번째 [0] 온도, 두번째 [0] 수조WT11의 데이터셋
 	for (let i=0;i<num;i++){
 		chartListSet[0][i].data = dataListLocal[0][i];
 		chartListSet[1][i].data = dataListLocal[1][i];
 		chartListSet[2][i].data = dataListLocal[2][i];
 		chartListSet[3][i].data = dataListLocal[3][i];
     	}
+	
+	// 데이터를 차트에 담았으면 update()함수 실행!
     for (let i=0;i<num;i++){
-    	
     	chartListSet[0][i].update();
     	chartListSet[1][i].update();
     	chartListSet[2][i].update();
     	chartListSet[3][i].update();
     }
+    
+    // 가장 마지막에 기록된 데이터들을 변수에 담기
     for(let i=0;i<num;i++){
     	let do_acc = `<h5>` + do_AccListSet[i][range-1] + `ppm</h5>`;
     	let ph_acc = `<h5>` + ph_AccListSet[i][range-1] + `ph</h5>`;
@@ -349,6 +338,7 @@ function showData(data){
  	    let temp_pre = `<h5>` + ondo_PreListSet[i][range-1] + `°C</h5>`;
  	    let salt_pre = `<h5>` + salt_PreListSet[i][range-1] + `psu</h5>`;
  	    
+ 	    // 변수에 담은 데이터들을 뷰에 동적 표현
      	$(ondoAccArray[i]).html(temp_acc);
      	$(doAccArray[i]).html(do_acc);
      	$(phAccArray[i]).html(ph_acc);
@@ -358,10 +348,16 @@ function showData(data){
      	$(phPreArray[i]).html(ph_pre);
      	$(saltPreArray[i]).html(salt_pre);
     }
-//    console.log(chartListSet[0][0])
 	
 }
+
+// 파이썬 웹소켓 서버로부터 데이터 받을때
+// 실행되는 함수 
+// 마지막 값이 추가 ( push(마지막 값) ) 
+// 리스트의 맨 앞쪽의 값 삭제 ( shift() ) 
 function updateData(dataList){
+	
+	// 날짜 데이터 가공 및 표현 차트 오른쪽 위
 	let date = new Date(dataList[0].RECORD_DATE);
 	let formatter = new Intl.DateTimeFormat("ko-KR", {
 									  year: "numeric",
@@ -371,15 +367,19 @@ function updateData(dataList){
 									  minute: "2-digit"
 									});
 	let result = formatter.format(date);
-	console.log(result); // "2021년 09월 09일 19시10분"
 	for(let i =0; i<$(".tctm").length;i++){
 		$(".tctm")[i].innerText = result;
 	};
-	console.log(chartListSet[0][0].data.labels);
+	
+	// x축 데이터(날짜) 업데이트 
 	chartListSet[0][0].data.labels.shift();
 	chartListSet[0][0].data.labels.push(dataList[0].RECORD_DATE.split('T')[0].substring(8, 10)+"일 "+dataList[0].RECORD_DATE.split('T')[1].substring(0, 5)+"분");
+	
+	// 파이썬 웹소켓 서버로부터 받은 데이터를 사용
+	// 각 수조별 차트에 그 데이터 업데이트
+	// shift : 배열의 맨 앞쪽 없애기
+	// push : 마지막 값을 추가하여 저장
 	for (let i=0;i<num;i++){
-
 		chartListSet[0][i].data.datasets[0].data.shift();
 		chartListSet[1][i].data.datasets[0].data.shift();
 		chartListSet[2][i].data.datasets[0].data.shift();
@@ -433,12 +433,8 @@ function updateData(dataList){
 		chartListSet[1][i].data.datasets[1].borderColor.push(dataList[i].DO_PRE <=3 ? 'red':'orange');
 		chartListSet[2][i].data.datasets[1].borderColor.push(dataList[i].PH_PRE <=3 ? 'red':'orange');
 		chartListSet[3][i].data.datasets[1].borderColor.push(dataList[i].SALT_PRE <=3 ? 'red':'orange');
-		
 		}
-
-	
 	for (let i=0;i<num;i++){
-		
 		chartListSet[0][i].update();
 		chartListSet[1][i].update();
 		chartListSet[2][i].update();

@@ -1,3 +1,4 @@
+// 회사 정보 수정
 var user = $('#user-id').text();
 
 $('#submit').on('click', function() {

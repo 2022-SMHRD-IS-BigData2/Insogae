@@ -10,6 +10,7 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
 
+// 웹소켓 설정 class파일
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
@@ -25,7 +26,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 	    @Autowired
 	    private WebSocketHandler2 secondWebSocketHandler;
 	    
-	
+	    // 웹소켓 주소 설정 및 허가
 	    @Override
 	    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 	        registry.addHandler(firstWebSocketHandler, "socket1").setAllowedOrigins("*");
@@ -34,9 +35,5 @@ public class WebSocketConfig implements WebSocketConfigurer {
 	    }
 	    
 	    
-//	    @Bean
-//	    public WebSocketHandler myWebSocketHandler() {
-//	        return new MyWebSocketHandler();
-//	    }
 	    
 }

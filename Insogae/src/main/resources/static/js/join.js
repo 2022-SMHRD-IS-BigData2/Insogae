@@ -1,3 +1,4 @@
+// 회원가입 비동기방식 로직
 $('#submit').on('click', function() {
 	if ($('#id').val() != "") {
 		if ($('#pw').val() != "") {

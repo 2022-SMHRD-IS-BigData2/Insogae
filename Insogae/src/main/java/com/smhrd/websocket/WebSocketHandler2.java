@@ -1,28 +1,16 @@
 package com.smhrd.websocket;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+// 웹소켓 두번째 터널 핸들링
 @Controller
 @RequestMapping("/socket2")
 public class WebSocketHandler2 extends AbstractWebSocketHandler {
-
-//	@Autowired
-//	private DatabaseService databaseService;
-
+	
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 //		System.out.println("소켓2");

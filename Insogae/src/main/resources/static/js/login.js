@@ -1,3 +1,4 @@
+// 로그인 비동기방식으로 구현
 $('#submit').on('click', function() {
 	$.ajax({
 		url: 'login.do',

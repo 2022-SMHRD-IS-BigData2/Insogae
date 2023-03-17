@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smhrd.entity.Alarm;
-import com.smhrd.entity.Company;
 import com.smhrd.mapper.AlarmMapper;
 
 @RestController
