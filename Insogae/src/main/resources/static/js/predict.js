@@ -101,7 +101,7 @@ for (let i = 0; i < num; i++) {
          $(saltArray[i]).hide();
          $(contentArray[i]).hide();
       }
-      else if (dataArray[i] == '현재 염분') {
+      else if (dataArray[i] == '현재 염도') {
          $(ondoArray[i]).hide();
          $(doArray[i]).hide();
          $(phArray[i]).hide();
