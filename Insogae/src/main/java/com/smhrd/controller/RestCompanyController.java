@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.smhrd.entity.Company;
 import com.smhrd.entity.Tank;
@@ -109,9 +110,9 @@ public class RestCompanyController {
 	}
 	
 	@RequestMapping("/update.do") // 회원정보 수정
-	public String Update(Company company) {
+	public String Update(Company company,SessionStatus session ) {
 		System.out.println(company); 
-		
+		session.setComplete();
 		int cnt = mapper.update(company);
 		
 		System.out.println(cnt);
