@@ -11,9 +11,10 @@ socket1.onopen = function() {
   socket1.send("스프링서버 연결!!, 클라이언트 :predictDataHandling.js");
 };
 
-socketPy.onopen = function() {
+socketPy.onopen = function(event) {
 	console.dir("WebSocket 연결 성공");
 	socketPy.send("파이썬서버 연결!! 클라이언트: predictDataHandling.js");
+	console.log(event);
 };
 
 socket1.onmessage = function(event) {
@@ -49,8 +50,21 @@ socket1.onmessage = function(event) {
 };
 
 socketPy.onmessage = function(event) {
+	console.log(event);
+	// 파이썬 웹서버로부터 갱신되는 데이터를 받아서 처리
+	// Json객체로 변환
 	var dataList = JSON.parse(event.data);
-	updateData(dataList);
+	  if (dataList.type === 'insertData') {
+		  updateData(dataList.value);
+		    // 첫 번째 데이터 처리
+		  } else if (dataList.type === 'test') {
+		  console.log(dataList.value);
+		    // 두 번째 데이터 처리
+		  } else if (dataList.type === 'dangerData'){
+			  console.log(dataList.value);
+		  } else if (dataList.type === 'predictData'){
+			  console.log(dataList.value);
+		  }
 };
 
 

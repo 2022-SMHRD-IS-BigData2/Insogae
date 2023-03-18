@@ -113,8 +113,17 @@ socketPy.onmessage = function(event) {
 	// 파이썬 웹서버로부터 갱신되는 데이터를 받아서 처리
 	// Json객체로 변환
 	var dataList = JSON.parse(event.data);
-	// 데이터 업데이트
-	updateData(dataList);
+	  if (dataList.type === 'insertData') {
+		  updateData(dataList.value);
+		    // 첫 번째 데이터 처리
+		  } else if (dataList.type === 'test') {
+		  console.log(dataList.value);
+		    // 두 번째 데이터 처리
+		  } else if (dataList.type === 'dangerData'){
+			  console.log(dataList.value);
+		  } else if (dataList.type === 'predictData'){
+			  console.log(dataList.value);
+		  }
 };
 
 
