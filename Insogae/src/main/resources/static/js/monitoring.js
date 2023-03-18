@@ -94,9 +94,9 @@ $.ajax({
 
 			var options3 = {// pH
 				width: 180, height: 180, 
-				redFrom: 6.5, redTo: 7.5,
-				greenFrom: 7.5, greenTo: 8.5,
-				yellowFrom: 8.5, yellowTo: 9.5,
+				redFrom: 4.5, redTo: 5.5,
+				greenFrom: 5.5, greenTo: 7.5,
+				yellowFrom: 7.5, yellowTo: 9.5,
 				minorTicks: 5,
 				animation: { duration: 400 },
 				min:6.5,
