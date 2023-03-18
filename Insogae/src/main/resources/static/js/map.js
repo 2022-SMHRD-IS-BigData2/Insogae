@@ -73,6 +73,7 @@ $.ajax({
    if (desc.includes('사이트바로가기')) {
     content += `<h8 style = "color:black"> ${desc.replace('사이트바로가기', '<a href="http://sd-tech.kr/">사이트 이동</a>')}</h8><br>`;
 		console.log("에스디 테크 안녕?")
+		$(".weather_graphic").show()
 		 $("#subtable").hide();
 		 $("#maintable").show();
 	
@@ -89,6 +90,7 @@ $.ajax({
 		success : function(res){
 			// 성공하면 실행되는 함수
 			console.log(res)
+		$(".weather_graphic").hide()
 			 $("#maintable").hide();
 			 $("#subtable").show();
 			
@@ -124,36 +126,36 @@ $.ajax({
 				
 				
 				$("#mapdata1").append(res[0].tank_ID)
-				$("#mapdata2").append(res[0].height)
-				$("#mapdata3").append(res[0].diameter)
+				$("#mapdata2").append(res[0].height+"M")
+				$("#mapdata3").append(res[0].diameter+"M")
 				$("#mapdata4").append(res[0].variety)
-				$("#mapdata5").append(res[0].init_POP)
+				$("#mapdata5").append(res[0].init_POP+"마리")
 				$("#mapdata6").append(res[0].init_DENSITY)
-				$("#mapdata7").append(res[0].start_TEMP)
+				$("#mapdata7").append(res[0].start_TEMP+"°C")
 				
 				$("#mapdata8").append(res[1].tank_ID)
-				$("#mapdata9").append(res[1].height)
-				$("#mapdata10").append(res[1].diameter)
+				$("#mapdata9").append(res[1].height+"M")
+				$("#mapdata10").append(res[1].diameter+"M")
 				$("#mapdata11").append(res[1].variety)
-				$("#mapdata12").append(res[1].init_POP)
+				$("#mapdata12").append(res[1].init_POP+"마리")
 				$("#mapdata13").append(res[1].init_DENSITY)
-				$("#mapdata14").append(res[1].start_TEMP)
+				$("#mapdata14").append(res[1].start_TEMP+"°C")
 				
 				$("#mapdata15").append(res[2].tank_ID)
-				$("#mapdata16").append(res[2].height)
-				$("#mapdata17").append(res[2].diameter)
+				$("#mapdata16").append(res[2].height+"M")
+				$("#mapdata17").append(res[2].diameter+"M")
 				$("#mapdata18").append(res[2].variety)
-				$("#mapdata19").append(res[2].init_POP)
+				$("#mapdata19").append(res[2].init_POP+"마리")
 				$("#mapdata20").append(res[2].init_DENSITY)
-				$("#mapdata21").append(res[2].start_TEMP)
+				$("#mapdata21").append(res[2].start_TEMP+"°C")
 				
 				$("#mapdata22").append(res[3].tank_ID)
-				$("#mapdata23").append(res[3].height)
-				$("#mapdata24").append(res[3].diameter)
+				$("#mapdata23").append(res[3].height+"M")
+				$("#mapdata24").append(res[3].diameter+"M")
 				$("#mapdata25").append(res[3].variety)
-				$("#mapdata26").append(res[3].init_POP)
+				$("#mapdata26").append(res[3].init_POP+"마리")
 				$("#mapdata27").append(res[3].init_DENSITY)
-				$("#mapdata28").append(res[3].start_TEMP)
+				$("#mapdata28").append(res[3].start_TEMP+"°C")
 			
 			
 			
@@ -182,6 +184,7 @@ $.ajax({
 		success : function(res){
 			// 성공하면 실행되는 함수
 			console.log(res)
+		$(".weather_graphic").hide()
 			$("#subtable").show();
 				 $("#maintable").hide();
 			
@@ -217,28 +220,28 @@ $.ajax({
 			
 			
 				$("#mapdata1").append(res[0].tank_ID)
-				$("#mapdata2").append(res[0].height)
-				$("#mapdata3").append(res[0].diameter)
+				$("#mapdata2").append(res[0].height+"M")
+				$("#mapdata3").append(res[0].diameter+"M")
 				$("#mapdata4").append(res[0].variety)
-				$("#mapdata5").append(res[0].init_POP)
+				$("#mapdata5").append(res[0].init_POP+"마리")
 				$("#mapdata6").append(res[0].init_DENSITY)
-				$("#mapdata7").append(res[0].start_TEMP)
+				$("#mapdata7").append(res[0].start_TEMP+"°C")
 				
 				$("#mapdata8").append(res[1].tank_ID)
-				$("#mapdata9").append(res[1].height)
-				$("#mapdata10").append(res[1].diameter)
+				$("#mapdata9").append(res[1].height+"M")
+				$("#mapdata10").append(res[1].diameter+"M")
 				$("#mapdata11").append(res[1].variety)
-				$("#mapdata12").append(res[1].init_POP)
+				$("#mapdata12").append(res[1].init_POP+"마리")
 				$("#mapdata13").append(res[1].init_DENSITY)
-				$("#mapdata14").append(res[1].start_TEMP)
+				$("#mapdata14").append(res[1].start_TEMP+"°C")
 				
 				$("#mapdata15").append(res[2].tank_ID)
-				$("#mapdata16").append(res[2].height)
-				$("#mapdata17").append(res[2].diameter)
+				$("#mapdata16").append(res[2].height+"M")
+				$("#mapdata17").append(res[2].diameter+"M")
 				$("#mapdata18").append(res[2].variety)
-				$("#mapdata19").append(res[2].init_POP)
+				$("#mapdata19").append(res[2].init_POP+"마리")
 				$("#mapdata20").append(res[2].init_DENSITY)
-				$("#mapdata21").append(res[2].start_TEMP)
+				$("#mapdata21").append(res[2].start_TEMP+"°C")
 
 			
 			
@@ -265,6 +268,7 @@ $.ajax({
 		success : function(res){
 			// 성공하면 실행되는 함수
 			console.log(res)
+		$(".weather_graphic").hide()
 			$("#subtable").show();
 			 $("#maintable").hide();
 		
@@ -300,12 +304,12 @@ $.ajax({
 		
 			
 				$("#mapdata1").append(res[0].tank_ID)
-				$("#mapdata2").append(res[0].height)
-				$("#mapdata3").append(res[0].diameter)
+				$("#mapdata2").append(res[0].height+"M")
+				$("#mapdata3").append(res[0].diameter+"M")
 				$("#mapdata4").append(res[0].variety)
-				$("#mapdata5").append(res[0].init_POP)
+				$("#mapdata5").append(res[0].init_POP+"마리")
 				$("#mapdata6").append(res[0].init_DENSITY)
-				$("#mapdata7").append(res[0].start_TEMP)
+				$("#mapdata7").append(res[0].start_TEMP+"°C")
 			
 			
 		},
