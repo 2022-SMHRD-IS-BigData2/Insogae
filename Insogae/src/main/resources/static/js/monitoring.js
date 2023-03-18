@@ -281,18 +281,18 @@ function updateData(res){
 	
 			var options3 = {// pH
 				width: 180, height: 180, 
-				redFrom: 6.5, redTo: 7.5,
-				greenFrom: 7.5, greenTo: 8.5,
+				redFrom: 4.5, redTo: 5.5,
+				greenFrom: 5.5, greenTo: 8.5,
 				yellowFrom: 8.5, yellowTo: 9.5,
 				minorTicks: 5,
 				animation: { duration: 400 },
-				min:6.5,
+				min:4.5,
 				max:9.5
 			};
 	
 			var options4 = {// 염도
 				width: 180, height: 180, 
-				redFrom: 0, redTo: 20,
+				redFrom: 0, redTo: 10,
 				yellowFrom: 34, yellowTo: 50,
 				greenFrom: 20, greenTo: 34,
 				minorTicks: 5,
@@ -354,14 +354,23 @@ function updateData(res){
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<7.5){
+				if(do_data<3||ph_data<4.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
 					}
-					 if(temp_data<6||salt_data<10){
+				if(temp_data<6||salt_data<10){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
 					}
+				if(ph_data>8.5){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="orange"
+					}
+				if(temp_data>32||salt_data>34){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="orange"
+					}
+				
 					
 					let do_do = `<h5>` + do_data + `ppm</h5>`;
 					let ph = `<h5>` + ph_data + `ph</h5>`;
