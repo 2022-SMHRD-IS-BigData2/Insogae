@@ -28,6 +28,7 @@ $.ajax({
 		COMPANY_ID : user
 	},
 	success : function(res){
+		 $("#subtable").hide();
 		loc1.innerText = "  🏠 "+res[0].location;
 		sum1.innerText = "  🌊 약 "+res[0].count+"개";
 		cnt1.innerText = "  🦐 "+res[0].sum+"마리";

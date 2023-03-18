@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.MapMapper">
+
+<select id="mapdata1" resultType="com.smhrd.entity.Tank">
+select*from TANK
+where LOCATION = '전북완주군고산면대아저수로410-25'
+</select>
+
+
+<select id="mapdata2" resultType="com.smhrd.entity.Tank">
+select*from TANK
+where LOCATION = '전북 전주시 덕진구 콩쥐팥쥐로 1515'
+</select>
+
+<select id="mapdata3" resultType="com.smhrd.entity.Tank">
+select*from TANK
+where LOCATION = '전남 진도군 고군면 동부해안로 427'
+</select>
+
+
+
+
+</mapper>
