@@ -116,14 +116,10 @@ socketPy.onmessage = function(event) {
 	var dataList = JSON.parse(event.data);
 	  if (dataList.type === 'insertData') {
 		  updateData(dataList.value);
-		    // 첫 번째 데이터 처리
-		  } else if (dataList.type === 'test') {
-		  console.log(dataList.value);
-		    // 두 번째 데이터 처리
 		  } else if (dataList.type === 'dangerData'){
-			  console.log(dataList.value);
+			  console.log("이상치 !! : "+ dataList.value);
 		  } else if (dataList.type === 'predictData'){
-			  console.log(dataList.value);
+			  console.log("예측값!! : " + dataList.value);
 		  }
 };
 

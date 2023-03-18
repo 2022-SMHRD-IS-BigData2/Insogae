@@ -35,41 +35,28 @@ socket1.onmessage = function(event) {
 	showData(dataList);
 	
 	// 그래프 오른쪽 위 날짜 보여주기
-	let date = new Date(dataList[0].RECORD_DATE);
-	let formatter = new Intl.DateTimeFormat("ko-KR", {
-	  year: "numeric",
-	  month: "2-digit",
-	  day: "2-digit",
-	  hour: "2-digit",
-	  minute: "2-digit"
-	});
-	let result = formatter.format(date);
+	console.log(dataList);
 	for(let i =0; i<$(".tctm").length;i++){
-		$(".tctm")[i].innerText = result;
+		$(".tctm")[i].innerText = dataList[14].RECORD_DATE.split('T')[0] + " "+dataList[14].RECORD_DATE.split('T')[1]+"분";
 	};
 };
 
 socketPy.onmessage = function(event) {
-	console.log(event);
 	// 파이썬 웹서버로부터 갱신되는 데이터를 받아서 처리
 	// Json객체로 변환
 	var dataList = JSON.parse(event.data);
 	  if (dataList.type === 'insertData') {
 		  updateData(dataList.value);
-		    // 첫 번째 데이터 처리
-		  } else if (dataList.type === 'test') {
-		  console.log(dataList.value);
-		    // 두 번째 데이터 처리
 		  } else if (dataList.type === 'dangerData'){
-			  console.log(dataList.value);
+			  console.log("이상치 !! : "+ dataList.value);
 		  } else if (dataList.type === 'predictData'){
-			  console.log(dataList.value);
+			  console.log("예측값!! : " + dataList.value);
 		  }
 };
 
 
 // num = 8; // 수조 개수 -> predict.js 에 이미 선언되어있음
-let range = 15; // 그래프 x축 범위 설정
+let range = 50; // 그래프 x축 범위 설정
 
 // 수조별 이름을 담을 배열 
 let tankIdList = [];
@@ -254,12 +241,14 @@ function showData(data){
                     data: ondo_AccListSet[i],
                     borderColor: ['green'],
                     backgroundColor: ['green'],
+                    pointRadius: 0,
                     fill: false
                 }, {
                     label: '예측 온도',
                     data: ondo_PreListSet[i],
                     borderColor: ['orange'],
                     backgroundColor: ['orange'],
+                    pointRadius: 0,
                     fill: false
                 }]
             })
@@ -270,12 +259,14 @@ function showData(data){
             			data: do_AccListSet[i],
             			borderColor: ['green'],
                         backgroundColor: ['green'],
+                        pointRadius: 0,
             			fill: false
             		}, {
             			label: '예측 DO',
             			data: do_PreListSet[i],
             			borderColor: ['orange'],
                         backgroundColor: ['orange'],
+                        pointRadius: 0,
             			fill: false
             		}]
             })
@@ -286,12 +277,14 @@ function showData(data){
             			data: ph_AccListSet[i],
             			borderColor: ['green'],
                         backgroundColor: ['green'],
+                        pointRadius: 0,
             			fill: false
             		}, {
             			label: '예측 pH',
             			data: ph_PreListSet[i],
             			borderColor: ['orange'],
                         backgroundColor: ['orange'],
+                        pointRadius: 0,
             			fill: false
             		}]
             })
@@ -302,12 +295,14 @@ function showData(data){
             			data: salt_AccListSet[i],
             			borderColor: ['green'],
                         backgroundColor: ['green'],
+                        pointRadius: 0,
             			fill: false
             		}, {
             			label: '예측 염도',
             			data: salt_PreListSet[i],
             			borderColor: ['orange'],
                         backgroundColor: ['orange'],
+                        pointRadius: 0,
             			fill: false
             		}]
             })

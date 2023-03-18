@@ -189,7 +189,6 @@ $.ajax({
 					let temp = `<h5>` + temp_data + `°C</h5>`;
 					let salt = `<h5>` + salt_data + `psu</h5>`;
 					let time = `<h5>현재시간 ` + time_data + `</h5>`;
-	
 					$('#'+ondoArray[i]).html(temp);
 					$('#'+doArray[i]).html(do_do);
 					$('#'+saltArray[i]).html(salt);
@@ -232,15 +231,12 @@ socketPy.onmessage = function(event) {
 	// Json객체로 변환
 	var dataList = JSON.parse(event.data);
 	  if (dataList.type === 'insertData') {
-		  updateData(dataList.value);
-		    // 첫 번째 데이터 처리
-		  } else if (dataList.type === 'test') {
 		  console.log(dataList.value);
-		    // 두 번째 데이터 처리
+		  updateData(dataList.value);
 		  } else if (dataList.type === 'dangerData'){
-			  console.log(dataList.value);
+			  console.log("이상치 !! : "+ dataList.value);
 		  } else if (dataList.type === 'predictData'){
-			  console.log(dataList.value);
+			  console.log("예측값!! : " + dataList.value);
 		  }
 };
 
@@ -389,7 +385,7 @@ function updateData(res){
 					let temp = `<h5>` + temp_data + `°C</h5>`;
 					let salt = `<h5>` + salt_data + `psu</h5>`;
 					let time = `<h5>현재시간 ` + time_data + `</h5>`;
-	
+					console.log(temp);
 					$('#'+ondoArray[i]).html(temp);
 					$('#'+doArray[i]).html(do_do);
 					$('#'+saltArray[i]).html(salt);
