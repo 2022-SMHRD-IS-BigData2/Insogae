@@ -25,3 +25,14 @@ ORDER BY tank_id, PRE_RECORD_DATE DESC;
 
 select * from PREDICT_VIEW 
 ORDER BY RECORD_DATE DESC LIMIT 8;
+
+
+select*from TANK
+where LOCATION = '전북완주군고산면대아저수로410-25'
+
+select*from TANK
+where LOCATION = '전북 전주시 덕진구 콩쥐팥쥐로 1515'
+
+select*from TANK
+where LOCATION = '전남 진도군 고군면 동부해안로 427'
+
