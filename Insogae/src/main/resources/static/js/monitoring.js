@@ -130,7 +130,7 @@ $.ajax({
 			ph_data = res[i].ph_ACC.toFixed(2);
 			salt_data = Math.round(res[i].salt_ACC.toFixed(2)*100);
 				
-				if(do_data<6.1){
+				if(do_data<4){
 					document.getElementById(doArray[i]).style.color="red";
 					console.log(do_data)
 					console.log("DO 위험!!!")
@@ -147,13 +147,13 @@ $.ajax({
 //							showToast('경고!', 1500);
 				}else{document.getElementById(doArray[i]).style.color="white";}
 				
-				 if(ph_data<5){
+				 if(ph_data<5.5){
 					document.getElementById(phArray[i]).style.color="red";
 
 				}
 				else{document.getElementById(phArray[i]).style.color="white";}
 				
-				if(temp_data<6){
+				if(temp_data<23){
 					document.getElementById(ondoArray[i]).style.color="red";
 					
 				}else{
@@ -317,7 +317,7 @@ function updateData(res){
 			ph_data =   parseFloat(res[i].PH).toFixed(2);
 			salt_data = Math.round(parseFloat(res[i].SALT).toFixed(1)*100);
 				
-				if(do_data<6.1){
+				if(do_data<4){
 					document.getElementById(doArray[i]).style.color="red";
 					console.log(do_data)
 					console.log("DO 위험!!!")
@@ -334,13 +334,13 @@ function updateData(res){
 	//					showToast('경고!', 1500);
 				}else{document.getElementById(doArray[i]).style.color="white";}
 				
-				 if(ph_data<5){
+				 if(ph_data<5.5){
 					document.getElementById(phArray[i]).style.color="red";
 	
 				}
 				else{document.getElementById(phArray[i]).style.color="white";}
 				
-				if(temp_data<6){
+				if(temp_data<23){
 					document.getElementById(ondoArray[i]).style.color="red";
 					
 				}else{
