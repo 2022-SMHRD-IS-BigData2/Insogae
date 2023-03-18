@@ -332,11 +332,11 @@ function showData(data){
     	let do_acc = `<h5>` + do_AccListSet[i][range-1] + `ppm</h5>`;
     	let ph_acc = `<h5>` + ph_AccListSet[i][range-1] + `ph</h5>`;
  	    let temp_acc = `<h5>` + ondo_AccListSet[i][range-1] + `°C</h5>`;
- 	    let salt_acc = `<h5>` + salt_AccListSet[i][range-1] + `psu</h5>`;
+ 	    let salt_acc = `<h5>` + salt_AccListSet[i][range-1]*100 + `psu</h5>`;
  	    let do_pre = `<h5>` + do_PreListSet[i][range-1] + `ppm</h5>`;
  	    let ph_pre = `<h5>` + ph_PreListSet[i][range-1] + `ph</h5>`;
  	    let temp_pre = `<h5>` + ondo_PreListSet[i][range-1] + `°C</h5>`;
- 	    let salt_pre = `<h5>` + salt_PreListSet[i][range-1] + `psu</h5>`;
+ 	    let salt_pre = `<h5>` + salt_PreListSet[i][range-1]*100 + `psu</h5>`;
  	    
  	    // 변수에 담은 데이터들을 뷰에 동적 표현
      	$(ondoAccArray[i]).html(temp_acc);
@@ -440,4 +440,25 @@ function updateData(dataList){
 		chartListSet[2][i].update();
 		chartListSet[3][i].update();
 	}
+    for(let i=0;i<num;i++){
+    	let do_acc = `<h5>`   + parseFloat(dataList[i].DO).toFixed(2)  + `ppm</h5>`;
+    	let ph_acc = `<h5>`   + parseFloat(dataList[i].PH).toFixed(2)  + `ph</h5>`;
+ 	    let temp_acc = `<h5>` + parseFloat(dataList[i].TEMP).toFixed(2)   + `°C</h5>`;
+ 	    let salt_acc = `<h5>` + parseFloat(dataList[i].SALT).toFixed(2)*100  + `psu</h5>`;
+ 	    let do_pre = `<h5>`   + parseFloat(dataList[i].DO_PRE).toFixed(2) + `ppm</h5>`;
+ 	    let ph_pre = `<h5>`   + parseFloat(dataList[i].PH_PRE).toFixed(2)  + `ph</h5>`;
+ 	    let temp_pre = `<h5>` + parseFloat(dataList[i].TEMP_PRE).toFixed(2)  + `°C</h5>`;
+ 	    let salt_pre = `<h5>` + parseFloat(dataList[i].SALT_PRE).toFixed(2)*100 + `psu</h5>`;
+ 	    
+ 	    // 변수에 담은 데이터들을 뷰에 동적 표현
+     	$(ondoAccArray[i]).html(temp_acc);
+     	$(doAccArray[i]).html(do_acc);
+     	$(phAccArray[i]).html(ph_acc);
+     	$(saltAccArray[i]).html(salt_acc);
+     	$(ondoPreArray[i]).html(temp_pre);
+     	$(doPreArray[i]).html(do_pre);
+     	$(phPreArray[i]).html(ph_pre);
+     	$(saltPreArray[i]).html(salt_pre);
+    }
+	
 }
