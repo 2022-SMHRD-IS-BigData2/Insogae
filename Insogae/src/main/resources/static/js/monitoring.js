@@ -167,7 +167,7 @@ $.ajax({
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<4.5){
+				if(do_data<3||ph_data<5.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
 					}
