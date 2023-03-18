@@ -95,19 +95,19 @@ $.ajax({
 			var options3 = {// pH
 				width: 180, height: 180, 
 				redFrom: 4.5, redTo: 5.5,
-				greenFrom: 5.5, greenTo: 7.5,
-				yellowFrom: 7.5, yellowTo: 9.5,
+				greenFrom: 5.5, greenTo: 8.5,
+				yellowFrom: 8.5, yellowTo: 9.5,
 				minorTicks: 5,
 				animation: { duration: 400 },
-				min:6.5,
+				min:4.5,
 				max:9.5
 			};
 
 			var options4 = {// 염도
 				width: 180, height: 180, 
-				redFrom: 0, redTo: 20,
+				redFrom: 0, redTo: 10,
 				yellowFrom: 34, yellowTo: 50,
-				greenFrom: 20, greenTo: 34,
+				greenFrom: 10, greenTo: 34,
 				minorTicks: 5,
 				animation: { duration: 400 },
 				max: 50
@@ -167,13 +167,21 @@ $.ajax({
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<7.5){
+				if(do_data<3||ph_data<4.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
 					}
-					 if(temp_data<6||salt_data<10){
+				if(temp_data<6||salt_data<10){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
+					}
+				if(ph_data>8.5){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="orange"
+					}
+				if(temp_data>32||salt_data>34){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="orange"
 					}
 					
 					let do_do = `<h5>` + do_data + `ppm</h5>`;
@@ -404,8 +412,8 @@ function showToast() {
 
 
 
-/*
-function currentTime() {
+
+/*function currentTime() {
 	const date = new Date();
 	let yyyy = date.getFullYear();
 	let MM = date.getMonth() + 1;
@@ -413,10 +421,10 @@ function currentTime() {
 	let hh = date.getHours();
 	let mm = date.getMinutes();
 	let ss = date.getSeconds();
-	let session = "AM";
+	let session = "오전";
 
 	if (hh > 12) {
-		session = "PM";
+		session = "오후";
 	}
 
 	hh = (hh < 10) ? "0" + hh : hh;
@@ -432,5 +440,4 @@ function currentTime() {
 	setTimeout(() => currentTime(), 1000);
 };
 
-currentTime();
-*/
+currentTime();*/
