@@ -23,19 +23,19 @@ $.ajax({
       name: '수산기술연구소 수조',
       lat: 35.9855015,
       lng: 127.2620517,
-      description: ['수조위치:  '+res[0].location, '수조의 개수: '+res[0].count, '사육개시일: 2021-07-13', '온도: 28°C']
+      description: ['수조위치1:  '+res[0].location, '수조의 개수: '+res[0].count, '사육개시일: 2021-07-13', '온도: 28°C']
     },
     {
       name: '한농대 수조',
       lat: 35.8262965,
       lng: 127.0656925,
-      description: ['수조위치:  '+res[1].location, '수조의 개수: '+res[1].count, '사육개시일: 2021-07-13', '온도: 31°C']
+      description: ['수조위치2:  '+res[1].location, '수조의 개수: '+res[1].count, '사육개시일: 2021-07-13', '온도: 31°C']
     },
     {
       name: '어가 수조',
       lat: 34.5029352,
       lng: 126.3694397,
-      description: ['수조위치:  '+res[2].location, '수조의 개수: '+res[2].count, '사육개시일: 2021-07-13', '온도: 28°C']
+      description: ['수조위치3:  '+res[2].location, '수조의 개수: '+res[2].count, '사육개시일: 2021-07-13', '온도: 28°C']
     },
 		{
       name: '주식회사 에스디테크',
@@ -72,9 +72,260 @@ $.ajax({
       marker.description.forEach(desc => {
    if (desc.includes('사이트바로가기')) {
     content += `<h8 style = "color:black"> ${desc.replace('사이트바로가기', '<a href="http://sd-tech.kr/">사이트 이동</a>')}</h8><br>`;
+		console.log("에스디 테크 안녕?")
+		$(".weather_graphic").show()
+		 $("#subtable").hide();
+		 $("#maintable").show();
+	
+
+  }
+	else if(desc.includes('수조위치1:  ')){
+		console.log("완주 수조 안녕?")
+		$.ajax({
+		url : "mapdata1",//어디로?
+		type : "get",// get? or post?
+		data : {
+			
+		},
+		success : function(res){
+			// 성공하면 실행되는 함수
+			console.log(res)
+		$(".weather_graphic").hide()
+			 $("#maintable").hide();
+			 $("#subtable").show();
+			
+				$("#mapdata1").html("")
+				$("#mapdata2").html("")
+				$("#mapdata3").html("")
+				$("#mapdata4").html("")
+				$("#mapdata5").html("")
+				$("#mapdata6").html("")
+				$("#mapdata7").html("")
+				$("#mapdata8").html("")
+				$("#mapdata9").html("")
+				$("#mapdata10").html("")
+				$("#mapdata11").html("")
+				$("#mapdata12").html("")
+				$("#mapdata13").html("")
+				$("#mapdata14").html("")
+				$("#mapdata15").html("")
+				$("#mapdata16").html("")
+				$("#mapdata17").html("")
+				$("#mapdata18").html("")
+				$("#mapdata19").html("")
+				$("#mapdata20").html("")
+				$("#mapdata21").html("")
+				$("#mapdata22").html("")
+				$("#mapdata23").html("")
+				$("#mapdata24").html("")
+				$("#mapdata25").html("")
+				$("#mapdata26").html("")
+				$("#mapdata27").html("")
+				$("#mapdata28").html("")
+				
+				
+				
+				$("#mapdata1").append(res[0].tank_ID)
+				$("#mapdata2").append(res[0].height+"M")
+				$("#mapdata3").append(res[0].diameter+"M")
+				$("#mapdata4").append(res[0].variety)
+				$("#mapdata5").append(res[0].init_POP+"마리")
+				$("#mapdata6").append(res[0].init_DENSITY)
+				$("#mapdata7").append(res[0].start_TEMP+"°C")
+				
+				$("#mapdata8").append(res[1].tank_ID)
+				$("#mapdata9").append(res[1].height+"M")
+				$("#mapdata10").append(res[1].diameter+"M")
+				$("#mapdata11").append(res[1].variety)
+				$("#mapdata12").append(res[1].init_POP+"마리")
+				$("#mapdata13").append(res[1].init_DENSITY)
+				$("#mapdata14").append(res[1].start_TEMP+"°C")
+				
+				$("#mapdata15").append(res[2].tank_ID)
+				$("#mapdata16").append(res[2].height+"M")
+				$("#mapdata17").append(res[2].diameter+"M")
+				$("#mapdata18").append(res[2].variety)
+				$("#mapdata19").append(res[2].init_POP+"마리")
+				$("#mapdata20").append(res[2].init_DENSITY)
+				$("#mapdata21").append(res[2].start_TEMP+"°C")
+				
+				$("#mapdata22").append(res[3].tank_ID)
+				$("#mapdata23").append(res[3].height+"M")
+				$("#mapdata24").append(res[3].diameter+"M")
+				$("#mapdata25").append(res[3].variety)
+				$("#mapdata26").append(res[3].init_POP+"마리")
+				$("#mapdata27").append(res[3].init_DENSITY)
+				$("#mapdata28").append(res[3].start_TEMP+"°C")
+			
+			
+			
+		},
+		error : function(){
+			alert("에러ㅋ");
+		}
+	});
+		
+		
+		
+		
+		
+		
+		
+}
+	else if(desc.includes('수조위치2:  ')){
+		console.log("전주 수조 안녕?")
+		
+		$.ajax({
+		url : "mapdata2",//어디로?
+		type : "get",// get? or post?
+		data : {
+			
+		},
+		success : function(res){
+			// 성공하면 실행되는 함수
+			console.log(res)
+		$(".weather_graphic").hide()
+			$("#subtable").show();
+				 $("#maintable").hide();
+			
+			$("#mapdata1").html("")
+				$("#mapdata2").html("")
+				$("#mapdata3").html("")
+				$("#mapdata4").html("")
+				$("#mapdata5").html("")
+				$("#mapdata6").html("")
+				$("#mapdata7").html("")
+				$("#mapdata8").html("")
+				$("#mapdata9").html("")
+				$("#mapdata10").html("")
+				$("#mapdata11").html("")
+				$("#mapdata12").html("")
+				$("#mapdata13").html("")
+				$("#mapdata14").html("")
+				$("#mapdata15").html("")
+				$("#mapdata16").html("")
+				$("#mapdata17").html("")
+				$("#mapdata18").html("")
+				$("#mapdata19").html("")
+				$("#mapdata20").html("")
+				$("#mapdata21").html("")
+				$("#mapdata22").html("")
+				$("#mapdata23").html("")
+				$("#mapdata24").html("")
+				$("#mapdata25").html("")
+				$("#mapdata26").html("")
+				$("#mapdata27").html("")
+				$("#mapdata28").html("")
+			
+			
+			
+				$("#mapdata1").append(res[0].tank_ID)
+				$("#mapdata2").append(res[0].height+"M")
+				$("#mapdata3").append(res[0].diameter+"M")
+				$("#mapdata4").append(res[0].variety)
+				$("#mapdata5").append(res[0].init_POP+"마리")
+				$("#mapdata6").append(res[0].init_DENSITY)
+				$("#mapdata7").append(res[0].start_TEMP+"°C")
+				
+				$("#mapdata8").append(res[1].tank_ID)
+				$("#mapdata9").append(res[1].height+"M")
+				$("#mapdata10").append(res[1].diameter+"M")
+				$("#mapdata11").append(res[1].variety)
+				$("#mapdata12").append(res[1].init_POP+"마리")
+				$("#mapdata13").append(res[1].init_DENSITY)
+				$("#mapdata14").append(res[1].start_TEMP+"°C")
+				
+				$("#mapdata15").append(res[2].tank_ID)
+				$("#mapdata16").append(res[2].height+"M")
+				$("#mapdata17").append(res[2].diameter+"M")
+				$("#mapdata18").append(res[2].variety)
+				$("#mapdata19").append(res[2].init_POP+"마리")
+				$("#mapdata20").append(res[2].init_DENSITY)
+				$("#mapdata21").append(res[2].start_TEMP+"°C")
+
+			
+			
+		},
+		error : function(){
+			alert("에러ㅋ");
+		}
+	});
+		
+		
+		
+		
+		
+}
+	else if(desc.includes('수조위치3:  ')){
+		console.log("진도 수조 안녕?")
+		
+		$.ajax({
+		url : "mapdata3",//어디로?
+		type : "get",// get? or post?
+		data : {
+			
+		},
+		success : function(res){
+			// 성공하면 실행되는 함수
+			console.log(res)
+		$(".weather_graphic").hide()
+			$("#subtable").show();
+			 $("#maintable").hide();
+		
+		$("#mapdata1").html("")
+				$("#mapdata2").html("")
+				$("#mapdata3").html("")
+				$("#mapdata4").html("")
+				$("#mapdata5").html("")
+				$("#mapdata6").html("")
+				$("#mapdata7").html("")
+				$("#mapdata8").html("")
+				$("#mapdata9").html("")
+				$("#mapdata10").html("")
+				$("#mapdata11").html("")
+				$("#mapdata12").html("")
+				$("#mapdata13").html("")
+				$("#mapdata14").html("")
+				$("#mapdata15").html("")
+				$("#mapdata16").html("")
+				$("#mapdata17").html("")
+				$("#mapdata18").html("")
+				$("#mapdata19").html("")
+				$("#mapdata20").html("")
+				$("#mapdata21").html("")
+				$("#mapdata22").html("")
+				$("#mapdata23").html("")
+				$("#mapdata24").html("")
+				$("#mapdata25").html("")
+				$("#mapdata26").html("")
+				$("#mapdata27").html("")
+				$("#mapdata28").html("")
+		
+		
+			
+				$("#mapdata1").append(res[0].tank_ID)
+				$("#mapdata2").append(res[0].height+"M")
+				$("#mapdata3").append(res[0].diameter+"M")
+				$("#mapdata4").append(res[0].variety)
+				$("#mapdata5").append(res[0].init_POP+"마리")
+				$("#mapdata6").append(res[0].init_DENSITY)
+				$("#mapdata7").append(res[0].start_TEMP+"°C")
+			
+			
+		},
+		error : function(){
+			alert("에러ㅋ");
+		}
+	});
+		
+		
+		
+		
+
+}
 
 
-  }else{
+else{
         content += `<h8 style = "color:black">${desc}</h8><br>`
 }
 		
