@@ -225,6 +225,8 @@ socketPy.onopen = function() {
 	console.dir("파이썬서버 웹소켓연결됨");
 	socketPy.send("클라이언트 : monitoring.js");
 };
+//로컬 스토리지에서 값 가져오기
+const isAlarmEnabled = JSON.parse(localStorage.getItem('isChecked'));
 
 socketPy.onmessage = function(event) {
 	// 파이썬 웹서버로부터 갱신되는 데이터를 받아서 처리
@@ -235,6 +237,9 @@ socketPy.onmessage = function(event) {
 		  updateData(dataList.value);
 		  } else if (dataList.type === 'dangerData'){
 			  console.log("이상치 !! : "+ dataList.value);
+			  if (isAlarmEnabled) {
+				  warningToast(dataList.value);
+				}
 		  } else if (dataList.type === 'predictData'){
 			  console.log("예측값!! : " + dataList.value);
 		  }
@@ -412,11 +417,11 @@ function updateData(res){
 	
 
 
-var toast = new bootstrap.Toast($('#liveToast'));
-
-function showToast() {
-  toast.show();
-}
+//var toast = new bootstrap.Toast($('#liveToast'));
+//
+//function showToast() {
+//  toast.show();
+//}
 
 //setInterval(function() {
 //  showToast();

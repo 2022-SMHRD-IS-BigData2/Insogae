@@ -41,6 +41,9 @@ socket1.onmessage = function(event) {
 	};
 };
 
+//로컬 스토리지에서 값 가져오기
+const isAlarmEnabled = JSON.parse(localStorage.getItem('isChecked'));
+
 socketPy.onmessage = function(event) {
 	// 파이썬 웹서버로부터 갱신되는 데이터를 받아서 처리
 	// Json객체로 변환
@@ -49,8 +52,13 @@ socketPy.onmessage = function(event) {
 		  updateData(dataList.value);
 		  } else if (dataList.type === 'dangerData'){
 			  console.log("이상치 !! : "+ dataList.value);
+			  if (isAlarmEnabled) {
+				  warningToast(dataList.value);
+				}
 		  } else if (dataList.type === 'predictData'){
 			  console.log("예측값!! : " + dataList.value);
+			  var jsonArray = JSON.parse(dataList.value);
+			  predict6hAfter(jsonArray);
 		  }
 };
 
@@ -470,4 +478,48 @@ function updateData(dataList){
      	$(saltPreArray[i]).html(salt_pre);
     }
 	
+}
+
+// 6시간후 예측값 보여주기
+pre6hTEMPList = [];
+pre6hDOList = [];
+pre6hPHList = [];
+pre6hSALTList = [];
+for (let i =1;i<=num;i++){
+	pre6hTEMPList.push('#pre6h-ondo-'+i);
+	pre6hDOList.push('#pre6h-do-'+i);
+	pre6hPHList.push('#pre6h-ph-'+i);
+	pre6hSALTList.push('#pre6h-salt-'+i);
+}
+function predict6hAfter(data){
+	console.log(data[0]);
+	
+	var dangerTEMP = "";
+	var dangerDO= "";
+	var dangerPH = "";
+	var dangerSALT = "";
+	var dangerTEXT = " (이상치)";
+	for (let i =0;i<num;i++){
+		data[i].TEMP = parseFloat(data[i].TEMP).toFixed(2);
+		data[i].DO = parseFloat(data[i].DO).toFixed(2);
+		data[i].PH = parseFloat(data[i].PH).toFixed(2);
+		data[i].SALT = parseFloat(data[i].SALT).toFixed(2);
+		if(data[i].TEMP<23 || data[i].TEMP>32){
+			 dangerTEMP = dangerTEXT;
+		}
+		if(data[i].DO<4 || data[i].DO>9){
+			 dangerDO = dangerTEXT;
+		}
+		if(data[i].PH<5.5 || data[i].PH>8.5){
+			dangerPH = dangerTEXT;
+		}
+		if(data[i].SALT<0.05 || data[i].SALT>5.34){
+			dangerSALT = dangerTEXT;
+		}
+		 
+		$(pre6hTEMPList[i]).html("- 온도 : "+data[i].TEMP + dangerTEMP);
+		$(pre6hDOList[i]).html("- DO : "+data[i].DO + dangerDO);
+		$(pre6hPHList[i]).html("- pH : "+data[i].PH + dangerPH);
+		$(pre6hSALTList[i]).html("- 염도 : "+data[i].SALT + dangerSALT);
+	}
 }

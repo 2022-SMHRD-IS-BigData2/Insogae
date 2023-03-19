@@ -12,14 +12,13 @@
 <link rel="stylesheet" href="css/main.css" />
 <link rel="stylesheet" href="css/weather.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&display=swap"
     rel="stylesheet">
-
-
-
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 
 </head>
 
@@ -281,11 +280,26 @@
 		</div>
 		<!-- 본화면 끝 -->
 	</div>
+	<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      
+      <strong class="me-auto">알람</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" style="color:red;">
+      <a href="goHistory.do">이상 수치가 발견됐습니다
+      </a>
+    </div>
+  </div>
+</div>
 	<!-- 본문 끝 -->
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/5ecdf6234c.js"
 		crossorigin="anonymous"></script>
 
@@ -301,11 +315,11 @@
 
 
 	<script src="js/main.js"></script>
+	<script src="js/toast.js"></script>
 	  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAdspPxZ8x7c5uSlWrR3XE2_p8rlBM4Bg&callback=initMap"></script>
 	
 	<script src="js/weather.js"></script>
 	<script src="js/map.js"></script>
-
 
 </body>
 

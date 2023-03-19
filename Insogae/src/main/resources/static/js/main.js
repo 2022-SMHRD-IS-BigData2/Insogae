@@ -1,5 +1,5 @@
 let num = 8; // 수조 개수 설정
-
+console.log('vscode');
 // 수조 이름 
 var tank = $('#tank-id').text();
 
@@ -103,7 +103,11 @@ $.ajax({
 			console.log("에러!");
 		}
 	})
+
 	
+// 로컬 스토리지에서 값 가져오기
+const isAlarmEnabled = JSON.parse(localStorage.getItem('isChecked'));
+
 var socketPy = new WebSocket("ws://localhost:8123/socketPy");
 
 socketPy.onopen = function() {
@@ -118,6 +122,9 @@ socketPy.onmessage = function(event) {
 		  updateData(dataList.value);
 		  } else if (dataList.type === 'dangerData'){
 			  console.log("이상치 !! : "+ dataList.value);
+			  if (isAlarmEnabled) {
+				  warningToast(dataList.value);
+				}
 		  } else if (dataList.type === 'predictData'){
 			  console.log("예측값!! : " + dataList.value);
 		  }
