@@ -100,7 +100,8 @@ a {
 	height: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+/* 	justify-content: center;
+	align-items: center; */
 }
 
 /* #main-1>.rectangle-1 {
@@ -117,6 +118,7 @@ a {
 	background-color: #3c3c40;
 	margin: 2px;
 	padding: 3px;
+	transition: width 1s, height 1s;
 }
 
 .rectangle-gp {
@@ -348,6 +350,7 @@ a {
 
 .rectangle-gp>div{
 	width: 670px;
+	transition: width 1s, height 1s;
 }
 
 .rectangle-data>div{
