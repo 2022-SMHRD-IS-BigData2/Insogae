@@ -3,6 +3,8 @@
 		<div class="tct" th:if="${tank}"  th:text="${tank.get(7).TANK_ID}"></div>
 		<div class="tct" th:unless="${tank}"></div>
 		<button class="report" id="report-8">리포트</button>
+		<button class="report" id="expand-8">크게 보기</button>		
+		<button class="report" id="goOriginalBox-8" style="display:none;">돌아 가기</button>
 		<div class="warning">
 			<div class="wl"></div>
 			<div id="clock" class="tctm"></div>
