@@ -8,7 +8,7 @@ body {
 }
 
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .m-0 {
@@ -27,7 +27,7 @@ a {
 
 /* 헤더 스타일 설정 */
 #header {
-	/* height: 8vh; */
+	height: 8vh;
 	width: 200vw;
 	z-index: 2;
 	background-color: #303C50;
@@ -55,11 +55,18 @@ a {
 }
 
 .item:hover {
+	color: white !important;
 	background-color: silver;
 }
 
 .navbar>.container-fluid {
 	flex-wrap: nowrap;
+}
+
+.navbar.sticky-top>div:nth-child(2) {
+    padding-left: 140px;
+    padding-right: 28px;
+    margin-top: 14px;
 }
 
 /* 페이지넘김 버튼 스타일 설정 */
