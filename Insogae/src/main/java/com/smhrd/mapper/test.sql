@@ -36,3 +36,7 @@ where LOCATION = '전북 전주시 덕진구 콩쥐팥쥐로 1515'
 select*from TANK
 where LOCATION = '전남 진도군 고군면 동부해안로 427'
 
+select*from ALARM limit 50;
+
+
+
