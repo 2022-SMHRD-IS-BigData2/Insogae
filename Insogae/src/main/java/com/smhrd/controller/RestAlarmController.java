@@ -3,6 +3,7 @@ package com.smhrd.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +16,11 @@ import com.smhrd.mapper.AlarmMapper;
 public class RestAlarmController {
 	@Autowired
 	AlarmMapper mapper;
+
 	
 	@RequestMapping("/testlist")
 	public List<Alarm> testlist(String user, HttpServletRequest request) {
-		
 		user = request.getParameter("COMPANY_ID");
-		
 		List<Alarm>alarmlist = mapper.alarmlist(user);
 		System.out.println(alarmlist.get(0));
 		return alarmlist;
