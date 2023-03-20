@@ -6,7 +6,7 @@ document.getElementById("expand-1").addEventListener("click", function() {
 	btn2.style.display = "block";
 	var box = document.querySelector('#content1');
 	box.style.width = '100%';
-	box.style.height = '98%';
+	box.style.height = '100%';
 	var boxes1 = document.querySelectorAll('.rectangle-gp-1');
 	boxes1.forEach(function(box1) {
 		box1.style.width = '1400px';
@@ -14,7 +14,7 @@ document.getElementById("expand-1").addEventListener("click", function() {
 	var btn = document.querySelector('#btn-container');
 	btn.style.display = "none";
 	var other1 = document.querySelector('#main-1 > div > div:nth-child(3)');
-
+	
 	other1.style.display = "none";
 
 });
@@ -49,7 +49,7 @@ document.getElementById("expand-2").addEventListener("click", function() {
 	btn6.style.display = "block";
 	var box3 = document.querySelector('#content2');
 	box3.style.width = '100%';
-	box3.style.height = '98%';
+	box3.style.height = '100%';
 var boxes2 = document.querySelectorAll('.rectangle-gp-2');
 	boxes2.forEach(function(box4) {
 		box4.style.width = '1400px';
@@ -92,8 +92,8 @@ document.getElementById("expand-3").addEventListener("click", function() {
 	var btn8 = document.getElementById("goOriginalBox-3")
 	btn8.style.display = "block";
 	var box5 = document.querySelector('#content3');
-	box5.style.width = '98%';
-	box5.style.height = '98%';
+	box5.style.width = '100%';
+	box5.style.height = '100%';
     var boxes3 = document.querySelectorAll('.rectangle-gp-3');
 	boxes3.forEach(function(box6) {
 		box6.style.width = '1400px';
@@ -104,10 +104,16 @@ document.getElementById("expand-3").addEventListener("click", function() {
 	var other4 = document.querySelector('#main-1 > div > div:nth-child(3)');
 	var other5 = document.querySelector('#main-1 > div > div:nth-child(5)');
 	other5.style.display = "none";
-	setTimeout(function() {
-	other3.style.display = "none";
-	other4.style.display = "none";
-	 }, 200);
+//	setTimeout(function() {
+	other3.style.height = "0";
+	other4.style.height = "0";
+//	 }, 200);
+	document.querySelector('#content1').style.margin = "0";
+	document.querySelector('#content1').style.padding = "0";
+	document.querySelector('#content2').style.margin = "0";
+	document.querySelector('#content2').style.padding = "0";
+	document.querySelector('#content3').style.margin = "0";
+	document.querySelector('#content3').style.padding = "0";
 });
 
 document.getElementById("goOriginalBox-3").addEventListener("click", function() {
@@ -127,10 +133,15 @@ var boxes3 = document.querySelectorAll('.rectangle-gp-3');
 	var other3 = document.querySelector('#main-1 > div > div:nth-child(2)');
 	var other4 = document.querySelector('#main-1 > div > div:nth-child(3)');
 	var other5 = document.querySelector('#main-1 > div > div:nth-child(5)');
-	other3.style.display = "block";
-	other4.style.display = "block";
+	other3.style.height = "50%";
+	other4.style.height = "50%";
 	other5.style.display = "block";
-
+	document.querySelector('#content1').style.margin = "2px";
+	document.querySelector('#content1').style.padding = "3px";
+	document.querySelector('#content2').style.margin = "2px";
+	document.querySelector('#content2').style.padding = "3px";
+	document.querySelector('#content3').style.margin = "2px";
+	document.querySelector('#content3').style.padding = "3px";
 	
 });
 
@@ -143,7 +154,7 @@ document.getElementById("expand-4").addEventListener("click", function() {
 	btn10.style.display = "block";
 	var box7 = document.querySelector('#content4');
 	box7.style.width = '99%';
-	box7.style.height = '98%';
+	box7.style.height = '100%';
 	var boxes4 = document.querySelectorAll('.rectangle-gp-4');
 	boxes4.forEach(function(box8) {
 		box8.style.width = '1400px';
@@ -195,7 +206,7 @@ document.getElementById("expand-5").addEventListener("click", function() {
 	btn12.style.display = "block";
 	var box9 = document.querySelector('#content5');
 	box9.style.width = '100%';
-	box9.style.height = '98%';
+	box9.style.height = '100%';
 	var boxes5 = document.querySelectorAll('.rectangle-gp-5');
 	boxes5.forEach(function(box10) {
 		box10.style.width = '1400px';
@@ -238,7 +249,7 @@ document.getElementById("expand-6").addEventListener("click", function() {
 	btn14.style.display = "block";
 	var box11 = document.querySelector('#content6');
 	box11.style.width = '100%';
-	box11.style.height = '98%';
+	box11.style.height = '100%';
 var boxes6 = document.querySelectorAll('.rectangle-gp-6');
 	boxes6.forEach(function(box12) {
 		box12.style.width = '1400px';
@@ -281,8 +292,8 @@ document.getElementById("expand-7").addEventListener("click", function() {
 	var btn16 = document.getElementById("goOriginalBox-7")
 	btn16.style.display = "block";
 	var box13 = document.querySelector('#content7');
-	box13.style.width = '98%';
-	box13.style.height = '98%';
+	box13.style.width = '100%';
+	box13.style.height = '100%';
     var boxes7 = document.querySelectorAll('.rectangle-gp-7');
 	boxes7.forEach(function(box14) {
 		box14.style.width = '1400px';
@@ -332,7 +343,7 @@ document.getElementById("expand-8").addEventListener("click", function() {
 	btn18.style.display = "block";
 	var box15 = document.querySelector('#content8');
 	box15.style.width = '99%';
-	box15.style.height = '98%';
+	box15.style.height = '100%';
 	var boxes8 = document.querySelectorAll('.rectangle-gp-8');
 	boxes8.forEach(function(box16) {
 		box16.style.width = '1400px';

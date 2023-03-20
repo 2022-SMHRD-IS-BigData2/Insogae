@@ -147,6 +147,7 @@ a {
 	background-color: #212529;
 	flex-wrap: wrap;
 	justify-content: center;
+	justify-items: center;
 }
 
 .rectangle-data {
