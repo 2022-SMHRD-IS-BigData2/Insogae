@@ -128,7 +128,7 @@ $.ajax({
 			temp_data = res[i].temp_ACC.toFixed(2);
 			do_data = res[i].do_ACC.toFixed(2);
 			ph_data = res[i].ph_ACC.toFixed(2);
-			salt_data = Math.round(res[i].salt_ACC.toFixed(2)*100);
+			salt_data = (res[i].salt_ACC*100).toFixed(2);
 				
 				if(do_data<4){
 					document.getElementById(doArray[i]).style.color="red";
