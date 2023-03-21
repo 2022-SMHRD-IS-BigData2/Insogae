@@ -106,8 +106,8 @@ $.ajax({
 			var options4 = {// 염도
 				width: 180, height: 180, 
 				redFrom: 0, redTo: 10,
-				yellowFrom: 34, yellowTo: 50,
 				greenFrom: 10, greenTo: 34,
+				yellowFrom: 34, yellowTo: 50,
 				minorTicks: 5,
 				animation: { duration: 400 },
 				max: 50
@@ -307,7 +307,7 @@ function updateData(res){
 				width: 180, height: 180, 
 				redFrom: 0, redTo: 10,
 				yellowFrom: 34, yellowTo: 50,
-				greenFrom: 20, greenTo: 34,
+				greenFrom: 10, greenTo: 34,
 				minorTicks: 5,
 				animation: { duration: 400 },
 				max: 50
