@@ -328,7 +328,7 @@ function updateData(res){
 			temp_data = parseFloat(res[i].TEMP).toFixed(2);
 			do_data =   parseFloat(res[i].DO).toFixed(2);
 			ph_data =   parseFloat(res[i].PH).toFixed(2);
-			salt_data = Math.round(parseFloat(res[i].SALT).toFixed(1)*100);
+			salt_data = parseFloat(res[i].SALT*100).toFixed(2);
 				
 				if(do_data<4){
 					document.getElementById(doArray[i]).style.color="red";
