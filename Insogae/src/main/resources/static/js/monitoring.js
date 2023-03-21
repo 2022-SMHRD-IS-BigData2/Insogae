@@ -167,14 +167,6 @@ $.ajax({
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<5.5){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
-				if(temp_data<6||salt_data<10){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
 				if(ph_data>8.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
@@ -182,6 +174,14 @@ $.ajax({
 				if(temp_data>32||salt_data>34){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
+					}
+				if(do_data<3||ph_data<5.5){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
+					}
+				if(temp_data<6||salt_data<10){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
 					}
 					
 					let do_do = `<h5>` + do_data + `ppm</h5>`;
