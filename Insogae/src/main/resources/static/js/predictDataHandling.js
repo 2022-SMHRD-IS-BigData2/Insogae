@@ -19,7 +19,7 @@ socketPy.onopen = function(event) {
 
 socket1.onmessage = function(event) {
 	var dataSet = JSON.parse(event.data);
-	// 날짜 가공
+	// 날짜 가공 
 	for(let i=0;i<dataSet.length;i++){
 		dataSet[i] = dataSet[i].substring(0, dataSet[i].length - 4) + "시" + dataSet[i].substring(dataSet[i].length - 3,dataSet[i].length-1);
 	}
@@ -34,10 +34,22 @@ socket1.onmessage = function(event) {
 	// 초기 그래프에 나타날 데이터 보여주는 함수 
 	showData(dataList);
 	
+		let d = dataList[14].RECORD_DATE;
+    	var year = d.split("-")[0];
+	    var month = d.split("-")[1];
+    	var day = d.split("-")[2].split("T")[0];
+    	var hours = d.split("T")[1].split("시")[0];
+    	var minutes = d.split("T")[1].split("시")[1];
+
+    	var ampm = hours >= 12 ? '오후' : '오전';
+    	var hours12 = hours % 12 || 12;
+    	var hours12Padded = String(hours12).padStart(2, '0');
+    	
+
 	// 그래프 오른쪽 위 날짜 보여주기
 	console.log(dataList);
 	for(let i =0; i<$(".tctm").length;i++){
-		$(".tctm")[i].innerText = dataList[14].RECORD_DATE.split('T')[0] + " "+dataList[14].RECORD_DATE.split('T')[1]+"분";
+		$(".tctm")[i].innerText=year+". "+month+". "+day+". "+ampm+" "+hours12Padded+":"+minutes;
 	};
 };
 
@@ -220,8 +232,10 @@ function showData(data){
     		do_PreList.push((parseFloat(data[i*range+j].DO_PRE)).toFixed(2));
     		ph_AccList.push((parseFloat(data[i*range+j].PH_ACC)).toFixed(2));
     		ph_PreList.push((parseFloat(data[i*range+j].PH_PRE)).toFixed(2));
+
     		salt_AccList.push((parseFloat(data[i*range+j].SALT_ACC*100)).toFixed(2));
     		salt_PreList.push((parseFloat(data[i*range+j].SALT_PRE*100)).toFixed(2));
+
     	}
     	// j가 한번씩 실행될때마다 새로운 배열에 다시 담기
     	// ex ) ondo_AccListSet = [WT11수조의 15개 행,.. , WT31수조의 15개 행]
@@ -461,11 +475,17 @@ function updateData(dataList){
     	let do_acc = `<h5>`   + parseFloat(dataList[i].DO).toFixed(2)  + `ppm</h5>`;
     	let ph_acc = `<h5>`   + parseFloat(dataList[i].PH).toFixed(2)  + `ph</h5>`;
  	    let temp_acc = `<h5>` + parseFloat(dataList[i].TEMP).toFixed(2)   + `°C</h5>`;
+
+
  	    let salt_acc = `<h5>` + parseFloat(dataList[i].SALT*100).toFixed(2)  + `psu</h5>`;
+
  	    let do_pre = `<h5>`   + parseFloat(dataList[i].DO_PRE).toFixed(2) + `ppm</h5>`;
  	    let ph_pre = `<h5>`   + parseFloat(dataList[i].PH_PRE).toFixed(2)  + `ph</h5>`;
  	    let temp_pre = `<h5>` + parseFloat(dataList[i].TEMP_PRE).toFixed(2)  + `°C</h5>`;
+
+
  	    let salt_pre = `<h5>` + parseFloat(dataList[i].SALT_PRE*100).toFixed(2)+ `psu</h5>`;
+
  	    
  	    // 변수에 담은 데이터들을 뷰에 동적 표현
      	$(ondoAccArray[i]).html(temp_acc);
@@ -503,7 +523,10 @@ function predict6hAfter(data){
 		data[i].TEMP = parseFloat(data[i].TEMP).toFixed(2);
 		data[i].DO = parseFloat(data[i].DO).toFixed(2);
 		data[i].PH = parseFloat(data[i].PH).toFixed(2);
+
+
 		data[i].SALT = parseFloat(data[i].SALT*100).toFixed(2);
+
 		if(data[i].TEMP<23 || data[i].TEMP>32){
 			 dangerTEMP = dangerTEXT;
 		}

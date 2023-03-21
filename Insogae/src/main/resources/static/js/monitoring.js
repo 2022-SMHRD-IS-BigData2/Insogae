@@ -106,8 +106,8 @@ $.ajax({
 			var options4 = {// 염도
 				width: 180, height: 180, 
 				redFrom: 0, redTo: 10,
-				yellowFrom: 34, yellowTo: 50,
 				greenFrom: 10, greenTo: 34,
+				yellowFrom: 34, yellowTo: 50,
 				minorTicks: 5,
 				animation: { duration: 400 },
 				max: 50
@@ -167,21 +167,21 @@ $.ajax({
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<5.5){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
-				if(temp_data<6||salt_data<10){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
 				if(ph_data>8.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
 					}
-				if(temp_data>32||salt_data>34){
+				else if(temp_data>32||salt_data>34){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
+					}
+				if(do_data<3||ph_data<5.5){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
+					}
+				else if(temp_data<23||salt_data<10){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
 					}
 					
 					let do_do = `<h5>` + do_data + `ppm</h5>`;
@@ -307,7 +307,7 @@ function updateData(res){
 				width: 180, height: 180, 
 				redFrom: 0, redTo: 10,
 				yellowFrom: 34, yellowTo: 50,
-				greenFrom: 20, greenTo: 34,
+				greenFrom: 10, greenTo: 34,
 				minorTicks: 5,
 				animation: { duration: 400 },
 				max: 50
@@ -367,21 +367,21 @@ function updateData(res){
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<4.5){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
-				if(temp_data<6||salt_data<10){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
 				if(ph_data>8.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
 					}
-				if(temp_data>32||salt_data>34){
+				else if(temp_data>32||salt_data>34){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
+					}
+				if(do_data<3||ph_data<4.5){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
+					}
+				else if(temp_data<23||salt_data<10){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
 					}
 				
 					
