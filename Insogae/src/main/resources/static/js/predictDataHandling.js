@@ -19,11 +19,10 @@ socketPy.onopen = function(event) {
 
 socket1.onmessage = function(event) {
 	var dataSet = JSON.parse(event.data);
-	// 날짜 가공
-	console.log(dataList);
-	for(let i =0; i<$(".tctm").length;i++){
-		$(".tctm")[i].innerText = dataList[14].RECORD_DATE.split('T')[0] + " "+dataList[14].RECORD_DATE.split('T')[1]+"분";
-	};
+	// 날짜 가공 
+	for(let i=0;i<dataSet.length;i++){
+		dataSet[i] = dataSet[i].substring(0, dataSet[i].length - 4) + "시" + dataSet[i].substring(dataSet[i].length - 3,dataSet[i].length-1);
+	}
 	// DB에서 가져온 데이터 딕셔너리형태{} 로 변환
 	dataList = [];
 	for (let i =0;i<dataSet.length;i++){
