@@ -184,11 +184,11 @@ $.ajax({
 						wl.style.backgroundColor="red"
 					}
 					
-					let do_do = `<h5>` + do_data + `ppm</h5>`;
-					let ph = `<h5>` + ph_data + `ph</h5>`;
-					let temp = `<h5>` + temp_data + `°C</h5>`;
-					let salt = `<h5>` + salt_data + `psu</h5>`;
-					let time = `<h5>현재시간 ` + time_data + `</h5>`;
+					let do_do = `<h4>` + do_data +    `   ppm</h4>`;
+					let ph = `<h4>` + ph_data +    `   ph</h4>`;
+					let temp = `<h4>` + temp_data +    `   °C</h4>`;
+					let salt = `<h4>` + salt_data +    `   psu</h4>`;
+					let time = `<h5>현재시간 ` + time_data +    `</h5>`;
 					$('#'+ondoArray[i]).html(temp);
 					$('#'+doArray[i]).html(do_do);
 					$('#'+saltArray[i]).html(salt);
@@ -388,10 +388,10 @@ function updateData(res){
 					}
 				
 					
-					let do_do = `<h5>` + do_data + `ppm</h5>`;
-					let ph = `<h5>` + ph_data + `ph</h5>`;
-					let temp = `<h5>` + temp_data + `°C</h5>`;
-					let salt = `<h5>` + salt_data + `psu</h5>`;
+					let do_do = `<h4>` + do_data +    `   ppm</h4>`;
+					let ph = `<h4>` + ph_data +    `   ph</h4>`;
+					let temp = `<h4>` + temp_data +    `   °C</h4>`;
+					let salt = `<h4>` + salt_data +    `   psu</h4>`;
 					let time = `<h5>현재시간 ` + time_data + `</h5>`;
 					console.log(temp);
 					$('#'+ondoArray[i]).html(temp);
