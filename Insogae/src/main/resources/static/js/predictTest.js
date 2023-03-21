@@ -153,7 +153,7 @@ document.getElementById("expand-4").addEventListener("click", function() {
 	var btn10 = document.getElementById("goOriginalBox-4")
 	btn10.style.display = "block";
 	var box7 = document.querySelector('#content4');
-	box7.style.width = '99%';
+	box7.style.width = '100%';
 	box7.style.height = '100%';
 	var boxes4 = document.querySelectorAll('.rectangle-gp-4');
 	boxes4.forEach(function(box8) {
@@ -165,10 +165,17 @@ document.getElementById("expand-4").addEventListener("click", function() {
 	var other7 = document.querySelector('#main-1 > div > div:nth-child(3)');
 	var other8 = document.querySelector('#main-1 > div > div:nth-child(4)');
 	other8.style.display = "none";
-	setTimeout(function() {
-	other6.style.display = "none";
-	other7.style.display = "none";
-	  }, 200);
+//	setTimeout(function() {
+	other6.style.height = "0";
+	other7.style.height = "0";
+//	  }, 200);
+	document.querySelector('#content1').style.margin = "0";
+	document.querySelector('#content1').style.padding = "0";
+	document.querySelector('#content2').style.margin = "0";
+	document.querySelector('#content2').style.padding = "0";
+	document.querySelector('#content3').style.margin = "0";
+	document.querySelector('#content3').style.padding = "0";
+	document.querySelector('#content4').style.margin = "0";
 });
 
 document.getElementById("goOriginalBox-4").addEventListener("click", function() {
@@ -188,11 +195,18 @@ var boxes4 = document.querySelectorAll('.rectangle-gp-4');
 	var other6 = document.querySelector('#main-1 > div > div:nth-child(2)');
 	var other7 = document.querySelector('#main-1 > div > div:nth-child(3)');
 	var other8 = document.querySelector('#main-1 > div > div:nth-child(4)');
-    other6.style.display = "block";
-    other7.style.display = "block";
+    other6.style.height = "50%";
+    other7.style.height = "50%";
 		setTimeout(function() {
 	other8.style.display = "block";
 	  }, 1000);	
+	document.querySelector('#content1').style.margin = "2px";
+	document.querySelector('#content1').style.padding = "3px";
+	document.querySelector('#content2').style.margin = "2px";
+	document.querySelector('#content2').style.padding = "3px";
+	document.querySelector('#content3').style.margin = "2px";
+	document.querySelector('#content3').style.padding = "3px";
+	document.querySelector('#content4').style.margin = "2px";
 
 
 	
@@ -304,10 +318,16 @@ document.getElementById("expand-7").addEventListener("click", function() {
 	var other14 = document.querySelector('#main-2 > div > div:nth-child(3)');
 	var other15 = document.querySelector('#main-2 > div > div:nth-child(5)');
 	other15.style.display = "none";
-	setTimeout(function() {
-	other13.style.display = "none";
-	other14.style.display = "none";
-	 }, 200);
+//	setTimeout(function() {
+	other13.style.height = "0";
+	other14.style.height = "0";
+//	 }, 200);
+	document.querySelector('#content5').style.margin = "0";
+	document.querySelector('#content5').style.padding = "0";
+	document.querySelector('#content6').style.margin = "0";
+	document.querySelector('#content6').style.padding = "0";
+	document.querySelector('#content7').style.margin = "0";
+	document.querySelector('#content7').style.padding = "0";
 });
 
 document.getElementById("goOriginalBox-7").addEventListener("click", function() {
@@ -327,9 +347,15 @@ var boxes7 = document.querySelectorAll('.rectangle-gp-7');
 	var other13 = document.querySelector('#main-2 > div > div:nth-child(2)');
 	var other14 = document.querySelector('#main-2 > div > div:nth-child(3)');
 	var other15 = document.querySelector('#main-2 > div > div:nth-child(5)');
-	other13.style.display = "block";
-	other14.style.display = "block";
+	other13.style.height = "50%";
+	other14.style.height = "50%";
 	other15.style.display = "block";
+	document.querySelector('#content5').style.margin = "2px";
+	document.querySelector('#content5').style.padding = "3px";
+	document.querySelector('#content6').style.margin = "2px";
+	document.querySelector('#content6').style.padding = "3px";
+	document.querySelector('#content7').style.margin = "2px";
+	document.querySelector('#content7').style.padding = "3px";
 
 	
 });
@@ -342,7 +368,7 @@ document.getElementById("expand-8").addEventListener("click", function() {
 	var btn18 = document.getElementById("goOriginalBox-8")
 	btn18.style.display = "block";
 	var box15 = document.querySelector('#content8');
-	box15.style.width = '99%';
+	box15.style.width = '100%';
 	box15.style.height = '100%';
 	var boxes8 = document.querySelectorAll('.rectangle-gp-8');
 	boxes8.forEach(function(box16) {
@@ -354,10 +380,17 @@ document.getElementById("expand-8").addEventListener("click", function() {
 	var other17 = document.querySelector('#main-2 > div > div:nth-child(3)');
 	var other18 = document.querySelector('#main-2 > div > div:nth-child(4)');
 	other18.style.display = "none";
-	setTimeout(function() {
-	other16.style.display = "none";
-	other17.style.display = "none";
-	  }, 200);
+//	setTimeout(function() {
+	other16.style.height = "0";
+	other17.style.height = "0";
+//	  }, 200);
+	document.querySelector('#content5').style.margin = "0";
+	document.querySelector('#content5').style.padding = "0";
+	document.querySelector('#content6').style.margin = "0";
+	document.querySelector('#content6').style.padding = "0";
+	document.querySelector('#content7').style.margin = "0";
+	document.querySelector('#content7').style.padding = "0";
+	document.querySelector('#content8').style.margin = "0";
 });
 
 document.getElementById("goOriginalBox-8").addEventListener("click", function() {
@@ -377,11 +410,17 @@ var boxes8 = document.querySelectorAll('.rectangle-gp-8');
 	var other16 = document.querySelector('#main-2 > div > div:nth-child(2)');
 	var other17 = document.querySelector('#main-2 > div > div:nth-child(3)');
 	var other18 = document.querySelector('#main-2 > div > div:nth-child(4)');
-	other16.style.display = "block"; 
-	other17.style.display = "block";
+	other16.style.height = "50%";
+	other17.style.height = "50%";
 	setTimeout(function() {       
 	other18.style.display = "block";	
  	 }, 1000);
-
+	document.querySelector('#content5').style.margin = "2px";
+	document.querySelector('#content5').style.padding = "3px";
+	document.querySelector('#content6').style.margin = "2px";
+	document.querySelector('#content6').style.padding = "3px";
+	document.querySelector('#content7').style.margin = "2px";
+	document.querySelector('#content7').style.padding = "3px";
+	document.querySelector('#content8').style.margin = "2px";
 	
 });
