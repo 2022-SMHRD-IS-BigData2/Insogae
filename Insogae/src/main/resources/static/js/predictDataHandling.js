@@ -34,10 +34,22 @@ socket1.onmessage = function(event) {
 	// 초기 그래프에 나타날 데이터 보여주는 함수 
 	showData(dataList);
 	
+		let d = dataList[14].RECORD_DATE;
+    	var year = d.split("-")[0];
+	    var month = d.split("-")[1];
+    	var day = d.split("-")[2].split("T")[0];
+    	var hours = d.split("T")[1].split("시")[0];
+    	var minutes = d.split("T")[1].split("시")[1];
+
+    	var ampm = hours >= 12 ? '오후' : '오전';
+    	var hours12 = hours % 12 || 12;
+    	var hours12Padded = String(hours12).padStart(2, '0');
+    	
+
 	// 그래프 오른쪽 위 날짜 보여주기
 	console.log(dataList);
 	for(let i =0; i<$(".tctm").length;i++){
-		$(".tctm")[i].innerText = dataList[14].RECORD_DATE.split('T')[0] + " "+dataList[14].RECORD_DATE.split('T')[1]+"분";
+		$(".tctm")[i].innerText=year+". "+month+". "+day+". "+ampm+" "+hours12Padded+":"+minutes;
 	};
 };
 
