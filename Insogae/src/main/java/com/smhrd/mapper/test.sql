@@ -38,5 +38,11 @@ where LOCATION = '전남 진도군 고군면 동부해안로 427'
 
 select*from ALARM limit 50;
 
+select *from ALARM
+where COMPANY_ID = 'insogae' 
+order by ALARM_DATE  desc;
+
+delete from ALARM;
+
 
 
