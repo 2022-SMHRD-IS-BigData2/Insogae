@@ -321,7 +321,7 @@ chartListSet.push(chartListSALT);
 	        	let do_acc = `<h5>` + do_AccListSet[i][range-1] + `ppm</h5>`;
 	        	let ph_acc = `<h5>` + ph_AccListSet[i][range-1] + `ph</h5>`;
 	     	    let temp_acc = `<h5>` + ondo_AccListSet[i][range-1] + `°C</h5>`;
-	     	    let salt_acc = `<h5>` + salt_AccListSet[i][range-1] + `psu</h5>`;
+	     	    let salt_acc = `<h5>` +salt_AccListSet[i][range-1] + `psu</h5>`;
 	     	    let do_pre = `<h5>` + do_PreListSet[i][range-1] + `ppm</h5>`;
 	     	    let ph_pre = `<h5>` + ph_PreListSet[i][range-1] + `ph</h5>`;
 	     	    let temp_pre = `<h5>` + ondo_PreListSet[i][range-1] + `°C</h5>`;
@@ -337,7 +337,7 @@ chartListSet.push(chartListSALT);
 		     	$(saltPreArray[i]).html(salt_pre);
 	        }
 	        console.log(chartListSet[0][0])
-	        
+	        console.log(salt_AccListSet[0])
 	    },
 	    error : function() {
 	        console.log('요청실패');
