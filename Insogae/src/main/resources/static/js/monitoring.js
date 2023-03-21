@@ -171,7 +171,7 @@ $.ajax({
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
 					}
-				if(temp_data>32||salt_data>34){
+				else if(temp_data>32||salt_data>34){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
 					}
@@ -179,7 +179,7 @@ $.ajax({
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
 					}
-				if(temp_data<6||salt_data<10){
+				else if(temp_data<23||salt_data<10){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="red"
 					}
@@ -367,21 +367,21 @@ function updateData(res){
 					document.getElementById(saltArray[i]).style.color="white";
 				}
 					
-				if(do_data<3||ph_data<4.5){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
-				if(temp_data<6||salt_data<10){
-						var wl = document.getElementById(wlArray[i])
-						wl.style.backgroundColor="red"
-					}
 				if(ph_data>8.5){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
 					}
-				if(temp_data>32||salt_data>34){
+				else if(temp_data>32||salt_data>34){
 						var wl = document.getElementById(wlArray[i])
 						wl.style.backgroundColor="orange"
+					}
+				if(do_data<3||ph_data<4.5){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
+					}
+				else if(temp_data<23||salt_data<10){
+						var wl = document.getElementById(wlArray[i])
+						wl.style.backgroundColor="red"
 					}
 				
 					
