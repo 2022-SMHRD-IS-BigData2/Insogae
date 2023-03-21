@@ -204,7 +204,7 @@ $.ajax({
 					data3_guage.setValue(0, 1, res[i].ph_ACC.toFixed(1));
 					chart3_guage.draw(data3_guage, options3);
 	
-					data4_guage.setValue(0, 1, res[i].salt_ACC.toFixed(1)*100);
+					data4_guage.setValue(0, 1, (res[i].salt_ACC*100).toFixed(1));
 					chart4_guage.draw(data4_guage, options4);
 	
 		};
@@ -328,7 +328,10 @@ function updateData(res){
 			temp_data = parseFloat(res[i].TEMP).toFixed(2);
 			do_data =   parseFloat(res[i].DO).toFixed(2);
 			ph_data =   parseFloat(res[i].PH).toFixed(2);
+
 			salt_data = parseFloat(res[i].SALT*100).toFixed(2);
+
+
 				
 				if(do_data<4){
 					document.getElementById(doArray[i]).style.color="red";
@@ -406,7 +409,7 @@ function updateData(res){
 					data3_guage.setValue(0, 1, parseFloat(res[i].PH).toFixed(1));
 					chart3_guage.draw(data3_guage, options3);
 	
-					data4_guage.setValue(0, 1, parseFloat(res[i].SALT).toFixed(1)*100);
+					data4_guage.setValue(0, 1, parseFloat(res[i].SALT*100).toFixed(1));
 					chart4_guage.draw(data4_guage, options4);
 	
 		};
